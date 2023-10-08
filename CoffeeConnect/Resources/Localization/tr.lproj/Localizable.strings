@@ -1,0 +1,11 @@
+/* 
+  Localizable.strings
+  CoffeeConnect
+
+  Created by Taha Turan on 8.10.2023.
+  
+*/
+
+/* Login - Register */
+"E-mail" = "E-posta"
+"Password" = "Şifre"
