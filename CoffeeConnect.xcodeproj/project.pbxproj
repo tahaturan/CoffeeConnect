@@ -9,19 +9,29 @@
 /* Begin PBXBuildFile section */
 		5FBD49CE2AD295B100F515B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49CD2AD295B100F515B8 /* AppDelegate.swift */; };
 		5FBD49D02AD295B100F515B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49CF2AD295B100F515B8 /* SceneDelegate.swift */; };
-		5FBD49D22AD295B100F515B8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49D12AD295B100F515B8 /* ViewController.swift */; };
+		5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49D12AD295B100F515B8 /* LoginViewController.swift */; };
 		5FBD49D72AD295B200F515B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD49D62AD295B200F515B8 /* Assets.xcassets */; };
 		5FBD49DA2AD295B200F515B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD49D82AD295B200F515B8 /* LaunchScreen.storyboard */; };
+		5FBD49E62AD32B8F00F515B8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBD49E52AD32B8F00F515B8 /* SnapKit */; };
+		5FBD49E82AD32B8F00F515B8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBD49E72AD32B8F00F515B8 /* SnapKit-Dynamic */; };
+		5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB02AD335DF0033F164 /* AppColors.swift */; };
+		5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB22AD338280033F164 /* CustomTextField.swift */; };
+		5FEB1DB52AD33A8B0033F164 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB42AD33A8B0033F164 /* StringConstants.swift */; };
+		5FEB1DBB2AD33D960033F164 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB92AD33D960033F164 /* Localizable.strings */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5FBD49CA2AD295B100F515B8 /* CoffeeConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBD49CD2AD295B100F515B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FBD49CF2AD295B100F515B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5FBD49D12AD295B100F515B8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5FBD49D12AD295B100F515B8 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		5FBD49D62AD295B200F515B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FBD49D92AD295B200F515B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FBD49DB2AD295B200F515B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FEB1DB02AD335DF0033F164 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		5FEB1DB22AD338280033F164 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		5FEB1DB42AD33A8B0033F164 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
+		5FEB1DBA2AD33D960033F164 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localizable.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,12 +39,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FBD49E62AD32B8F00F515B8 /* SnapKit in Frameworks */,
+				5FBD49E82AD32B8F00F515B8 /* SnapKit-Dynamic in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5FA2B9472AD3354C003C80D7 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				5FEB1DAF2AD335B00033F164 /* Constants */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
 		5FBD49C12AD295B100F515B8 = {
 			isa = PBXGroup;
 			children = (
@@ -54,9 +74,11 @@
 		5FBD49CC2AD295B100F515B8 /* CoffeeConnect */ = {
 			isa = PBXGroup;
 			children = (
-				5FBD49E32AD32AB400F515B8 /* Controller */,
-				5FBD49E22AD32AAE00F515B8 /* View */,
 				5FBD49E12AD32AA500F515B8 /* Model */,
+				5FBD49E22AD32AAE00F515B8 /* View */,
+				5FBD49E32AD32AB400F515B8 /* Controller */,
+				5FA2B9472AD3354C003C80D7 /* Utility */,
+				5FEB1DB62AD33CD40033F164 /* Resources */,
 				5FBD49CD2AD295B100F515B8 /* AppDelegate.swift */,
 				5FBD49CF2AD295B100F515B8 /* SceneDelegate.swift */,
 				5FBD49D62AD295B200F515B8 /* Assets.xcassets */,
@@ -76,6 +98,7 @@
 		5FBD49E22AD32AAE00F515B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5FEB1DB22AD338280033F164 /* CustomTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -83,9 +106,42 @@
 		5FBD49E32AD32AB400F515B8 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5FBD49D12AD295B100F515B8 /* ViewController.swift */,
+				5FBD49D12AD295B100F515B8 /* LoginViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		5FEB1DAF2AD335B00033F164 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				5FEB1DB02AD335DF0033F164 /* AppColors.swift */,
+				5FEB1DB42AD33A8B0033F164 /* StringConstants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		5FEB1DB62AD33CD40033F164 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				5FEB1DB72AD33D130033F164 /* Localization */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5FEB1DB72AD33D130033F164 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				5FEB1DB82AD33D330033F164 /* tr.lproj */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		5FEB1DB82AD33D330033F164 /* tr.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				5FEB1DB92AD33D960033F164 /* Localizable.strings */,
+			);
+			path = tr.lproj;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +160,10 @@
 			dependencies = (
 			);
 			name = CoffeeConnect;
+			packageProductDependencies = (
+				5FBD49E52AD32B8F00F515B8 /* SnapKit */,
+				5FBD49E72AD32B8F00F515B8 /* SnapKit-Dynamic */,
+			);
 			productName = CoffeeConnect;
 			productReference = 5FBD49CA2AD295B100F515B8 /* CoffeeConnect.app */;
 			productType = "com.apple.product-type.application";
@@ -130,8 +190,12 @@
 			knownRegions = (
 				en,
 				Base,
+				tr,
 			);
 			mainGroup = 5FBD49C12AD295B100F515B8;
+			packageReferences = (
+				5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 5FBD49CB2AD295B100F515B8 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -147,6 +211,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FBD49DA2AD295B200F515B8 /* LaunchScreen.storyboard in Resources */,
+				5FEB1DBB2AD33D960033F164 /* Localizable.strings in Resources */,
 				5FBD49D72AD295B200F515B8 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,9 +223,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5FBD49D22AD295B100F515B8 /* ViewController.swift in Sources */,
+				5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */,
+				5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */,
+				5FEB1DB52AD33A8B0033F164 /* StringConstants.swift in Sources */,
 				5FBD49CE2AD295B100F515B8 /* AppDelegate.swift in Sources */,
 				5FBD49D02AD295B100F515B8 /* SceneDelegate.swift in Sources */,
+				5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +241,14 @@
 				5FBD49D92AD295B200F515B8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		5FEB1DB92AD33D960033F164 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5FEB1DBA2AD33D960033F164 /* tr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -373,6 +449,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		5FBD49E52AD32B8F00F515B8 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		5FBD49E72AD32B8F00F515B8 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 5FBD49C22AD295B100F515B8 /* Project object */;
 }

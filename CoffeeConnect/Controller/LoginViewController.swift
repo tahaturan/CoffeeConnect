@@ -10,8 +10,9 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     //MARK: - Properties
-    private let emailTextField: CustomTextField = CustomTextField(placeholder: "E-mail")
-    private let passwordTextField: CustomTextField = CustomTextField(placeholder: "Password", isSecure: true)
+    private let emailTextField: CustomTextField = CustomTextField(placeholder: StringConstants.Login.emailPlaceholder)
+    private let passwordTextField: CustomTextField = CustomTextField(placeholder: StringConstants.Login.passwordPlaceholder, isSecure: true)
+    
     
     
     //MARK: - LifeCycle
