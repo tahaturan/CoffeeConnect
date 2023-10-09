@@ -1,12 +1,32 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "E-mail" : {
+    "Enter text" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "E-posta"
+            "value" : "Metininizi Giriniz"
+          }
+        }
+      }
+    },
+    "Enter your email" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "email adresinizi giriniz"
+          }
+        }
+      }
+    },
+    "Enter your password" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Şifrenizi Giriniz"
           }
         }
       }
@@ -17,16 +37,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Giriş"
-          }
-        }
-      }
-    },
-    "Password" : {
-      "localizations" : {
-        "tr" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Şifre"
           }
         }
       }

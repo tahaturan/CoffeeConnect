@@ -10,9 +10,17 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     //MARK: - Properties
-    private let emailTextField: CustomTextField = CustomTextField(placeholder: StringConstants.Login.emailPlaceholder)
-    private let passwordTextField: CustomTextField = CustomTextField(placeholder: StringConstants.Login.passwordPlaceholder, isSecure: true)
-    
+    private let logoImageView: UIImageView = {
+       let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        imageView.image = UIImage(named: "loginLogo")
+        return imageView
+    }()
+    private let emailTextField: CustomTextField = CustomTextField()
+    private let passwordTextField: CustomTextField = CustomTextField()
+    private let loginButton: CustomButton = CustomButton(title: StringConstants.Login.loginButtonTitle)
+    private let registerButton: CustomButton = CustomButton(title: StringConstants.Login.registerButtonTitle, color: AppColors.curiousChipmunk.color)
     
     
     //MARK: - LifeCycle
@@ -20,7 +28,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         
-      
+      setupUI()
     }
     
 }
@@ -28,7 +36,41 @@ class LoginViewController: UIViewController {
 //MARK: - Helpers
 extension LoginViewController {
     func setupUI() {
+        emailTextField.fieldType = .email
+        passwordTextField.fieldType = .password
+        
+        view.addSubview(logoImageView)
         view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(loginButton)
+        view.addSubview(registerButton)
+        
+        logoImageView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.right.left.equalTo(view)
+            make.height.equalTo(300)
+        }
+        
+        emailTextField.snp.makeConstraints { make in
+            make.top.equalTo(logoImageView.snp.bottom).offset(20)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(50)
+        }
+        passwordTextField.snp.makeConstraints { make in
+            make.top.equalTo(emailTextField.snp.bottom).offset(20)
+            make.left.right.height.equalTo(emailTextField)
+        }
+        loginButton.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextField.snp.bottom).offset(40)
+            make.left.right.equalTo(emailTextField)
+            make.height.equalTo(50)
+        }
+        
+        registerButton.snp.makeConstraints { make in
+            make.top.equalTo(loginButton.snp.bottom).offset(20)
+            make.left.right.height.equalTo(loginButton)
+        }
     }
 }
 

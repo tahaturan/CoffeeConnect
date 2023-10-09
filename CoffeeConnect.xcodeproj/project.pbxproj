@@ -17,7 +17,9 @@
 		5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB02AD335DF0033F164 /* AppColors.swift */; };
 		5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB22AD338280033F164 /* CustomTextField.swift */; };
 		5FEB1DB52AD33A8B0033F164 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB42AD33A8B0033F164 /* StringConstants.swift */; };
-		5FEB1DBB2AD33D960033F164 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB92AD33D960033F164 /* Localizable.strings */; };
+		5FEB1DBD2AD33F7F0033F164 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DBC2AD33F7F0033F164 /* CustomButton.swift */; };
+		5FEB1DC32AD3476A0033F164 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5FEB1DC12AD3476A0033F164 /* Localizable.xcstrings */; };
+		5FEB1DC72AD3CE6F0033F164 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DC62AD3CE6F0033F164 /* AppStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +33,9 @@
 		5FEB1DB02AD335DF0033F164 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		5FEB1DB22AD338280033F164 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5FEB1DB42AD33A8B0033F164 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
-		5FEB1DBA2AD33D960033F164 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = Localizable.strings; sourceTree = "<group>"; };
+		5FEB1DBC2AD33F7F0033F164 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		5FEB1DC22AD3476A0033F164 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = tr; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		5FEB1DC62AD3CE6F0033F164 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				5FEB1DB22AD338280033F164 /* CustomTextField.swift */,
+				5FEB1DBC2AD33F7F0033F164 /* CustomButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -116,6 +121,7 @@
 			children = (
 				5FEB1DB02AD335DF0033F164 /* AppColors.swift */,
 				5FEB1DB42AD33A8B0033F164 /* StringConstants.swift */,
+				5FEB1DC62AD3CE6F0033F164 /* AppStyle.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -139,7 +145,7 @@
 		5FEB1DB82AD33D330033F164 /* tr.lproj */ = {
 			isa = PBXGroup;
 			children = (
-				5FEB1DB92AD33D960033F164 /* Localizable.strings */,
+				5FEB1DC12AD3476A0033F164 /* Localizable.xcstrings */,
 			);
 			path = tr.lproj;
 			sourceTree = "<group>";
@@ -211,8 +217,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FBD49DA2AD295B200F515B8 /* LaunchScreen.storyboard in Resources */,
-				5FEB1DBB2AD33D960033F164 /* Localizable.strings in Resources */,
 				5FBD49D72AD295B200F515B8 /* Assets.xcassets in Resources */,
+				5FEB1DC32AD3476A0033F164 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -227,6 +233,8 @@
 				5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */,
 				5FEB1DB52AD33A8B0033F164 /* StringConstants.swift in Sources */,
 				5FBD49CE2AD295B100F515B8 /* AppDelegate.swift in Sources */,
+				5FEB1DBD2AD33F7F0033F164 /* CustomButton.swift in Sources */,
+				5FEB1DC72AD3CE6F0033F164 /* AppStyle.swift in Sources */,
 				5FBD49D02AD295B100F515B8 /* SceneDelegate.swift in Sources */,
 				5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */,
 			);
@@ -243,12 +251,12 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		5FEB1DB92AD33D960033F164 /* Localizable.strings */ = {
+		5FEB1DC12AD3476A0033F164 /* Localizable.xcstrings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				5FEB1DBA2AD33D960033F164 /* tr */,
+				5FEB1DC22AD3476A0033F164 /* tr */,
 			);
-			name = Localizable.strings;
+			name = Localizable.xcstrings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
