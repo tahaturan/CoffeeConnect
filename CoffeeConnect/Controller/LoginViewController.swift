@@ -10,13 +10,7 @@ import SnapKit
 
 class LoginViewController: UIViewController {
     //MARK: - Properties
-    private let logoImageView: UIImageView = {
-       let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFill
-        imageView.clipsToBounds = true
-        imageView.image = UIImage(named: "loginLogo")
-        return imageView
-    }()
+    private let logoImageView: LoginLogoImageView = LoginLogoImageView(imageName: AppStyle.AppImages.loginRegisterPageLogo)
     private let emailTextField: CustomTextField = CustomTextField()
     private let passwordTextField: CustomTextField = CustomTextField()
     private let loginButton: CustomButton = CustomButton(title: StringConstants.Login.loginButtonTitle)
@@ -38,7 +32,7 @@ extension LoginViewController {
     func setupUI() {
         emailTextField.fieldType = .email
         passwordTextField.fieldType = .password
-        
+        registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         view.addSubview(logoImageView)
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
@@ -75,3 +69,10 @@ extension LoginViewController {
 }
 
 
+//MARK: - Selector
+extension LoginViewController {
+    @objc private func registerButtonTapped() {
+        let registerVC = RegisterViewController()
+        self.navigationController?.pushViewController(registerVC, animated: true)
+    }
+}

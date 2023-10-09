@@ -20,6 +20,8 @@
 		5FEB1DBD2AD33F7F0033F164 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DBC2AD33F7F0033F164 /* CustomButton.swift */; };
 		5FEB1DC32AD3476A0033F164 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 5FEB1DC12AD3476A0033F164 /* Localizable.xcstrings */; };
 		5FEB1DC72AD3CE6F0033F164 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DC62AD3CE6F0033F164 /* AppStyle.swift */; };
+		5FEB1DC92AD3DB6F0033F164 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DC82AD3DB6F0033F164 /* RegisterViewController.swift */; };
+		5FEB1DCB2AD3DC720033F164 /* LoginLogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DCA2AD3DC720033F164 /* LoginLogoImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		5FEB1DBC2AD33F7F0033F164 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		5FEB1DC22AD3476A0033F164 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; name = tr; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		5FEB1DC62AD3CE6F0033F164 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
+		5FEB1DC82AD3DB6F0033F164 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		5FEB1DCA2AD3DC720033F164 /* LoginLogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLogoImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +108,7 @@
 			children = (
 				5FEB1DB22AD338280033F164 /* CustomTextField.swift */,
 				5FEB1DBC2AD33F7F0033F164 /* CustomButton.swift */,
+				5FEB1DCA2AD3DC720033F164 /* LoginLogoImageView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				5FBD49D12AD295B100F515B8 /* LoginViewController.swift */,
+				5FEB1DC82AD3DB6F0033F164 /* RegisterViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -229,6 +235,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FEB1DC92AD3DB6F0033F164 /* RegisterViewController.swift in Sources */,
+				5FEB1DCB2AD3DC720033F164 /* LoginLogoImageView.swift in Sources */,
 				5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */,
 				5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */,
 				5FEB1DB52AD33A8B0033F164 /* StringConstants.swift in Sources */,

@@ -22,7 +22,7 @@ class CustomTextField: UITextField {
     }
 
     override init(frame: CGRect) {
-        super.init(frame: .zero) // Frame'i .zero olarak ayarladık
+        super.init(frame: .zero)
         commonInit()
     }
 
@@ -52,12 +52,12 @@ class CustomTextField: UITextField {
         
         switch fieldType {
         case .email:
-            iconImageView.image = UIImage(systemName: "envelope")
+            iconImageView.image = UIImage(systemName: AppStyle.AppImages.emailIcon)
             self.keyboardType = .emailAddress
             self.isSecureTextEntry = false
             self.placeholder = StringConstants.Login.emailPlaceholder
         case .password:
-            iconImageView.image = UIImage(systemName: "lock")
+            iconImageView.image = UIImage(systemName: AppStyle.AppImages.lockIcon)
             self.keyboardType = .default
             self.isSecureTextEntry = true
             self.placeholder = StringConstants.Login.passwordPlaceholder
