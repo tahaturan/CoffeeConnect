@@ -18,7 +18,7 @@ class RegisterViewController: UIViewController {
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
         imageView.layer.cornerRadius = AppStyle.registerProfileImageSize / 2
-        imageView.image = UIImage(systemName: AppStyle.AppImages.user)
+        imageView.image = UIImage(named: AppStyle.AppImages.defaulProfileAvatar)
         imageView.tintColor = AppColors.ambassadorBlue.color
         return imageView
     }()

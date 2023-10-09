@@ -34,9 +34,15 @@ class CustomTextField: UITextField {
     }
 
     private func commonInit() {
-        layer.borderWidth = 1.0
-        layer.borderColor = UIColor.gray.cgColor
-        layer.cornerRadius = AppStyle.defaultCornerRadius
+        layer.borderWidth = 1.3
+        layer.borderColor = AppColors.ambassadorBlue.color.cgColor
+        layer.cornerRadius = 15
+        layer.shadowColor = AppColors.curiousChipmunk.color.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 5)
+        layer.shadowOpacity = 0.5
+        layer.shadowRadius = 4
+        backgroundColor = .white
+        clipsToBounds = false
         leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: frame.height))
         leftViewMode = .always
     }
@@ -59,6 +65,7 @@ class CustomTextField: UITextField {
             keyboardType = .emailAddress
             isSecureTextEntry = false
             placeholder = StringConstants.Login.emailPlaceholder
+            
         case .password:
             iconImageView.image = UIImage(systemName: AppStyle.AppImages.lockIcon)
             keyboardType = .default

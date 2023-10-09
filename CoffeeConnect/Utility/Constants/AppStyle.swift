@@ -20,6 +20,7 @@ struct AppStyle {
         static let eyeIcon: String = "eye"
         static let eyeSlash: String = "eye.slash"
         static let user: String = "person"
+        static let defaulProfileAvatar: String = "defaultProfileImage"
         static let userCard: String = "person.text.rectangle"
     }
 }
