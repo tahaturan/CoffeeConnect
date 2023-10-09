@@ -8,7 +8,7 @@
 import UIKit
 
 class CustomTextField: UITextField {
-
+    private let visibilityToggleButton: UIButton = UIButton(type: .system)
     enum FieldType {
         case email
         case password
@@ -32,43 +32,67 @@ class CustomTextField: UITextField {
     }
 
     private func commonInit() {
-        self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor.gray.cgColor
-        self.layer.cornerRadius = AppStyle.defaultCornerRadius
-        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: self.frame.height))
-        self.leftViewMode = .always
+        layer.borderWidth = 1.0
+        layer.borderColor = UIColor.gray.cgColor
+        layer.cornerRadius = AppStyle.defaultCornerRadius
+        leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: frame.height))
+        leftViewMode = .always
     }
 
     private func configureForType() {
         let iconSize: CGFloat = AppStyle.iconSize
         let padding: CGFloat = AppStyle.defaultPadding
-        let iconImageView = UIImageView(frame: CGRect(x: padding, y: (self.frame.height - iconSize) / 2, width: iconSize, height: iconSize))
+        let iconImageView = UIImageView(frame: CGRect(x: padding, y: (frame.height - iconSize) / 2, width: iconSize, height: iconSize))
         iconImageView.contentMode = .scaleAspectFit
         iconImageView.tintColor = .darkGray
-        
+
         let viewWidth = iconSize + 2 * padding
-        let leftIconView = UIView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: self.frame.height))
+        let leftIconView = UIView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: frame.height))
         leftIconView.addSubview(iconImageView)
         
+
         switch fieldType {
         case .email:
             iconImageView.image = UIImage(systemName: AppStyle.AppImages.emailIcon)
-            self.keyboardType = .emailAddress
-            self.isSecureTextEntry = false
-            self.placeholder = StringConstants.Login.emailPlaceholder
+            keyboardType = .emailAddress
+            isSecureTextEntry = false
+            placeholder = StringConstants.Login.emailPlaceholder
         case .password:
             iconImageView.image = UIImage(systemName: AppStyle.AppImages.lockIcon)
-            self.keyboardType = .default
-            self.isSecureTextEntry = true
-            self.placeholder = StringConstants.Login.passwordPlaceholder
+            keyboardType = .default
+            isSecureTextEntry = true
+            placeholder = StringConstants.Login.passwordPlaceholder
+            setupVisibilityButton()
+
         case .generic:
-            self.keyboardType = .default
-            self.isSecureTextEntry = false
-            self.placeholder = StringConstants.AppString.enterText
+            keyboardType = .default
+            isSecureTextEntry = false
+            placeholder = StringConstants.AppString.enterText
         }
+
+        leftView = leftIconView
+        leftViewMode = .always
+    }
+
+    func setupVisibilityButton() {
+        let imageName = isSecureTextEntry ? AppStyle.AppImages.eyeSlash : AppStyle.AppImages.eyeIcon
+        let image = UIImage(systemName: imageName)
+        visibilityToggleButton.setImage(image, for: .normal)
+        visibilityToggleButton.addTarget(self, action: #selector(toggleVisibility), for: .touchUpInside)
+        visibilityToggleButton.tintColor = AppColors.curiousChipmunk.color
         
-        self.leftView = leftIconView
-        self.leftViewMode = .always
+        rightView = visibilityToggleButton
+        rightViewMode = .always
     }
 }
 
+// MARK: - Selector
+
+extension CustomTextField {
+    @objc private func toggleVisibility() {
+        isSecureTextEntry.toggle()
+        let imageName = isSecureTextEntry ? AppStyle.AppImages.eyeIcon : AppStyle.AppImages.eyeSlash
+        let image = UIImage(systemName: imageName)
+        visibilityToggleButton.setImage(image, for: .normal)
+    }
+}

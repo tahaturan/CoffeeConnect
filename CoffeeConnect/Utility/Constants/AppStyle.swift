@@ -16,5 +16,7 @@ struct AppStyle {
         static let loginRegisterPageLogo: String = "loginLogo"
         static let emailIcon: String = "envelope"
         static let lockIcon: String = "lock"
+        static let eyeIcon: String = "eye"
+        static let eyeSlash: String = "eye.slash"
     }
 }
