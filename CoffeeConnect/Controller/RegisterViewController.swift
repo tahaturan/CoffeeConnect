@@ -8,11 +8,107 @@
 import UIKit
 
 class RegisterViewController: UIViewController {
-
+    //MARK: - Properties
+    private let logoImageView: LoginLogoImageView = LoginLogoImageView(imageName: AppStyle.AppImages.loginRegisterPageLogo)
+    private let photoPickerManager = PhotoPickerManager()
+    private let profileImageView: UIImageView = {
+       let imageView = UIImageView()
+        
+        imageView.contentMode = .scaleAspectFit
+        imageView.clipsToBounds = true
+        imageView.isUserInteractionEnabled = true
+        imageView.layer.cornerRadius = AppStyle.registerProfileImageSize / 2
+        imageView.image = UIImage(systemName: AppStyle.AppImages.user)
+        imageView.tintColor = AppColors.ambassadorBlue.color
+        return imageView
+    }()
+   private lazy var editProfileImageButton: UIButton = {
+       let button = UIButton()
+       button.setImage(UIImage(systemName: "photo.badge.plus"), for: .normal)
+       button.addTarget(self, action: #selector(handleSelectProfileImageView), for: .touchUpInside)
+       button.tintColor = AppColors.ambassadorBlue.color
+       return button
+   }()
+    private let nameTextField: CustomTextField = CustomTextField()
+    private let userNameTextField: CustomTextField = CustomTextField()
+    private let emailTextField: CustomTextField = CustomTextField()
+    private let passwordTextField: CustomTextField = CustomTextField()
+    private let registerButton: CustomButton = CustomButton(title: StringConstants.Login.registerButtonTitle)
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        view.backgroundColor = .red
+        view.backgroundColor = .white
+        photoPickerManager.delegate = self
+        setupUI()
+        setupLayout()
     }
     
+}
+//MARK: - Helpers
+extension RegisterViewController {
+    private func setupUI() {
+        view.addSubview(logoImageView)
+        view.addSubview(profileImageView)
+        view.addSubview(editProfileImageButton)
+        view.addSubview(nameTextField)
+        view.addSubview(userNameTextField)
+        view.addSubview(emailTextField)
+        view.addSubview(passwordTextField)
+        view.addSubview(registerButton)
+        nameTextField.fieldType = .name
+        userNameTextField.fieldType = .userName
+        emailTextField.fieldType = .email
+        passwordTextField.fieldType = .password
+    }
+    
+    private func setupLayout() {
+        logoImageView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            make.right.left.equalTo(view)
+            make.height.equalTo(300)
+        }
+        profileImageView.snp.makeConstraints { make in
+            make.top.equalTo(logoImageView.snp.bottom).offset(-70)
+            make.centerX.equalToSuperview()
+            make.height.width.equalTo(AppStyle.registerProfileImageSize)
+        }
+        editProfileImageButton.snp.makeConstraints { make in
+            make.top.right.equalTo(profileImageView)
+            make.width.height.equalTo(AppStyle.iconSize)
+        }
+        nameTextField.snp.makeConstraints { make in
+            make.top.equalTo(profileImageView.snp.bottom).offset(20)
+            make.left.equalTo(view).offset(20)
+            make.right.equalTo(view).offset(-20)
+            make.height.equalTo(50)
+        }
+        userNameTextField.snp.makeConstraints { make in
+            make.top.equalTo(nameTextField.snp.bottom).offset(10)
+            make.left.right.height.equalTo(nameTextField)
+        }
+        emailTextField.snp.makeConstraints { make in
+            make.top.equalTo(userNameTextField.snp.bottom).offset(10)
+            make.right.left.height.equalTo(nameTextField)
+        }
+        passwordTextField.snp.makeConstraints { make in
+            make.top.equalTo(emailTextField.snp.bottom).offset(10)
+            make.left.right.height.equalTo(nameTextField)
+        }
+        registerButton.snp.makeConstraints { make in
+            make.top.equalTo(passwordTextField.snp.bottom).offset(20)
+            make.left.right.height.equalTo(nameTextField)
+        }
+    }
+}
+//MARK: - Selector
+extension RegisterViewController {
+    @objc private func handleSelectProfileImageView() {
+        photoPickerManager.presentPhotoPicker(on: self)
+    }
+}
+//MARK: - PhotoPickerManagerDelegate Methods
+extension RegisterViewController: PhotoPickerManagerDelegate {
+    func didPickImage(_ image: UIImage) {
+        profileImageView.image = image
+    }
 }

@@ -13,6 +13,8 @@ struct StringConstants {
         static let passwordPlaceholder = NSLocalizedString("Enter your password", comment: "")
         static let loginButtonTitle = NSLocalizedString("Login", comment: "")
         static let registerButtonTitle = NSLocalizedString("Register", comment: "")
+        static let nameTextfieldPlaceHolder = NSLocalizedString("Name", comment: "")
+        static let userNameTextfieldPlaceHolder = NSLocalizedString("Username", comment: "")
     }
     struct AppString {
         static let enterText = NSLocalizedString("Enter text", comment: "")

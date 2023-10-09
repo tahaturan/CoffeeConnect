@@ -23,6 +23,7 @@
 		5FEB1DC92AD3DB6F0033F164 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DC82AD3DB6F0033F164 /* RegisterViewController.swift */; };
 		5FEB1DCB2AD3DC720033F164 /* LoginLogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DCA2AD3DC720033F164 /* LoginLogoImageView.swift */; };
 		5FEB1DD02AD403990033F164 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FEB1DCF2AD403990033F164 /* IQKeyboardManagerSwift */; };
+		5FEB1DD22AD4221E0033F164 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DD12AD4221E0033F164 /* PhotoPickerManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		5FEB1DC62AD3CE6F0033F164 /* AppStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		5FEB1DC82AD3DB6F0033F164 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5FEB1DCA2AD3DC720033F164 /* LoginLogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLogoImageView.swift; sourceTree = "<group>"; };
+		5FEB1DD12AD4221E0033F164 /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				5FBD49E22AD32AAE00F515B8 /* View */,
 				5FBD49E32AD32AB400F515B8 /* Controller */,
 				5FA2B9472AD3354C003C80D7 /* Utility */,
+				5FEB1DD32AD42D3C0033F164 /* Manager */,
 				5FEB1DB62AD33CD40033F164 /* Resources */,
 				5FBD49CD2AD295B100F515B8 /* AppDelegate.swift */,
 				5FBD49CF2AD295B100F515B8 /* SceneDelegate.swift */,
@@ -156,6 +159,14 @@
 				5FEB1DC12AD3476A0033F164 /* Localizable.xcstrings */,
 			);
 			path = tr.lproj;
+			sourceTree = "<group>";
+		};
+		5FEB1DD32AD42D3C0033F164 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				5FEB1DD12AD4221E0033F164 /* PhotoPickerManager.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -241,6 +252,7 @@
 			files = (
 				5FEB1DC92AD3DB6F0033F164 /* RegisterViewController.swift in Sources */,
 				5FEB1DCB2AD3DC720033F164 /* LoginLogoImageView.swift in Sources */,
+				5FEB1DD22AD4221E0033F164 /* PhotoPickerManager.swift in Sources */,
 				5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */,
 				5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */,
 				5FEB1DB52AD33A8B0033F164 /* StringConstants.swift in Sources */,

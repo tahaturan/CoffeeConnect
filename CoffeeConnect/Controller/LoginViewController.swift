@@ -45,7 +45,7 @@ extension LoginViewController {
     func setupLayout() {
         // logoImageView Constraints
         logoImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             make.right.left.equalTo(view)
             make.height.equalTo(300)
         }

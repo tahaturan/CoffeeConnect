@@ -13,6 +13,8 @@ class CustomTextField: UITextField {
         case email
         case password
         case generic
+        case name
+        case userName
     }
 
     var fieldType: FieldType = .generic {
@@ -68,6 +70,16 @@ class CustomTextField: UITextField {
             keyboardType = .default
             isSecureTextEntry = false
             placeholder = StringConstants.AppString.enterText
+        case .name:
+            iconImageView.image = UIImage(systemName: AppStyle.AppImages.user)
+            keyboardType = .default
+            isSecureTextEntry = false
+            placeholder = StringConstants.Login.nameTextfieldPlaceHolder
+        case .userName:
+            iconImageView.image = UIImage(systemName: AppStyle.AppImages.userCard)
+            keyboardType = .default
+            isSecureTextEntry = false
+            placeholder = StringConstants.Login.userNameTextfieldPlaceHolder
         }
 
         leftView = leftIconView
@@ -79,7 +91,7 @@ class CustomTextField: UITextField {
         let image = UIImage(systemName: imageName)
         visibilityToggleButton.setImage(image, for: .normal)
         visibilityToggleButton.addTarget(self, action: #selector(toggleVisibility), for: .touchUpInside)
-        visibilityToggleButton.tintColor = AppColors.curiousChipmunk.color
+        visibilityToggleButton.tintColor = AppColors.ambassadorBlue.color
         
         rightView = visibilityToggleButton
         rightViewMode = .always
@@ -91,7 +103,7 @@ class CustomTextField: UITextField {
 extension CustomTextField {
     @objc private func toggleVisibility() {
         isSecureTextEntry.toggle()
-        let imageName = isSecureTextEntry ? AppStyle.AppImages.eyeIcon : AppStyle.AppImages.eyeSlash
+        let imageName = isSecureTextEntry ? AppStyle.AppImages.eyeSlash : AppStyle.AppImages.eyeIcon
         let image = UIImage(systemName: imageName)
         visibilityToggleButton.setImage(image, for: .normal)
     }
