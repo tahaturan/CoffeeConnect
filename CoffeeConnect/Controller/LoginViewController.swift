@@ -76,7 +76,6 @@ extension LoginViewController {
 }
 
 // MARK: - Selector
-
 extension LoginViewController {
     @objc private func registerButtonTapped() {
         let registerVC = RegisterViewController()

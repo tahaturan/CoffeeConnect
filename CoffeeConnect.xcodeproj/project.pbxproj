@@ -22,6 +22,7 @@
 		5FEB1DC72AD3CE6F0033F164 /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DC62AD3CE6F0033F164 /* AppStyle.swift */; };
 		5FEB1DC92AD3DB6F0033F164 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DC82AD3DB6F0033F164 /* RegisterViewController.swift */; };
 		5FEB1DCB2AD3DC720033F164 /* LoginLogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DCA2AD3DC720033F164 /* LoginLogoImageView.swift */; };
+		5FEB1DD02AD403990033F164 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FEB1DCF2AD403990033F164 /* IQKeyboardManagerSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -49,6 +50,7 @@
 			files = (
 				5FBD49E62AD32B8F00F515B8 /* SnapKit in Frameworks */,
 				5FBD49E82AD32B8F00F515B8 /* SnapKit-Dynamic in Frameworks */,
+				5FEB1DD02AD403990033F164 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +177,7 @@
 			packageProductDependencies = (
 				5FBD49E52AD32B8F00F515B8 /* SnapKit */,
 				5FBD49E72AD32B8F00F515B8 /* SnapKit-Dynamic */,
+				5FEB1DCF2AD403990033F164 /* IQKeyboardManagerSwift */,
 			);
 			productName = CoffeeConnect;
 			productReference = 5FBD49CA2AD295B100F515B8 /* CoffeeConnect.app */;
@@ -207,6 +210,7 @@
 			mainGroup = 5FBD49C12AD295B100F515B8;
 			packageReferences = (
 				5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				5FEB1DCE2AD403990033F164 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 5FBD49CB2AD295B100F515B8 /* Products */;
 			projectDirPath = "";
@@ -475,6 +479,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		5FEB1DCE2AD403990033F164 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.15;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -487,6 +499,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
+		};
+		5FEB1DCF2AD403990033F164 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FEB1DCE2AD403990033F164 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
