@@ -27,6 +27,10 @@ class RegisterViewController: UIViewController {
        button.setImage(UIImage(systemName: "photo.badge.plus"), for: .normal)
        button.addTarget(self, action: #selector(handleSelectProfileImageView), for: .touchUpInside)
        button.tintColor = AppColors.ambassadorBlue.color
+       button.layer.cornerRadius = AppStyle.iconSize / 2
+       var configration = UIButton.Configuration.plain()
+       configration.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
+       button.configuration = configration
        return button
    }()
     private let nameTextField: CustomTextField = CustomTextField()
@@ -75,7 +79,7 @@ extension RegisterViewController {
             make.height.width.equalTo(AppStyle.registerProfileImageSize)
         }
         editProfileImageButton.snp.makeConstraints { make in
-            make.top.right.equalTo(profileImageView)
+            make.bottom.right.equalTo(profileImageView)
             make.width.height.equalTo(AppStyle.iconSize)
         }
         nameTextField.snp.makeConstraints { make in
