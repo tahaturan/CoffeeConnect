@@ -18,5 +18,10 @@ struct StringConstants {
     }
     struct AppString {
         static let enterText = NSLocalizedString("Enter text", comment: "")
+        static let okString = NSLocalizedString("OK", comment: "")
+        static let errorString = NSLocalizedString("Error", comment: "")
+        static let errorEmptyField = NSLocalizedString("Please fill in all fields", comment: "")
+        static let successString = NSLocalizedString("Success", comment: "")
+        static let registerSuccessString = NSLocalizedString("Register Success", comment: "")
     }
 }

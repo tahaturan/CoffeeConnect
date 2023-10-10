@@ -31,6 +31,16 @@
         }
       }
     },
+    "Error" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hata"
+          }
+        }
+      }
+    },
     "Login" : {
       "localizations" : {
         "tr" : {
@@ -51,12 +61,52 @@
         }
       }
     },
+    "OK" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tamam"
+          }
+        }
+      }
+    },
+    "Please fill in all fields" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lütfen tüm alanları doldurunuz"
+          }
+        }
+      }
+    },
     "Register" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kayıt Ol"
+          }
+        }
+      }
+    },
+    "Register Success" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kayıt Başarılı"
+          }
+        }
+      }
+    },
+    "Success" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başarılı"
           }
         }
       }

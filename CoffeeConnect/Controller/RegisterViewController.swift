@@ -34,6 +34,7 @@ class RegisterViewController: UIViewController {
     private let emailTextField: CustomTextField = CustomTextField()
     private let passwordTextField: CustomTextField = CustomTextField()
     private let registerButton: CustomButton = CustomButton(title: StringConstants.Login.registerButtonTitle)
+    private let progressIndicator: CustomProgressIndicator = CustomProgressIndicator()
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -59,6 +60,7 @@ extension RegisterViewController {
         userNameTextField.fieldType = .userName
         emailTextField.fieldType = .email
         passwordTextField.fieldType = .password
+        registerButton.addTarget(self, action: #selector(handleRegister), for: .touchUpInside)
     }
     
     private func setupLayout() {
@@ -104,6 +106,34 @@ extension RegisterViewController {
 extension RegisterViewController {
     @objc private func handleSelectProfileImageView() {
         photoPickerManager.presentPhotoPicker(on: self)
+    }
+    @objc private func handleRegister() {
+        progressIndicator.show(on: self.view)
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text,
+              let name = nameTextField.text,
+              let username = userNameTextField.text,
+              let profileImage = profileImageView.image else {
+            showAlert(title: StringConstants.AppString.errorString, message: StringConstants.AppString.errorEmptyField)
+            return
+        }
+        if email.isEmpty || password.isEmpty || name.isEmpty || username.isEmpty {
+            progressIndicator.hide()
+            showAlert(title: StringConstants.AppString.errorString, message: StringConstants.AppString.errorEmptyField)
+        } else {
+            FirebaseService.shared.signUp(email: email, password: password, name: name, username: username, profileImage: profileImage) { result in
+                switch result {
+                case .success:
+                    self.showAlert(title: StringConstants.AppString.successString, message: StringConstants.AppString.registerSuccessString) {
+                        self.navigationController?.popViewController(animated: true)
+                    }
+
+                case let .failure(error):
+                    self.showAlert(title: StringConstants.AppString.errorString, message: error.localizedDescription)
+                }
+                self.progressIndicator.hide()
+            }
+        }
     }
 }
 //MARK: - PhotoPickerManagerDelegate Methods

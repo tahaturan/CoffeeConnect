@@ -14,7 +14,6 @@ struct UserModel: Codable {
     var email: String
     var balance: Double
     var profileImageURL: String
-    var coverImageURL: String
     var postIDs: [String]       // Kullanıcının paylaştığı gönderi ID'leri
     var shoppingCart: ShoppingCartModel
     var wishlist: [WishlistItemModel]
