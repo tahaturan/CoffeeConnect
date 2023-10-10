@@ -24,4 +24,13 @@ struct StringConstants {
         static let successString = NSLocalizedString("Success", comment: "")
         static let registerSuccessString = NSLocalizedString("Register Success", comment: "")
     }
+    struct ErrorMessageString {
+        static let unknownString = NSLocalizedString("An unknown error occurred.", comment: "")
+        static let authenticationFailed = NSLocalizedString("Authentication failed.", comment: "")
+        static let profileImageUploadFailedString = NSLocalizedString("An error occurred while uploading the profile image.", comment: "")
+        static let profileImageURLNotFound = NSLocalizedString("Profile image URL not found.", comment: "")
+        static let userDocumentNotFound = NSLocalizedString("User document not found.", comment: "")
+        static let dataEncodingFailed = NSLocalizedString("Data encoding failed.", comment: "")
+        static let dataDecodingFailed = NSLocalizedString("Data decoding failed.", comment: "")
+    }
 }

@@ -10,7 +10,7 @@ import UIKit
 struct AppStyle {
     static let iconSize: CGFloat = 24
     static let defaultPadding: CGFloat = 10
-    static let defaultCornerRadius: CGFloat = 5
+    static let defaultCornerRadius: CGFloat = 15
     static let registerProfileImageSize: CGFloat = 110
     
     struct AppImages {
