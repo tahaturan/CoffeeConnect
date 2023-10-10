@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5FB5106B2AD517A0002AF588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */; };
 		5FBD49CE2AD295B100F515B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49CD2AD295B100F515B8 /* AppDelegate.swift */; };
 		5FBD49D02AD295B100F515B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49CF2AD295B100F515B8 /* SceneDelegate.swift */; };
 		5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49D12AD295B100F515B8 /* LoginViewController.swift */; };
@@ -14,6 +15,19 @@
 		5FBD49DA2AD295B200F515B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD49D82AD295B200F515B8 /* LaunchScreen.storyboard */; };
 		5FBD49E62AD32B8F00F515B8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBD49E52AD32B8F00F515B8 /* SnapKit */; };
 		5FBD49E82AD32B8F00F515B8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBD49E72AD32B8F00F515B8 /* SnapKit-Dynamic */; };
+		5FD0AA142AD51930001EEE36 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD0AA132AD51930001EEE36 /* FirebaseAnalytics */; };
+		5FD0AA162AD51930001EEE36 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD0AA152AD51930001EEE36 /* FirebaseAnalyticsOnDeviceConversion */; };
+		5FD0AA182AD51930001EEE36 /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD0AA172AD51930001EEE36 /* FirebaseAnalyticsSwift */; };
+		5FD0AA1A2AD51930001EEE36 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD0AA192AD51930001EEE36 /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		5FD0AA1C2AD51930001EEE36 /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD0AA1B2AD51930001EEE36 /* FirebaseAppCheck */; };
+		5FD0AA1E2AD51E09001EEE36 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA1D2AD51E09001EEE36 /* UserModel.swift */; };
+		5FD0AA202AD51E3C001EEE36 /* PostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA1F2AD51E3C001EEE36 /* PostModel.swift */; };
+		5FD0AA222AD51E51001EEE36 /* CommentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA212AD51E51001EEE36 /* CommentModel.swift */; };
+		5FD0AA242AD51E6D001EEE36 /* CoffeeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA232AD51E6D001EEE36 /* CoffeeModel.swift */; };
+		5FD0AA262AD51E86001EEE36 /* ShoppingCartModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA252AD51E86001EEE36 /* ShoppingCartModel.swift */; };
+		5FD0AA282AD51E9D001EEE36 /* WishlistItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA272AD51E9D001EEE36 /* WishlistItemModel.swift */; };
+		5FD0AA2A2AD51EB4001EEE36 /* CoffeeCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA292AD51EB4001EEE36 /* CoffeeCategoryModel.swift */; };
+		5FD0AA2C2AD51F1D001EEE36 /* ShoppingCartItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA2B2AD51F1D001EEE36 /* ShoppingCartItemModel.swift */; };
 		5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB02AD335DF0033F164 /* AppColors.swift */; };
 		5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB22AD338280033F164 /* CustomTextField.swift */; };
 		5FEB1DB52AD33A8B0033F164 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB42AD33A8B0033F164 /* StringConstants.swift */; };
@@ -27,6 +41,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FBD49CA2AD295B100F515B8 /* CoffeeConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoffeeConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FBD49CD2AD295B100F515B8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5FBD49CF2AD295B100F515B8 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +49,14 @@
 		5FBD49D62AD295B200F515B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5FBD49D92AD295B200F515B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FBD49DB2AD295B200F515B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5FD0AA1D2AD51E09001EEE36 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		5FD0AA1F2AD51E3C001EEE36 /* PostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostModel.swift; sourceTree = "<group>"; };
+		5FD0AA212AD51E51001EEE36 /* CommentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentModel.swift; sourceTree = "<group>"; };
+		5FD0AA232AD51E6D001EEE36 /* CoffeeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeModel.swift; sourceTree = "<group>"; };
+		5FD0AA252AD51E86001EEE36 /* ShoppingCartModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartModel.swift; sourceTree = "<group>"; };
+		5FD0AA272AD51E9D001EEE36 /* WishlistItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItemModel.swift; sourceTree = "<group>"; };
+		5FD0AA292AD51EB4001EEE36 /* CoffeeCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCategoryModel.swift; sourceTree = "<group>"; };
+		5FD0AA2B2AD51F1D001EEE36 /* ShoppingCartItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartItemModel.swift; sourceTree = "<group>"; };
 		5FEB1DB02AD335DF0033F164 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		5FEB1DB22AD338280033F164 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5FEB1DB42AD33A8B0033F164 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
@@ -50,8 +73,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FD0AA1C2AD51930001EEE36 /* FirebaseAppCheck in Frameworks */,
+				5FD0AA182AD51930001EEE36 /* FirebaseAnalyticsSwift in Frameworks */,
 				5FBD49E62AD32B8F00F515B8 /* SnapKit in Frameworks */,
 				5FBD49E82AD32B8F00F515B8 /* SnapKit-Dynamic in Frameworks */,
+				5FD0AA162AD51930001EEE36 /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				5FD0AA1A2AD51930001EEE36 /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
+				5FD0AA142AD51930001EEE36 /* FirebaseAnalytics in Frameworks */,
 				5FEB1DD02AD403990033F164 /* IQKeyboardManagerSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,6 +125,7 @@
 				5FBD49D62AD295B200F515B8 /* Assets.xcassets */,
 				5FBD49D82AD295B200F515B8 /* LaunchScreen.storyboard */,
 				5FBD49DB2AD295B200F515B8 /* Info.plist */,
+				5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */,
 			);
 			path = CoffeeConnect;
 			sourceTree = "<group>";
@@ -104,6 +133,14 @@
 		5FBD49E12AD32AA500F515B8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				5FD0AA1D2AD51E09001EEE36 /* UserModel.swift */,
+				5FD0AA1F2AD51E3C001EEE36 /* PostModel.swift */,
+				5FD0AA212AD51E51001EEE36 /* CommentModel.swift */,
+				5FD0AA232AD51E6D001EEE36 /* CoffeeModel.swift */,
+				5FD0AA252AD51E86001EEE36 /* ShoppingCartModel.swift */,
+				5FD0AA272AD51E9D001EEE36 /* WishlistItemModel.swift */,
+				5FD0AA292AD51EB4001EEE36 /* CoffeeCategoryModel.swift */,
+				5FD0AA2B2AD51F1D001EEE36 /* ShoppingCartItemModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +226,11 @@
 				5FBD49E52AD32B8F00F515B8 /* SnapKit */,
 				5FBD49E72AD32B8F00F515B8 /* SnapKit-Dynamic */,
 				5FEB1DCF2AD403990033F164 /* IQKeyboardManagerSwift */,
+				5FD0AA132AD51930001EEE36 /* FirebaseAnalytics */,
+				5FD0AA152AD51930001EEE36 /* FirebaseAnalyticsOnDeviceConversion */,
+				5FD0AA172AD51930001EEE36 /* FirebaseAnalyticsSwift */,
+				5FD0AA192AD51930001EEE36 /* FirebaseAnalyticsWithoutAdIdSupport */,
+				5FD0AA1B2AD51930001EEE36 /* FirebaseAppCheck */,
 			);
 			productName = CoffeeConnect;
 			productReference = 5FBD49CA2AD295B100F515B8 /* CoffeeConnect.app */;
@@ -222,6 +264,7 @@
 			packageReferences = (
 				5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				5FEB1DCE2AD403990033F164 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 5FBD49CB2AD295B100F515B8 /* Products */;
 			projectDirPath = "";
@@ -238,6 +281,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FBD49DA2AD295B200F515B8 /* LaunchScreen.storyboard in Resources */,
+				5FB5106B2AD517A0002AF588 /* GoogleService-Info.plist in Resources */,
 				5FBD49D72AD295B200F515B8 /* Assets.xcassets in Resources */,
 				5FEB1DC32AD3476A0033F164 /* Localizable.xcstrings in Resources */,
 			);
@@ -250,16 +294,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FD0AA2C2AD51F1D001EEE36 /* ShoppingCartItemModel.swift in Sources */,
 				5FEB1DC92AD3DB6F0033F164 /* RegisterViewController.swift in Sources */,
+				5FD0AA282AD51E9D001EEE36 /* WishlistItemModel.swift in Sources */,
 				5FEB1DCB2AD3DC720033F164 /* LoginLogoImageView.swift in Sources */,
+				5FD0AA2A2AD51EB4001EEE36 /* CoffeeCategoryModel.swift in Sources */,
 				5FEB1DD22AD4221E0033F164 /* PhotoPickerManager.swift in Sources */,
 				5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */,
 				5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */,
+				5FD0AA262AD51E86001EEE36 /* ShoppingCartModel.swift in Sources */,
+				5FD0AA202AD51E3C001EEE36 /* PostModel.swift in Sources */,
 				5FEB1DB52AD33A8B0033F164 /* StringConstants.swift in Sources */,
 				5FBD49CE2AD295B100F515B8 /* AppDelegate.swift in Sources */,
 				5FEB1DBD2AD33F7F0033F164 /* CustomButton.swift in Sources */,
 				5FEB1DC72AD3CE6F0033F164 /* AppStyle.swift in Sources */,
 				5FBD49D02AD295B100F515B8 /* SceneDelegate.swift in Sources */,
+				5FD0AA242AD51E6D001EEE36 /* CoffeeModel.swift in Sources */,
+				5FD0AA222AD51E51001EEE36 /* CommentModel.swift in Sources */,
+				5FD0AA1E2AD51E09001EEE36 /* UserModel.swift in Sources */,
 				5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,6 +543,14 @@
 				minimumVersion = 5.6.0;
 			};
 		};
+		5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.16.0;
+			};
+		};
 		5FEB1DCE2AD403990033F164 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -511,6 +571,31 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = "SnapKit-Dynamic";
+		};
+		5FD0AA132AD51930001EEE36 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		5FD0AA152AD51930001EEE36 /* FirebaseAnalyticsOnDeviceConversion */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsOnDeviceConversion;
+		};
+		5FD0AA172AD51930001EEE36 /* FirebaseAnalyticsSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsSwift;
+		};
+		5FD0AA192AD51930001EEE36 /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		5FD0AA1B2AD51930001EEE36 /* FirebaseAppCheck */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAppCheck;
 		};
 		5FEB1DCF2AD403990033F164 /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
