@@ -18,3 +18,19 @@ struct UserModel: Codable {
     var shoppingCart: ShoppingCartModel
     var wishlist: [WishlistItemModel]
 }
+
+class UserManager {
+    static let shared = UserManager() //Singleton instance(nesnesi)
+    var currentUser: UserModel?
+    
+    private init() {}
+    
+    //Kullanici bilgilerini guncelleme
+    func updateUser(_ user: UserModel)  {
+        self.currentUser = user
+    }
+    //Kullanici Bilgilerini silme
+    func clearUser() {
+        self.currentUser = nil
+    }
+}
