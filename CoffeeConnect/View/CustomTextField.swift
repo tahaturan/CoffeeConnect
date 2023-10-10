@@ -65,12 +65,13 @@ class CustomTextField: UITextField {
             keyboardType = .emailAddress
             isSecureTextEntry = false
             placeholder = StringConstants.Login.emailPlaceholder
-            
+            autocapitalizationType = .none
         case .password:
             iconImageView.image = UIImage(systemName: AppStyle.AppImages.lockIcon)
             keyboardType = .default
             isSecureTextEntry = true
             placeholder = StringConstants.Login.passwordPlaceholder
+            autocapitalizationType = .none
             setupVisibilityButton()
 
         case .generic:
@@ -82,11 +83,13 @@ class CustomTextField: UITextField {
             keyboardType = .default
             isSecureTextEntry = false
             placeholder = StringConstants.Login.nameTextfieldPlaceHolder
+            autocapitalizationType = .words
         case .userName:
             iconImageView.image = UIImage(systemName: AppStyle.AppImages.userCard)
             keyboardType = .default
             isSecureTextEntry = false
             placeholder = StringConstants.Login.userNameTextfieldPlaceHolder
+            autocapitalizationType = .none
         }
 
         leftView = leftIconView
