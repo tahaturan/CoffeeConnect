@@ -132,8 +132,8 @@ extension RegisterViewController {
                         self.navigationController?.popViewController(animated: true)
                     }
 
-                case let .failure(error):
-                    self.showAlert(title: StringConstants.AppString.errorString, message: error.localizedDescription)
+                case .failure(_):
+                    self.showAlert(title: StringConstants.AppString.errorString, message: StringConstants.ErrorMessageString.authenticationFailed)
                 }
                 self.progressIndicator.hide()
             }

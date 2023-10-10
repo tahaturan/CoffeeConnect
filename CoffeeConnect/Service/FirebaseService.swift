@@ -134,14 +134,12 @@ class FirebaseService {
     
     // MARK: - User SignOut
     
-    func signOut() -> Bool {
+    func signOut() {
         do {
             try Auth.auth().signOut()
             UserManager.shared.clearUser()
-            return true
         } catch {
             print("Sign out error: \(error.localizedDescription)")
-            return false
         }
     }
     

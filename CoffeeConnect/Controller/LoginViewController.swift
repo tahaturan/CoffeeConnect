@@ -16,6 +16,7 @@ class LoginViewController: UIViewController {
     private let passwordTextField: CustomTextField = CustomTextField()
     private let loginButton: CustomButton = CustomButton(title: StringConstants.Login.loginButtonTitle)
     private let registerButton: CustomButton = CustomButton(title: StringConstants.Login.registerButtonTitle, color: AppColors.curiousChipmunk.color)
+    private let progressIndicator: CustomProgressIndicator = CustomProgressIndicator()
 
     // MARK: - LifeCycle
 
@@ -35,6 +36,7 @@ extension LoginViewController {
         emailTextField.fieldType = .email
         passwordTextField.fieldType = .password
         registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
+        loginButton.addTarget(self, action: #selector(handleLoginButton), for: .touchUpInside)
         view.addSubview(logoImageView)
         view.addSubview(emailTextField)
         view.addSubview(passwordTextField)
@@ -80,5 +82,32 @@ extension LoginViewController {
     @objc private func registerButtonTapped() {
         let registerVC = RegisterViewController()
         navigationController?.pushViewController(registerVC, animated: true)
+    }
+    @objc private func handleLoginButton() {
+        progressIndicator.show(on: self.view)
+        guard let email = emailTextField.text,
+              let password = passwordTextField.text
+        else {
+            showAlert(title: StringConstants.AppString.errorString, message: StringConstants.AppString.errorEmptyField)
+            return
+        }
+        if email.isEmpty || password.isEmpty {
+            progressIndicator.hide()
+            showAlert(title: StringConstants.AppString.errorString, message: StringConstants.AppString.errorEmptyField)
+        }else{
+            FirebaseService.shared.signIn(email: email, password: password) { result in
+                switch result {
+                case .success(_):
+                    let homeVC = HomeViewController()
+                    if let navigationController = self.navigationController {
+                        navigationController.viewControllers = [homeVC]
+                    }
+                case .failure(_):
+                    self.showAlert(title: StringConstants.AppString.errorString, message: StringConstants.ErrorMessageString.authenticationFailed)
+                }
+                self.progressIndicator.hide()
+            }
+            
+        }
     }
 }

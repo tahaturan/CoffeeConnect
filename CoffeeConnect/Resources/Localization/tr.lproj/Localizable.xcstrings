@@ -1,6 +1,56 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "An error occurred while uploading the profile image." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil resmi yüklenirken bir hata oluştu."
+          }
+        }
+      }
+    },
+    "An unknown error occurred." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bilinmeyen bir hata oluştu."
+          }
+        }
+      }
+    },
+    "Authentication failed." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kimlik doğrulama başarısız oldu."
+          }
+        }
+      }
+    },
+    "Data decoding failed." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veri çözme başarısız oldu."
+          }
+        }
+      }
+    },
+    "Data encoding failed." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veri kodlama başarısız oldu."
+          }
+        }
+      }
+    },
     "Enter text" : {
       "localizations" : {
         "tr" : {
@@ -81,6 +131,16 @@
         }
       }
     },
+    "Profile image URL not found." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profil resmi URL'si bulunamadı."
+          }
+        }
+      }
+    },
     "Register" : {
       "localizations" : {
         "tr" : {
@@ -107,6 +167,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Başarılı"
+          }
+        }
+      }
+    },
+    "User document not found." : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kullanıcı belgesi bulunamadı."
           }
         }
       }
