@@ -34,8 +34,8 @@ class CustomTextField: UITextField {
     }
 
     private func commonInit() {
-        layer.borderWidth = 1.3
-        layer.borderColor = AppColors.ambassadorBlue.color.cgColor
+        layer.borderWidth = 1
+        layer.borderColor = AppColors.ambassadorBlue.color.withAlphaComponent(0.25).cgColor
         layer.cornerRadius = 15
         layer.shadowColor = AppColors.curiousChipmunk.color.cgColor
         layer.shadowOffset = CGSize(width: 0, height: 5)
@@ -52,7 +52,7 @@ class CustomTextField: UITextField {
         let padding: CGFloat = AppStyle.defaultPadding
         let iconImageView = UIImageView(frame: CGRect(x: padding, y: (frame.height - iconSize) / 2, width: iconSize, height: iconSize))
         iconImageView.contentMode = .scaleAspectFit
-        iconImageView.tintColor = .darkGray
+        iconImageView.tintColor = .darkGray.withAlphaComponent(0.5)
 
         let viewWidth = iconSize + 2 * padding
         let leftIconView = UIView(frame: CGRect(x: 0, y: 0, width: viewWidth, height: frame.height))
@@ -101,7 +101,7 @@ class CustomTextField: UITextField {
         let image = UIImage(systemName: imageName)
         visibilityToggleButton.setImage(image, for: .normal)
         visibilityToggleButton.addTarget(self, action: #selector(toggleVisibility), for: .touchUpInside)
-        visibilityToggleButton.tintColor = AppColors.ambassadorBlue.color
+        visibilityToggleButton.tintColor = AppColors.ambassadorBlue.color.withAlphaComponent(0.30)
         
         rightView = visibilityToggleButton
         rightViewMode = .always
