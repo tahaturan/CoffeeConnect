@@ -17,6 +17,23 @@ struct UserModel: Codable {
     var postIDs: [String]       // Kullanıcının paylaştığı gönderi ID'leri
     var shoppingCart: ShoppingCartModel
     var wishlist: [WishlistItemModel]
+    
+    func toDictionary() throws -> [String: Any] {
+        let data = try JSONEncoder().encode(self)
+        guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
+            throw AppError.dataEncodingFailed
+        }
+        return dictionary
+    }
+    
+    static func fromDictionary(jsonData: Data) throws -> UserModel {
+         do {
+             return try JSONDecoder().decode(UserModel.self, from: jsonData)
+         } catch {
+             throw AppError.dataDecodingFailed
+         }
+     }
+   
 }
 
 class UserManager {
