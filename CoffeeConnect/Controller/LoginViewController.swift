@@ -11,11 +11,11 @@ import UIKit
 class LoginViewController: UIViewController {
     // MARK: - Properties
 
-    private let logoImageView: LoginLogoImageView = LoginLogoImageView(imageName: AppStyle.AppImages.loginRegisterPageLogo)
+    private let logoImageView: LoginLogoImageView = LoginLogoImageView(imageName: AppStyleConstants.Icons.loginLogo)
     private let emailTextField: CustomTextField = CustomTextField()
     private let passwordTextField: CustomTextField = CustomTextField()
-    private let loginButton: CustomButton = CustomButton(title: StringConstants.Login.loginButtonTitle)
-    private let registerButton: CustomButton = CustomButton(title: StringConstants.Login.registerButtonTitle, color: AppColors.curiousChipmunk.color)
+    private let loginButton: CustomButton = CustomButton(title: StringConstants.Login.loginButton)
+    private let registerButton: CustomButton = CustomButton(title: StringConstants.Login.registerButton, color: AppColors.curiousChipmunk.color)
     private let progressIndicator: CustomProgressIndicator = CustomProgressIndicator()
 
     // MARK: - LifeCycle
@@ -88,12 +88,12 @@ extension LoginViewController {
         guard let email = emailTextField.text,
               let password = passwordTextField.text
         else {
-            showAlert(title: StringConstants.AppString.errorString, message: StringConstants.AppString.errorEmptyField)
+            showAlert(title: StringConstants.General.error, message: StringConstants.General.fillFields)
             return
         }
         if email.isEmpty || password.isEmpty {
             progressIndicator.hide()
-            showAlert(title: StringConstants.AppString.errorString, message: StringConstants.AppString.errorEmptyField)
+            showAlert(title: StringConstants.General.error, message: StringConstants.General.fillFields)
         }else{
             FirebaseService.shared.signIn(email: email, password: password) { result in
                 switch result {
@@ -103,7 +103,7 @@ extension LoginViewController {
                         navigationController.viewControllers = [homeVC]
                     }
                 case .failure(_):
-                    self.showAlert(title: StringConstants.AppString.errorString, message: StringConstants.ErrorMessageString.authenticationFailed)
+                    self.showAlert(title: StringConstants.General.error, message: StringConstants.Errors.authenticationFailed)
                 }
                 self.progressIndicator.hide()
             }

@@ -48,8 +48,8 @@ class CustomTextField: UITextField {
     }
 
     private func configureForType() {
-        let iconSize: CGFloat = AppStyle.iconSize
-        let padding: CGFloat = AppStyle.defaultPadding
+        let iconSize: CGFloat = AppStyleConstants.iconSize
+        let padding: CGFloat = AppStyleConstants.padding
         let iconImageView = UIImageView(frame: CGRect(x: padding, y: (frame.height - iconSize) / 2, width: iconSize, height: iconSize))
         iconImageView.contentMode = .scaleAspectFit
         iconImageView.tintColor = .darkGray.withAlphaComponent(0.5)
@@ -61,13 +61,13 @@ class CustomTextField: UITextField {
 
         switch fieldType {
         case .email:
-            iconImageView.image = UIImage(systemName: AppStyle.AppImages.emailIcon)
+            iconImageView.image = UIImage(systemName: AppStyleConstants.Icons.email)
             keyboardType = .emailAddress
             isSecureTextEntry = false
             placeholder = StringConstants.Login.emailPlaceholder
             autocapitalizationType = .none
         case .password:
-            iconImageView.image = UIImage(systemName: AppStyle.AppImages.lockIcon)
+            iconImageView.image = UIImage(systemName: AppStyleConstants.Icons.lock)
             keyboardType = .default
             isSecureTextEntry = true
             placeholder = StringConstants.Login.passwordPlaceholder
@@ -77,18 +77,18 @@ class CustomTextField: UITextField {
         case .generic:
             keyboardType = .default
             isSecureTextEntry = false
-            placeholder = StringConstants.AppString.enterText
+            placeholder = StringConstants.General.enterText
         case .name:
-            iconImageView.image = UIImage(systemName: AppStyle.AppImages.user)
+            iconImageView.image = UIImage(systemName: AppStyleConstants.Icons.user)
             keyboardType = .default
             isSecureTextEntry = false
-            placeholder = StringConstants.Login.nameTextfieldPlaceHolder
+            placeholder = StringConstants.Login.namePlaceholder
             autocapitalizationType = .words
         case .userName:
-            iconImageView.image = UIImage(systemName: AppStyle.AppImages.userCard)
+            iconImageView.image = UIImage(systemName: AppStyleConstants.Icons.userCard)
             keyboardType = .default
             isSecureTextEntry = false
-            placeholder = StringConstants.Login.userNameTextfieldPlaceHolder
+            placeholder = StringConstants.Login.usernamePlaceholder
             autocapitalizationType = .none
         }
 
@@ -97,7 +97,7 @@ class CustomTextField: UITextField {
     }
 
     func setupVisibilityButton() {
-        let imageName = isSecureTextEntry ? AppStyle.AppImages.eyeSlash : AppStyle.AppImages.eyeIcon
+        let imageName = isSecureTextEntry ? AppStyleConstants.Icons.eyeSlash : AppStyleConstants.Icons.eye
         let image = UIImage(systemName: imageName)
         visibilityToggleButton.setImage(image, for: .normal)
         visibilityToggleButton.addTarget(self, action: #selector(toggleVisibility), for: .touchUpInside)
@@ -113,7 +113,7 @@ class CustomTextField: UITextField {
 extension CustomTextField {
     @objc private func toggleVisibility() {
         isSecureTextEntry.toggle()
-        let imageName = isSecureTextEntry ? AppStyle.AppImages.eyeSlash : AppStyle.AppImages.eyeIcon
+        let imageName = isSecureTextEntry ? AppStyleConstants.Icons.eyeSlash : AppStyleConstants.Icons.eye
         let image = UIImage(systemName: imageName)
         visibilityToggleButton.setImage(image, for: .normal)
     }

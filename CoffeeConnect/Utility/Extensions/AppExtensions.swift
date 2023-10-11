@@ -10,10 +10,10 @@ import UIKit
 
 //MARK: - AlertController
 extension UIViewController {
-    func showAlert(title: String, message: String, buttonTitle: String = StringConstants.AppString.okString, completion: (() -> Void)? = nil) {
+    func showAlert(title: String, message: String, buttonTitle: String = StringConstants.General.ok, completion: (() -> Void)? = nil) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertController.view.tintColor = AppColors.ambassadorBlue.color
-        alertController.view.layer.cornerRadius = AppStyle.defaultCornerRadius
+        alertController.view.layer.cornerRadius = AppStyleConstants.cornerRadius
         let okAction = UIAlertAction(title: buttonTitle, style: .default) { _ in
             completion?()
         }

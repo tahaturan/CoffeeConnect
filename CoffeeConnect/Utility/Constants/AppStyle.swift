@@ -7,20 +7,27 @@
 
 import Foundation
 import UIKit
-struct AppStyle {
+import UIKit
+
+enum AppStyleConstants {
+    // Genel Uygulama Stil Sabitleri
     static let iconSize: CGFloat = 24
-    static let defaultPadding: CGFloat = 10
-    static let defaultCornerRadius: CGFloat = 15
-    static let registerProfileImageSize: CGFloat = 110
+    static let padding: CGFloat = 10
+    static let cornerRadius: CGFloat = 15
+    static let profileImageSize: CGFloat = 110
     
-    struct AppImages {
-        static let loginRegisterPageLogo: String = "loginLogo"
-        static let emailIcon: String = "envelope"
-        static let lockIcon: String = "lock"
-        static let eyeIcon: String = "eye"
-        static let eyeSlash: String = "eye.slash"
-        static let user: String = "person"
-        static let defaulProfileAvatar: String = "defaultProfileImage"
-        static let userCard: String = "person.text.rectangle"
+    // Uygulamada Kullanılan İkon Adları
+    enum Icons {
+        static let loginLogo = "loginLogo"
+        static let email = "envelope"
+        static let lock = "lock"
+        static let eye = "eye"
+        static let eyeSlash = "eye.slash"
+        static let user = "person"
+        static let defaultAvatar = "defaultProfileImage"
+        static let userCard = "person.text.rectangle"
+        static let cart = "cart.fill"
+        static let heart = "heart.fill"
     }
 }
+

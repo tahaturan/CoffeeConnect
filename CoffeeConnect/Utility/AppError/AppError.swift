@@ -20,19 +20,19 @@ enum AppError: Error {
     var localizedDescription: String {
         switch self {
         case .unknown:
-            return StringConstants.ErrorMessageString.unknownString
+            return StringConstants.Errors.unknown
         case .authenticationFailed:
-            return StringConstants.ErrorMessageString.authenticationFailed
+            return StringConstants.Errors.authenticationFailed
         case .profileImageUploadFailed:
-            return StringConstants.ErrorMessageString.profileImageUploadFailedString
+            return StringConstants.Errors.imageUploadFailed
         case .profileImageURLNotFound:
-            return StringConstants.ErrorMessageString.profileImageURLNotFound
+            return StringConstants.Errors.imageURLNotFound
         case .userDocumentNotFound:
-            return StringConstants.ErrorMessageString.userDocumentNotFound
+            return StringConstants.Errors.userDocumentNotFound
         case .dataEncodingFailed:
-            return StringConstants.ErrorMessageString.dataEncodingFailed
+            return StringConstants.Errors.dataEncodingFailed
         case .dataDecodingFailed:
-            return StringConstants.ErrorMessageString.dataDecodingFailed
+            return StringConstants.Errors.dataDecodingFailed
         case .custom(let message):
             return message
         }

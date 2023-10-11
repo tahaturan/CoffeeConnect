@@ -9,7 +9,7 @@ import UIKit
 
 class RegisterViewController: UIViewController {
     //MARK: - Properties
-    private let logoImageView: LoginLogoImageView = LoginLogoImageView(imageName: AppStyle.AppImages.loginRegisterPageLogo)
+    private let logoImageView: LoginLogoImageView = LoginLogoImageView(imageName: AppStyleConstants.Icons.loginLogo)
     private let photoPickerManager = PhotoPickerManager()
     private let profileImageView: UIImageView = {
        let imageView = UIImageView()
@@ -17,8 +17,8 @@ class RegisterViewController: UIViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
-        imageView.layer.cornerRadius = AppStyle.registerProfileImageSize / 2
-        imageView.image = UIImage(named: AppStyle.AppImages.defaulProfileAvatar)
+        imageView.layer.cornerRadius = AppStyleConstants.profileImageSize / 2
+        imageView.image = UIImage(named: AppStyleConstants.Icons.defaultAvatar)
         imageView.tintColor = AppColors.ambassadorBlue.color
         return imageView
     }()
@@ -27,7 +27,7 @@ class RegisterViewController: UIViewController {
        button.setImage(UIImage(systemName: "photo.badge.plus"), for: .normal)
        button.addTarget(self, action: #selector(handleSelectProfileImageView), for: .touchUpInside)
        button.tintColor = AppColors.ambassadorBlue.color
-       button.layer.cornerRadius = AppStyle.iconSize / 2
+       button.layer.cornerRadius = AppStyleConstants.iconSize / 2
        var configration = UIButton.Configuration.plain()
        configration.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 20)
        button.configuration = configration
@@ -37,7 +37,7 @@ class RegisterViewController: UIViewController {
     private let userNameTextField: CustomTextField = CustomTextField()
     private let emailTextField: CustomTextField = CustomTextField()
     private let passwordTextField: CustomTextField = CustomTextField()
-    private let registerButton: CustomButton = CustomButton(title: StringConstants.Login.registerButtonTitle)
+    private let registerButton: CustomButton = CustomButton(title: StringConstants.Login.registerButton)
     private let progressIndicator: CustomProgressIndicator = CustomProgressIndicator()
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -76,11 +76,11 @@ extension RegisterViewController {
         profileImageView.snp.makeConstraints { make in
             make.top.equalTo(logoImageView.snp.bottom).offset(-70)
             make.centerX.equalToSuperview()
-            make.height.width.equalTo(AppStyle.registerProfileImageSize)
+            make.height.width.equalTo(AppStyleConstants.profileImageSize)
         }
         editProfileImageButton.snp.makeConstraints { make in
             make.bottom.right.equalTo(profileImageView)
-            make.width.height.equalTo(AppStyle.iconSize)
+            make.width.height.equalTo(AppStyleConstants.iconSize)
         }
         nameTextField.snp.makeConstraints { make in
             make.top.equalTo(profileImageView.snp.bottom).offset(20)
@@ -118,22 +118,22 @@ extension RegisterViewController {
               let name = nameTextField.text,
               let username = userNameTextField.text,
               let profileImage = profileImageView.image else {
-            showAlert(title: StringConstants.AppString.errorString, message: StringConstants.AppString.errorEmptyField)
+            showAlert(title: StringConstants.General.error, message: StringConstants.General.fillFields)
             return
         }
         if email.isEmpty || password.isEmpty || name.isEmpty || username.isEmpty {
             progressIndicator.hide()
-            showAlert(title: StringConstants.AppString.errorString, message: StringConstants.AppString.errorEmptyField)
+            showAlert(title: StringConstants.General.error, message: StringConstants.General.fillFields)
         } else {
             FirebaseService.shared.signUp(email: email, password: password, name: name, username: username, profileImage: profileImage) { result in
                 switch result {
                 case .success:
-                    self.showAlert(title: StringConstants.AppString.successString, message: StringConstants.AppString.registerSuccessString) {
+                    self.showAlert(title: StringConstants.General.success, message: StringConstants.General.registerSuccess) {
                         self.navigationController?.popViewController(animated: true)
                     }
 
                 case .failure(_):
-                    self.showAlert(title: StringConstants.AppString.errorString, message: StringConstants.ErrorMessageString.authenticationFailed)
+                    self.showAlert(title: StringConstants.General.error, message: StringConstants.Errors.authenticationFailed)
                 }
                 self.progressIndicator.hide()
             }

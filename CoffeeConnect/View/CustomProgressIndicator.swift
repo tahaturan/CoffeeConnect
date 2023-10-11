@@ -20,7 +20,7 @@ class CustomProgressIndicator: UIView {
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = AppColors.ambassadorBlue.color.withAlphaComponent(0.7)
-        view.layer.cornerRadius = AppStyle.defaultCornerRadius
+        view.layer.cornerRadius = AppStyleConstants.cornerRadius
         return view
     }()
     

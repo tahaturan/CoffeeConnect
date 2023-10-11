@@ -14,7 +14,7 @@ class CustomButton: UIButton {
         self.setTitle(title, for: .normal)
         self.backgroundColor = color
         self.setTitleColor(titleColor, for: .normal)
-        self.layer.cornerRadius = AppStyle.defaultCornerRadius
+        self.layer.cornerRadius = AppStyleConstants.cornerRadius
         self.titleLabel?.font = UIFont.systemFont(ofSize: 16)
     }
     
