@@ -45,7 +45,7 @@ class FirebaseService {
     
     // Profil fotoğrafını yüklemek için
     private func uploadProfileImage(user: User, image: UIImage, completion: @escaping (Result<String, Error>) -> Void) {
-        let storageRef = Storage.storage().reference().child("profile_images").child("\(user.uid).jpg")
+        let storageRef = Storage.storage().reference().child(FirebaseConstants.profileImagesFolder).child("\(user.uid).jpg")
         if let uploadData = image.jpegData(compressionQuality: 0.75) {
             storageRef.putData(uploadData, metadata: nil) { _, error in
                 if let error = error {
@@ -74,7 +74,7 @@ class FirebaseService {
     private func saveUserToFirestore(user: User, name: String, username: String, email: String, profileImageUrl: String, completion: @escaping (Result<User, Error>) -> Void) {
         let newUser = UserModel(userID: user.uid, name: name, username: username, email: email, balance: 0.0, profileImageURL: profileImageUrl, postIDs: [], shoppingCart: ShoppingCartModel(userID: user.uid, items: []), wishlist: [])
         
-        let dbRef = Firestore.firestore().collection("users").document(user.uid)
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(user.uid)
         do {
             let userData = try newUser.toDictionary()
             dbRef.setData(userData) { error in
@@ -110,7 +110,7 @@ class FirebaseService {
     
     // Kullanıcı bilgilerini Firestore'dan almak için
     private func fetchUserFromFirestore(user: User, completion: @escaping (Result<User, Error>) -> Void) {
-        let dbRef = Firestore.firestore().collection("users").document(user.uid)
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(user.uid)
         dbRef.getDocument { document, error in
             if let error = error {
                 completion(.failure(AppError.custom(error.localizedDescription)))
