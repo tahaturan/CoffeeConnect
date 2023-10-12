@@ -31,6 +31,16 @@
         }
       }
     },
+    "Categories" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kategoriler"
+          }
+        }
+      }
+    },
     "Data decoding failed." : {
       "localizations" : {
         "tr" : {
@@ -87,6 +97,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Hata"
+          }
+        }
+      }
+    },
+    "Filter Coffee" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtre Kahve"
           }
         }
       }

@@ -27,6 +27,11 @@ struct StringConstants {
         static let success = NSLocalizedString("Success", comment: "")
         static let registerSuccess = NSLocalizedString("Register Success", comment: "")
         static let appName = "CoffeeConnect"
+        static let categories = NSLocalizedString("Categories", comment: "")
+    }
+    enum HomeView{
+        static let topCategories = ["Espresso", "Cappuccino", "Latte"]
+        static let bottomCategories = ["Mocha", "Iced Coffee", NSLocalizedString("Filter Coffee", comment: "")]
     }
 
     // Hata Mesajları

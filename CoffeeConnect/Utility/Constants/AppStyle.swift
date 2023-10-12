@@ -15,6 +15,7 @@ enum AppStyleConstants {
     static let padding: CGFloat = 10
     static let cornerRadius: CGFloat = 15
     static let profileImageSize: CGFloat = 110
+    static let categoryButtonHeight: CGFloat = 50
     
     // Uygulamada Kullanılan İkon Adları
     enum Icons {
