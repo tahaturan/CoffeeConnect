@@ -7,16 +7,21 @@
 
 import SnapKit
 import UIKit
+import FirebaseAuth
+import Kingfisher
 
 class HomeViewController: UIViewController {
     // MARK: - Properties
-
-    
-
-    // MARK: - UI Elements
-
+    private let userProfileImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.masksToBounds = true
+        imageView.layer.borderWidth = 2
+        imageView.layer.borderColor = UIColor.white.cgColor
+        return imageView
+    }()
     // Favori ve Sepet butunlari
-    private lazy var favoriteButton: UIButton = createNavigationBarButton(with: AppStyleConstants.Icons.heart, action: #selector(didTapFavorite))
+     lazy var favoriteButton: UIButton = createNavigationBarButton(with: AppStyleConstants.Icons.heart, action: #selector(didTapFavorite))
     private lazy var basketButton: UIButton = createNavigationBarButton(with: AppStyleConstants.Icons.cart, action: #selector(didTapBasket))
 
     private lazy var navbarFavoriteButton = UIBarButtonItem(customView: favoriteButton)
@@ -47,7 +52,10 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupLayout()
+        //FirebaseService.shared.signOut()
+
     }
+
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         let maskPath = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 30, height: 30))
@@ -63,20 +71,36 @@ extension HomeViewController {
     private func setupUI() {
         view.backgroundColor = .white
         setupNavigationBar()
+        view.addSubview(userProfileImageView)
+        loadUserProfileImage()
         view.addSubview(bacgroungView)
         bacgroungView.addSubview(labelText)
         setupCategoryButtons()
     }
     //Ekran icin gorunumlerin konumlandirilmasi
     private func setupLayout() {
+        userProfileImageView.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.leading.equalTo(view.snp.leading).offset(5)
+            make.height.width.equalTo(50)
+        }
         bacgroungView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
+            make.top.equalTo(userProfileImageView.snp.bottom).offset(30)
             make.left.right.equalTo(view)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         labelText.snp.makeConstraints { make in
             make.top.equalTo(bacgroungView).offset(30)
             make.leading.equalTo(bacgroungView).offset(20)
+        }
+    }
+    private func loadUserProfileImage() {
+        let placeholderImage = UIImage(named: AppStyleConstants.Icons.defaultAvatar)
+        if let user = UserManager.shared.currentUser {
+            print(user.profileImageURL)
+            ImageLoader.shared.loadImage(into: userProfileImageView, from: "https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png", placeholder: placeholderImage, cornerRadius: 25)
+        }else{
+            userProfileImageView.image = placeholderImage
         }
     }
     // NavBar ozellikleri
