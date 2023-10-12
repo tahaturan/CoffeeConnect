@@ -17,7 +17,7 @@ class FirebaseService {
     
     // MARK: - User SignUp
     
-    func signUp(email: String, password: String, name: String, username: String, profileImage: UIImage, completion: @escaping (Result<User, Error>) -> Void) {
+    func signUp(email: String, password: String, name: String, username: String, profileImage: UIImage, completion: @escaping (Result<UserModel, Error>) -> Void) {
         // 1. Kullanıcıyı Firebase Authentication ile kaydediyoruz.
         Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
             if let error = error {
@@ -35,7 +35,8 @@ class FirebaseService {
                 switch result {
                 case .success(let profileImageUrl):
                     // 3. Kullanıcının bilgilerini Firestore'a kaydediyoruz.
-                    self.saveUserToFirestore(user: user, name: name, username: username, email: email, profileImageUrl: profileImageUrl, completion: completion)
+                    let newUser = UserModel(userID: user.uid, name: name, username: username, email: email, balance: 0.0, profileImageURL: profileImageUrl, postIDs: [], shoppingCart: ShoppingCartModel(userID: user.uid, items: []), wishlist: [])
+                    self.saveUserToFirestore(user: newUser, completion: completion)
                 case .failure(let error):
                     completion(.failure(error))
                 }
@@ -71,12 +72,11 @@ class FirebaseService {
     }
     
     // Kullanıcı bilgilerini Firestore'a kaydetmek için
-    private func saveUserToFirestore(user: User, name: String, username: String, email: String, profileImageUrl: String, completion: @escaping (Result<User, Error>) -> Void) {
-        let newUser = UserModel(userID: user.uid, name: name, username: username, email: email, balance: 0.0, profileImageURL: profileImageUrl, postIDs: [], shoppingCart: ShoppingCartModel(userID: user.uid, items: []), wishlist: [])
-        
-        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(user.uid)
+    private func saveUserToFirestore(user: UserModel, completion: @escaping (Result<UserModel, Error>) -> Void) {
+      
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(user.userID)
         do {
-            let userData = try newUser.toDictionary()
+            let userData = try user.toDictionary()
             dbRef.setData(userData) { error in
                 if let error = error {
                     completion(.failure(AppError.custom(error.localizedDescription)))
@@ -91,7 +91,7 @@ class FirebaseService {
     
     // MARK: - User SignIn
     
-    func signIn(email: String, password: String, completion: @escaping (Result<User, Error>) -> Void) {
+    func signIn(email: String, password: String, completion: @escaping (Result<UserModel, Error>) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if let error = error {
                 completion(.failure(AppError.custom(error.localizedDescription)))
@@ -109,7 +109,7 @@ class FirebaseService {
     }
     
     // Kullanıcı bilgilerini Firestore'dan almak için
-    private func fetchUserFromFirestore(user: User, completion: @escaping (Result<User, Error>) -> Void) {
+     func fetchUserFromFirestore(user: User, completion: @escaping (Result<UserModel, Error>) -> Void) {
         let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(user.uid)
         dbRef.getDocument { document, error in
             if let error = error {
@@ -122,7 +122,8 @@ class FirebaseService {
                     let jsonData = try JSONSerialization.data(withJSONObject: userDocument.data()!)
                     let loggedInUser = try JSONDecoder().decode(UserModel.self, from: jsonData)
                     UserManager.shared.updateUser(loggedInUser)
-                    completion(.success(user))
+                    print("Current user at [FireBaseService]: \(loggedInUser)")
+                    completion(.success(loggedInUser))
                 } catch {
                     completion(.failure(AppError.dataDecodingFailed))
                 }
