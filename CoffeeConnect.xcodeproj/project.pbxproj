@@ -14,6 +14,8 @@
 		5FBC64452AD8AD7100EC894E /* LaunchScreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FBC64442AD8AD7100EC894E /* LaunchScreen.json */; };
 		5FBC64472AD8ADAE00EC894E /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC64462AD8ADAE00EC894E /* SplashViewController.swift */; };
 		5FBC644A2AD8BCFE00EC894E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBC64492AD8BCFE00EC894E /* Kingfisher */; };
+		5FBC644D2AD8BDD000EC894E /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBC644C2AD8BDD000EC894E /* SDWebImage */; };
+		5FBC644F2AD8BDD000EC894E /* SDWebImageMapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBC644E2AD8BDD000EC894E /* SDWebImageMapKit */; };
 		5FBD49CE2AD295B100F515B8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49CD2AD295B100F515B8 /* AppDelegate.swift */; };
 		5FBD49D02AD295B100F515B8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49CF2AD295B100F515B8 /* SceneDelegate.swift */; };
 		5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49D12AD295B100F515B8 /* LoginViewController.swift */; };
@@ -97,6 +99,8 @@
 				5FBD49E82AD32B8F00F515B8 /* SnapKit-Dynamic in Frameworks */,
 				5FBC644A2AD8BCFE00EC894E /* Kingfisher in Frameworks */,
 				5FD0AA362AD52133001EEE36 /* FirebaseFirestore in Frameworks */,
+				5FBC644F2AD8BDD000EC894E /* SDWebImageMapKit in Frameworks */,
+				5FBC644D2AD8BDD000EC894E /* SDWebImage in Frameworks */,
 				5FEB1DD02AD403990033F164 /* IQKeyboardManagerSwift in Frameworks */,
 				5FBC64412AD8A98700EC894E /* Lottie in Frameworks */,
 			);
@@ -314,6 +318,8 @@
 				5FD0AA352AD52133001EEE36 /* FirebaseFirestore */,
 				5FBC64402AD8A98700EC894E /* Lottie */,
 				5FBC64492AD8BCFE00EC894E /* Kingfisher */,
+				5FBC644C2AD8BDD000EC894E /* SDWebImage */,
+				5FBC644E2AD8BDD000EC894E /* SDWebImageMapKit */,
 			);
 			productName = CoffeeConnect;
 			productReference = 5FBD49CA2AD295B100F515B8 /* CoffeeConnect.app */;
@@ -350,6 +356,7 @@
 				5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5FBC643F2AD8A98700EC894E /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				5FBC64482AD8BCFE00EC894E /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				5FBC644B2AD8BDCF00EC894E /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 5FBD49CB2AD295B100F515B8 /* Products */;
 			projectDirPath = "";
@@ -645,6 +652,14 @@
 				minimumVersion = 7.9.1;
 			};
 		};
+		5FBC644B2AD8BDCF00EC894E /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.18.3;
+			};
+		};
 		5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -681,6 +696,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5FBC64482AD8BCFE00EC894E /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		5FBC644C2AD8BDD000EC894E /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FBC644B2AD8BDCF00EC894E /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		5FBC644E2AD8BDD000EC894E /* SDWebImageMapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FBC644B2AD8BDCF00EC894E /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImageMapKit;
 		};
 		5FBD49E52AD32B8F00F515B8 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;

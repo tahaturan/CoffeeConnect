@@ -8,7 +8,7 @@
 import SnapKit
 import UIKit
 import FirebaseAuth
-import Kingfisher
+import SDWebImage
 
 class HomeViewController: UIViewController {
     // MARK: - Properties
@@ -17,7 +17,8 @@ class HomeViewController: UIViewController {
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 2
-        imageView.layer.borderColor = UIColor.white.cgColor
+        imageView.layer.borderColor = AppColors.vanillaMocha.color.cgColor
+        imageView.layer.cornerRadius = AppStyleConstants.homeUserImageSize / 2
         return imageView
     }()
     // Favori ve Sepet butunlari
@@ -80,12 +81,12 @@ extension HomeViewController {
     //Ekran icin gorunumlerin konumlandirilmasi
     private func setupLayout() {
         userProfileImageView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(5)
             make.leading.equalTo(view.snp.leading).offset(5)
-            make.height.width.equalTo(50)
+            make.height.width.equalTo(AppStyleConstants.homeUserImageSize)
         }
         bacgroungView.snp.makeConstraints { make in
-            make.top.equalTo(userProfileImageView.snp.bottom).offset(30)
+            make.top.equalTo(userProfileImageView.snp.bottom).offset(10)
             make.left.right.equalTo(view)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
@@ -97,11 +98,9 @@ extension HomeViewController {
     private func loadUserProfileImage() {
         let placeholderImage = UIImage(named: AppStyleConstants.Icons.defaultAvatar)
         if let user = UserManager.shared.currentUser {
-            print(user.profileImageURL)
-            ImageLoader.shared.loadImage(into: userProfileImageView, from: "https://www.gstatic.com/mobilesdk/160503_mobilesdk/logo/2x/firebase_28dp.png", placeholder: placeholderImage, cornerRadius: 25)
-        }else{
-            userProfileImageView.image = placeholderImage
+            ImageLoader.shared.loadImage(into: userProfileImageView, from: user.profileImageURL)
         }
+        
     }
     // NavBar ozellikleri
     private func setupNavigationBar() {

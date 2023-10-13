@@ -6,37 +6,21 @@
 //
 
 import UIKit
-import Kingfisher
+import SDWebImage
 
 class ImageLoader {
-
+    
     static let shared = ImageLoader()
-
+    
     private init() {}
-
-    func loadImage(into imageView: UIImageView, from url: String, placeholder: UIImage? = nil, cornerRadius: CGFloat? = nil) {
-        guard let url = URL(string: url) else {
-            imageView.image = placeholder
-            return
+    
+    func loadImage(into imageView: UIImageView, from url: String, placeholder: UIImage? = nil, completion: ((UIImage?) -> Void)? = nil) {
+        imageView.sd_setImage(with: URL(string: url), placeholderImage: placeholder, options: .continueInBackground) { (image, error, cacheType, imageURL) in
+            if let error = error {
+                print("Resim yüklenirken hata: \(error.localizedDescription)")
+            }
+            completion?(image)
         }
-
-        var options: [KingfisherOptionsInfoItem] = []
-
-        if let radius = cornerRadius {
-            let processor = DownsamplingImageProcessor(size: imageView.bounds.size) |> RoundCornerImageProcessor(cornerRadius: radius)
-            options.append(.processor(processor))
-        }
-
-        options.append(.scaleFactor(UIScreen.main.scale))
-        options.append(.transition(.fade(1)))
-        options.append(.cacheOriginalImage)
-
-        imageView.kf.indicatorType = .activity
-        imageView.kf.setImage(
-            with: url,
-            placeholder: placeholder,
-            options: options
-        )
     }
 }
 
