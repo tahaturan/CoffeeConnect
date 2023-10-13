@@ -12,6 +12,7 @@ import SDWebImage
 
 class HomeViewController: UIViewController {
     // MARK: - Properties
+    private var didSetupMask = false
     private let userProfileImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
@@ -21,14 +22,9 @@ class HomeViewController: UIViewController {
         imageView.layer.cornerRadius = AppStyleConstants.homeUserImageSize / 2
         return imageView
     }()
-    private let welcomeLabel: UILabel = {
-        let label = UILabel()
-        label.font = UIFont.boldSystemFont(ofSize: 15)
-        label.text = "deneme"
-        return label
-    }()
+    private lazy var welcomeLabel: UILabel = createLabel()
     // Favori ve Sepet butunlari
-     lazy var favoriteButton: UIButton = createNavigationBarButton(with: AppStyleConstants.Icons.heart, action: #selector(didTapFavorite))
+    private lazy var favoriteButton: UIButton = createNavigationBarButton(with: AppStyleConstants.Icons.heart, action: #selector(didTapFavorite))
     private lazy var basketButton: UIButton = createNavigationBarButton(with: AppStyleConstants.Icons.cart, action: #selector(didTapBasket))
 
     private lazy var navbarFavoriteButton = UIBarButtonItem(customView: favoriteButton)
@@ -46,12 +42,7 @@ class HomeViewController: UIViewController {
     }()
 
     // Kategoriler basligi
-    private let categoryLabel: UILabel = {
-        let label = UILabel()
-        label.text = StringConstants.General.categories
-        label.font = UIFont.boldSystemFont(ofSize: 25)
-        return label
-    }()
+    private lazy var categoryLabel: UILabel = createLabel(text: StringConstants.General.categories, font: UIFont.boldSystemFont(ofSize: 25))
 
     // MARK: - LifeCycle
 
@@ -65,10 +56,13 @@ class HomeViewController: UIViewController {
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let maskPath = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 30, height: 30))
-        let shape = CAShapeLayer()
-        shape.path = maskPath.cgPath
-        bacgroungView.layer.mask = shape
+        if !didSetupMask {
+               let maskPath = UIBezierPath(roundedRect: view.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 30, height: 30))
+               let shape = CAShapeLayer()
+               shape.path = maskPath.cgPath
+               bacgroungView.layer.mask = shape
+               didSetupMask = true
+           }
     }
 }
 
@@ -103,7 +97,7 @@ extension HomeViewController {
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         categoryLabel.snp.makeConstraints { make in
-            make.top.equalTo(bacgroungView).offset(30)
+            make.top.equalTo(bacgroungView).offset(10)
             make.leading.equalTo(bacgroungView).offset(20)
         }
     }
@@ -157,21 +151,25 @@ extension HomeViewController {
     }
 }
 
+
 // MARK: - Selector
 
 extension HomeViewController {
     // Favori butonuna tıklandığında yapılacak işlemler
     @objc private func didTapFavorite() {
+        // TODO: Implement this function
     }
 
     // Sepet butonuna tıklandığında yapılacak işlemler
     @objc private func didTapBasket() {
+        // TODO: Implement this function
     }
 
     // kategori butonlarina tıklandığında yapılacak işlemler
     @objc private func didTapCategoryButton(_ sender: UIButton) {
         if let categoryTitle = sender.titleLabel?.text {
             print(categoryTitle)
+            // TODO: Implement this function
         }
     }
 }
@@ -186,6 +184,13 @@ extension HomeViewController {
         button.tintColor = .black
         button.addTarget(self, action: action, for: .touchUpInside)
         return button
+    }
+    //Label
+    private func createLabel(text: String? = nil, font: UIFont? = nil) -> UILabel {
+        let label = UILabel()
+        label.text = text
+        label.font = font ?? UIFont.systemFont(ofSize: 20)
+        return label
     }
 }
 #Preview(traits: .defaultLayout, body: {
