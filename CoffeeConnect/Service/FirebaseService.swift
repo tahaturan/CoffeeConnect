@@ -122,7 +122,6 @@ class FirebaseService {
                     let jsonData = try JSONSerialization.data(withJSONObject: userDocument.data()!)
                     let loggedInUser = try JSONDecoder().decode(UserModel.self, from: jsonData)
                     UserManager.shared.updateUser(loggedInUser)
-                    print("Current user at [FireBaseService]: \(loggedInUser)")
                     completion(.success(loggedInUser))
                 } catch {
                     completion(.failure(AppError.dataDecodingFailed))

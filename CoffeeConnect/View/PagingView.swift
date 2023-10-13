@@ -101,15 +101,13 @@ class PagingView: UIView, UIScrollViewDelegate {
             button.tag = index
             button.isUserInteractionEnabled = true
             button.isEnabled = true
-            button.backgroundColor = .red
             button.isExclusiveTouch = true
             pageView.addSubview(button)
             
             button.snp.makeConstraints { make in
                 make.top.equalTo(subtitleLabel.snp.bottom).offset(20)
                 make.leading.equalTo(pageView.snp.leading).offset(20)
-                make.width.equalTo(100)
-                make.height.equalTo(40)
+
             }
             
             previousPageView = pageView

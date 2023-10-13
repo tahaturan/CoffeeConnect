@@ -26,7 +26,6 @@ class SplashViewController: UIViewController {
         }
         fetchCurrentUser()
         animationView.play { (finished) in
-            print("Animasyon tamamlandı mı?: \(finished)")
             if Auth.auth().currentUser != nil {
                 let mainVC = HomeViewController()
                 self.navigationController?.setViewControllers([mainVC], animated: true)
