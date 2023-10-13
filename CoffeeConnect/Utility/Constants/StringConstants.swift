@@ -32,6 +32,7 @@ struct StringConstants {
     enum HomeView{
         static let topCategories = ["Espresso", "Cappuccino", "Latte"]
         static let bottomCategories = ["Mocha", "Iced Coffee", NSLocalizedString("Filter Coffee", comment: "")]
+        static let welcome = NSLocalizedString("Welcome", comment: "")
     }
 
     // Hata Mesajları

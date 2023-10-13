@@ -21,6 +21,12 @@ class HomeViewController: UIViewController {
         imageView.layer.cornerRadius = AppStyleConstants.homeUserImageSize / 2
         return imageView
     }()
+    private let welcomeLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.boldSystemFont(ofSize: 15)
+        label.text = "deneme"
+        return label
+    }()
     // Favori ve Sepet butunlari
      lazy var favoriteButton: UIButton = createNavigationBarButton(with: AppStyleConstants.Icons.heart, action: #selector(didTapFavorite))
     private lazy var basketButton: UIButton = createNavigationBarButton(with: AppStyleConstants.Icons.cart, action: #selector(didTapBasket))
@@ -40,7 +46,7 @@ class HomeViewController: UIViewController {
     }()
 
     // Kategoriler basligi
-    private let labelText: UILabel = {
+    private let categoryLabel: UILabel = {
         let label = UILabel()
         label.text = StringConstants.General.categories
         label.font = UIFont.boldSystemFont(ofSize: 25)
@@ -74,8 +80,9 @@ extension HomeViewController {
         setupNavigationBar()
         view.addSubview(userProfileImageView)
         loadUserProfileImage()
+        view.addSubview(welcomeLabel)
         view.addSubview(bacgroungView)
-        bacgroungView.addSubview(labelText)
+        bacgroungView.addSubview(categoryLabel)
         setupCategoryButtons()
     }
     //Ekran icin gorunumlerin konumlandirilmasi
@@ -85,20 +92,25 @@ extension HomeViewController {
             make.leading.equalTo(view.snp.leading).offset(5)
             make.height.width.equalTo(AppStyleConstants.homeUserImageSize)
         }
+        welcomeLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(userProfileImageView.snp.centerY)
+            make.left.equalTo(userProfileImageView.snp.right).offset(10)
+            
+        }
         bacgroungView.snp.makeConstraints { make in
             make.top.equalTo(userProfileImageView.snp.bottom).offset(10)
             make.left.right.equalTo(view)
             make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
-        labelText.snp.makeConstraints { make in
+        categoryLabel.snp.makeConstraints { make in
             make.top.equalTo(bacgroungView).offset(30)
             make.leading.equalTo(bacgroungView).offset(20)
         }
     }
     private func loadUserProfileImage() {
-        let placeholderImage = UIImage(named: AppStyleConstants.Icons.defaultAvatar)
         if let user = UserManager.shared.currentUser {
             ImageLoader.shared.loadImage(into: userProfileImageView, from: user.profileImageURL)
+            welcomeLabel.text = "\(StringConstants.HomeView.welcome) \(user.name)"
         }
         
     }
@@ -132,7 +144,7 @@ extension HomeViewController {
             button.snp.makeConstraints { make in
                 make.width.equalTo(buttonWidth)
                 make.height.equalTo(AppStyleConstants.categoryButtonHeight)
-                make.top.equalTo(labelText.snp.bottom).offset(topOffset)
+                make.top.equalTo(categoryLabel.snp.bottom).offset(topOffset)
 
                 if let lastBtn = lastButton {
                     make.leading.equalTo(lastBtn.snp.trailing).offset(10)
@@ -176,3 +188,6 @@ extension HomeViewController {
         return button
     }
 }
+#Preview(traits: .defaultLayout, body: {
+    HomeViewController()
+})

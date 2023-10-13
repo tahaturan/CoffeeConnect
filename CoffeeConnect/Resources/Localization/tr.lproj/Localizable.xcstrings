@@ -210,6 +210,16 @@
           }
         }
       }
+    },
+    "Welcome" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hoşgeldin"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"
