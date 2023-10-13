@@ -37,13 +37,24 @@ class HomeViewController: UIViewController {
     // Ekran arkaplan gorunumu
     private let bacgroungView: UIView = {
         let view = UIView()
-        view.backgroundColor = .darkGray.withAlphaComponent(0.1)
+        view.backgroundColor = AppColors.backView.color
         return view
     }()
 
     // Kategoriler basligi
     private lazy var categoryLabel: UILabel = createLabel(text: StringConstants.General.categories, font: UIFont.boldSystemFont(ofSize: 25))
-
+    let specialModels = [
+        SpecialModel(title: "Special offer", subtitle: "Discover our exclusive coffee offers now", buttonText: "See more ->"),
+        SpecialModel(title: "Başlık 2", subtitle: "Alt Başlık 2", buttonText: "Buton 2"),
+        SpecialModel(title: "Başlık 3", subtitle: "Alt Başlık 3", buttonText: "Buton 3")
+    ]
+    private lazy var  pagingView: PagingView = {
+       let view = PagingView(models: specialModels)
+        view.isUserInteractionEnabled = true
+        return view
+    }()
+   
+    
     // MARK: - LifeCycle
 
     override func viewDidLoad() {
@@ -51,7 +62,6 @@ class HomeViewController: UIViewController {
         setupUI()
         setupLayout()
         //FirebaseService.shared.signOut()
-
     }
 
     override func viewDidLayoutSubviews() {
@@ -64,6 +74,9 @@ class HomeViewController: UIViewController {
                didSetupMask = true
            }
     }
+ 
+
+
 }
 
 // MARK: - Helper
@@ -78,6 +91,7 @@ extension HomeViewController {
         view.addSubview(bacgroungView)
         bacgroungView.addSubview(categoryLabel)
         setupCategoryButtons()
+        bacgroungView.addSubview(pagingView)
     }
     //Ekran icin gorunumlerin konumlandirilmasi
     private func setupLayout() {
@@ -99,6 +113,11 @@ extension HomeViewController {
         categoryLabel.snp.makeConstraints { make in
             make.top.equalTo(bacgroungView).offset(10)
             make.leading.equalTo(bacgroungView).offset(20)
+        }
+        pagingView.snp.makeConstraints { make in
+            make.top.equalTo(categoryLabel.snp.bottom).offset(180)
+            make.left.right.equalToSuperview().inset(20)
+            make.height.equalTo(160)
         }
     }
     private func loadUserProfileImage() {

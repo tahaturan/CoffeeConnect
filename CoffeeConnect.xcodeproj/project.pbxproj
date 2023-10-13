@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F64E19A2AD987140029A590 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64E1992AD987140029A590 /* PagingView.swift */; };
 		5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */; };
 		5FB5106B2AD517A0002AF588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */; };
 		5FBC643B2AD8771900EC894E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC643A2AD8771900EC894E /* ImageLoader.swift */; };
@@ -52,6 +53,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F64E1992AD987140029A590 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
 		5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FBC643A2AD8771900EC894E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
@@ -204,6 +206,7 @@
 				5FEB1DBC2AD33F7F0033F164 /* CustomButton.swift */,
 				5FEB1DCA2AD3DC720033F164 /* LoginLogoImageView.swift */,
 				5FD0AA3A2AD532B8001EEE36 /* CustomProgressIndicator.swift */,
+				5F64E1992AD987140029A590 /* PagingView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -388,6 +391,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FD0AA2C2AD51F1D001EEE36 /* ShoppingCartItemModel.swift in Sources */,
+				5F64E19A2AD987140029A590 /* PagingView.swift in Sources */,
 				5FEB1DC92AD3DB6F0033F164 /* RegisterViewController.swift in Sources */,
 				5FD0AA282AD51E9D001EEE36 /* WishlistItemModel.swift in Sources */,
 				5FEB1DCB2AD3DC720033F164 /* LoginLogoImageView.swift in Sources */,
