@@ -111,6 +111,16 @@
         }
       }
     },
+    "Featured Products" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Özel Ürünler"
+          }
+        }
+      }
+    },
     "Filter Coffee" : {
       "localizations" : {
         "tr" : {
@@ -247,6 +257,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kullanıcı Adı"
+          }
+        }
+      }
+    },
+    "View all" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tümünü Göster"
           }
         }
       }

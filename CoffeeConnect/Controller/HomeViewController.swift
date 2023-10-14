@@ -56,6 +56,9 @@ class HomeViewController: UIViewController {
         view.isUserInteractionEnabled = true
         return view
     }()
+    private lazy var featuredProductLabel: UILabel = createLabel(text: StringConstants.HomeView.featuredProduct, font: UIFont.boldSystemFont(ofSize: 20))
+    private lazy var allCategoriesButton: UIButton = createAllViewButton(action: #selector(allCategoryButtonTapped))
+    private lazy var allFeaturedButton: UIButton = createAllViewButton(action: #selector(allFeaturedButtonTapped))
 
     // MARK: - LifeCycle
 
@@ -90,6 +93,9 @@ extension HomeViewController {
         bacgroungView.addSubview(categoryLabel)
         setupCategoryButtons()
         bacgroungView.addSubview(pagingView)
+        bacgroungView.addSubview(featuredProductLabel)
+        bacgroungView.addSubview(allCategoriesButton)
+        bacgroungView.addSubview(allFeaturedButton)
     }
 
     // Ekran icin gorunumlerin konumlandirilmasi
@@ -112,10 +118,22 @@ extension HomeViewController {
             make.top.equalTo(bacgroungView).offset(10)
             make.leading.equalTo(bacgroungView).offset(20)
         }
+        allCategoriesButton.snp.makeConstraints { make in
+            make.centerY.equalTo(categoryLabel)
+            make.trailing.equalTo(bacgroungView).offset(-20)
+        }
         pagingView.snp.makeConstraints { make in
             make.top.equalTo(categoryLabel.snp.bottom).offset(180)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(160)
+        }
+        featuredProductLabel.snp.makeConstraints { make in
+            make.top.equalTo(pagingView.snp.bottom).offset(40)
+            make.leading.equalTo(bacgroungView).offset(20)
+        }
+        allFeaturedButton.snp.makeConstraints { make in
+            make.centerY.equalTo(featuredProductLabel)
+            make.trailing.equalTo(bacgroungView).offset(-20)
         }
     }
 
@@ -185,6 +203,13 @@ extension HomeViewController {
     @objc private func didTapBasket() {
         // TODO: Implement this function
     }
+    
+    @objc private func allCategoryButtonTapped() {
+        // TODO: Implement this function
+    }
+    @objc private func allFeaturedButtonTapped() {
+        // TODO: Implement this function
+    }
 
     // kategori butonlarina tıklandığında yapılacak işlemler
     @objc private func didTapCategoryButton(_ sender: UIButton) {
@@ -213,8 +238,13 @@ extension HomeViewController {
         label.font = font ?? UIFont.systemFont(ofSize: 20)
         return label
     }
+    
+    private func createAllViewButton(action: Selector) -> UIButton {
+            let button = UIButton()
+        button.setTitle(StringConstants.HomeView.viewAll, for: .normal)
+            button.setTitleColor(.black, for: .normal)
+            button.titleLabel?.font = UIFont.systemFont(ofSize: 14)
+            button.addTarget(self, action: action, for: .touchUpInside)
+            return button
+    }
 }
-
-#Preview(traits: .defaultLayout, body: {
-    HomeViewController()
-})
