@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5F0FDBF22ADA851A00A41D8A /* SpecialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FDBF12ADA851A00A41D8A /* SpecialModel.swift */; };
 		5F64E19A2AD987140029A590 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64E1992AD987140029A590 /* PagingView.swift */; };
 		5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */; };
 		5FB5106B2AD517A0002AF588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5F0FDBF12ADA851A00A41D8A /* SpecialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialModel.swift; sourceTree = "<group>"; };
 		5F64E1992AD987140029A590 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
 		5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				5FD0AA272AD51E9D001EEE36 /* WishlistItemModel.swift */,
 				5FD0AA292AD51EB4001EEE36 /* CoffeeCategoryModel.swift */,
 				5FD0AA2B2AD51F1D001EEE36 /* ShoppingCartItemModel.swift */,
+				5F0FDBF12ADA851A00A41D8A /* SpecialModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				5FEB1DC72AD3CE6F0033F164 /* AppStyle.swift in Sources */,
 				5FBD49D02AD295B100F515B8 /* SceneDelegate.swift in Sources */,
 				5FD0AA242AD51E6D001EEE36 /* CoffeeModel.swift in Sources */,
+				5F0FDBF22ADA851A00A41D8A /* SpecialModel.swift in Sources */,
 				5FC5C7572AD5DB8300D946B4 /* AppError.swift in Sources */,
 				5FD0AA222AD51E51001EEE36 /* CommentModel.swift in Sources */,
 				5FD0AA1E2AD51E09001EEE36 /* UserModel.swift in Sources */,

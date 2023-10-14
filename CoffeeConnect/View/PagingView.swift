@@ -2,12 +2,6 @@ import UIKit
 import SnapKit
 
 
-struct SpecialModel {
-    let title: String
-    let subtitle: String
-    let buttonText: String
-}
-
 class PagingView: UIView, UIScrollViewDelegate {
     
     private var scrollView: UIScrollView!

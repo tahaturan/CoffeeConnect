@@ -61,6 +61,16 @@
         }
       }
     },
+    "Discover our exclusive coffee offers now" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Özel kahve tekliflerimizi şimdi keşfedin"
+          }
+        }
+      }
+    },
     "Enter text" : {
       "localizations" : {
         "tr" : {
@@ -177,6 +187,36 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kayıt Başarılı"
+          }
+        }
+      }
+    },
+    "See more ->" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daha Fazla Gör ->"
+          }
+        }
+      }
+    },
+    "Special offer" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Özel Teklif"
+          }
+        }
+      }
+    },
+    "Special Prices For You" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sana Özel Fiyatlar"
           }
         }
       }
