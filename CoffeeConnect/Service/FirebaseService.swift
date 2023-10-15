@@ -148,5 +148,57 @@ class FirebaseService {
     var currentUser: User? {
         return Auth.auth().currentUser
     }
+    
+    func fetchAllCategoriesWithCoffees(completion: @escaping (Result<[(CoffeeCategoryModel, [CoffeeModel])], Error>) -> Void) {
+        var cetegoriesWithCoffees: [(CoffeeCategoryModel, [CoffeeModel])] = []
+        
+        //Firestore dan tum kategorileri cekme
+        let dbRef = Firestore.firestore().collection("coffee_categories")
+        dbRef.getDocuments { categoryQuerySnapshot, error in
+            guard let categoryDocuments = categoryQuerySnapshot?.documents else {
+                completion(.failure(AppError.dataFetchingFailed))
+                return
+            }
+            
+            let group = DispatchGroup()
+            
+            for categoryDocument in categoryDocuments {
+                let categoryData = categoryDocument.data()
+                
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: categoryData)
+                    let category = try CoffeeCategoryModel.fromDictionary(jsonData: jsonData)
+                    
+                    var coffees: [CoffeeModel] = []
+                    
+                    for coffeeID in category.coffeeIDs {
+                        group.enter()
+                        Firestore.firestore().collection("coffees").document(coffeeID).getDocument { coffeeDocument, error in
+                            guard let coffeeData = coffeeDocument?.data() else {
+                                group.leave()
+                                return
+                            }
+                            do {
+                                let coffeeJsonData = try JSONSerialization.data(withJSONObject: coffeeData)
+                                let coffee = try CoffeeModel.fromDictionary(jsonData: coffeeJsonData)
+                                coffees.append(coffee)
+                            } catch  {
+                                print("Error decoding coffe data: \(error)")
+                            }
+                            group.leave()
+                        }
+                    }
+                    group.notify(queue: .main) {
+                        cetegoriesWithCoffees.append((category, coffees))
+                    }
+                } catch  {
+                    print("Error decoding category data: \(error)")
+                }
+            }
+            group.notify(queue: .main) {
+                completion(.success(cetegoriesWithCoffees))
+            }
+        }
+    }
 }
 

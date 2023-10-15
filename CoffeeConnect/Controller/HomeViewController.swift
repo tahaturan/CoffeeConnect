@@ -66,7 +66,25 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupLayout()
-    }
+        
+                
+                // Tüm kategorileri ve bu kategorilere ait kahveleri çekiyoruz
+                FirebaseService.shared.fetchAllCategoriesWithCoffees { result in
+                    switch result {
+                    case .success(let categoriesWithCoffees):
+                        for (category, coffees) in categoriesWithCoffees {
+                            print("Kategori: \(category.categoryName)")
+                            for coffee in coffees {
+                                print("  Kahve: \(coffee.name), Fiyat: \(coffee.price), Açıklama: \(coffee.description)")
+                            }
+                        }
+                    case .failure(let error):
+                        print("Veri çekme hatası: \(error.localizedDescription)")
+                    }
+                }
+            }
+        
+    
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()

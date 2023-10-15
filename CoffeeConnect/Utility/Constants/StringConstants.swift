@@ -50,5 +50,6 @@ struct StringConstants {
         static let userDocumentNotFound = NSLocalizedString("User document not found.", comment: "")
         static let dataEncodingFailed = NSLocalizedString("Data encoding failed.", comment: "")
         static let dataDecodingFailed = NSLocalizedString("Data decoding failed.", comment: "")
+        static let dataFetchingFailed = NSLocalizedString("Data Fetching Failed", comment: "")
     }
 }

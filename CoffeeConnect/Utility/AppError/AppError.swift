@@ -16,6 +16,7 @@ enum AppError: Error {
     case dataEncodingFailed
     case dataDecodingFailed
     case custom(String)
+    case dataFetchingFailed
 
     var localizedDescription: String {
         switch self {
@@ -35,6 +36,8 @@ enum AppError: Error {
             return StringConstants.Errors.dataDecodingFailed
         case .custom(let message):
             return message
+        case .dataFetchingFailed:
+            return StringConstants.Errors.dataFetchingFailed
         }
     }
 }

@@ -25,6 +25,7 @@ class SplashViewController: UIViewController {
             make.width.height.equalTo(700)
         }
         fetchCurrentUser()
+        fetchCoffeeData()
         animationView.play { (finished) in
             if Auth.auth().currentUser != nil {
                 let mainVC = HomeViewController()
@@ -44,6 +45,16 @@ class SplashViewController: UIViewController {
                 UserManager.shared.updateUser(fetchedUser)
             case .failure(let error):
                 print("Error fetching user: \(error.localizedDescription)")
+            }
+        }
+    }
+    private func fetchCoffeeData() {
+        FirebaseService.shared.fetchAllCategoriesWithCoffees { result in
+            switch result {
+            case .success(let data):
+                AppData.shared.categoriesWithCoffee = data
+            case .failure(let error):
+                print("Fetch Data Error: \(error)")
             }
         }
     }

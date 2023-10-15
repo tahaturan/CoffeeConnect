@@ -11,6 +11,7 @@
 		5F64E19A2AD987140029A590 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64E1992AD987140029A590 /* PagingView.swift */; };
 		5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */; };
 		5FB5106B2AD517A0002AF588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */; };
+		5FBA36BD2ADC25DB00B4BF24 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA36BC2ADC25DB00B4BF24 /* AppData.swift */; };
 		5FBC643B2AD8771900EC894E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC643A2AD8771900EC894E /* ImageLoader.swift */; };
 		5FBC64412AD8A98700EC894E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBC64402AD8A98700EC894E /* Lottie */; };
 		5FBC64452AD8AD7100EC894E /* LaunchScreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FBC64442AD8AD7100EC894E /* LaunchScreen.json */; };
@@ -58,6 +59,7 @@
 		5F64E1992AD987140029A590 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
 		5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5FBA36BC2ADC25DB00B4BF24 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
 		5FBC643A2AD8771900EC894E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		5FBC64442AD8AD7100EC894E /* LaunchScreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchScreen.json; sourceTree = "<group>"; };
 		5FBC64462AD8ADAE00EC894E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			isa = PBXGroup;
 			children = (
 				5FD0AA2E2AD52031001EEE36 /* FirebaseService.swift */,
+				5FBA36BC2ADC25DB00B4BF24 /* AppData.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -422,6 +425,7 @@
 				5FD0AA1E2AD51E09001EEE36 /* UserModel.swift in Sources */,
 				5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */,
 				5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */,
+				5FBA36BD2ADC25DB00B4BF24 /* AppData.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

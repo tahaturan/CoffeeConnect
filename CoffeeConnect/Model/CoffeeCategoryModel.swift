@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct CoffeeCategoryModel: Codable {
-    let categoryID: String
-    let categoryName: String
-    var coffeeIDs: [String]     // Kategorideki kahvelerin ID'leri
-    
     struct CoffeeCategoryModel: Codable {
         let categoryID: String
         let categoryName: String
@@ -36,4 +31,3 @@ struct CoffeeCategoryModel: Codable {
         }
     }
 
-}
