@@ -60,6 +60,17 @@ class HomeViewController: UIViewController {
     private lazy var allCategoriesButton: UIButton = createAllViewButton(action: #selector(allCategoryButtonTapped))
     private lazy var allFeaturedButton: UIButton = createAllViewButton(action: #selector(allFeaturedButtonTapped))
     var featuredProductList: (CoffeeCategoryModel, [CoffeeModel])?
+    private lazy var feateuredCollectionView: UICollectionView = {
+       let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        cv.showsHorizontalScrollIndicator = false
+        cv.delegate = self
+        cv.dataSource = self
+        cv.register(FeaturedCollectionViewCell.self, forCellWithReuseIdentifier: StringConstants.CellIDs.homeViewCollectionViewCellId)
+        
+        return cv
+    }()
 
     // MARK: - LifeCycle
 
@@ -100,6 +111,7 @@ extension HomeViewController {
         bacgroungView.addSubview(featuredProductLabel)
         bacgroungView.addSubview(allCategoriesButton)
         bacgroungView.addSubview(allFeaturedButton)
+        bacgroungView.addSubview(feateuredCollectionView)
     }
 
     // Ekran icin gorunumlerin konumlandirilmasi
@@ -138,6 +150,11 @@ extension HomeViewController {
         allFeaturedButton.snp.makeConstraints { make in
             make.centerY.equalTo(featuredProductLabel)
             make.trailing.equalTo(bacgroungView).offset(-20)
+        }
+        feateuredCollectionView.snp.makeConstraints { make in
+            make.top.equalTo(featuredProductLabel.snp.bottom).offset(10)
+            make.left.right.equalToSuperview().inset(10)
+            make.height.equalTo(150)
         }
     }
 
@@ -258,4 +275,22 @@ extension HomeViewController {
             button.addTarget(self, action: action, for: .touchUpInside)
             return button
     }
+}
+
+
+//MARK: -
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return featuredProductList?.1.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StringConstants.CellIDs.homeViewCollectionViewCellId, for: indexPath) as! FeaturedCollectionViewCell
+        if let products = featuredProductList?.1 {
+            let product = products[indexPath.row]
+        }
+        return cell
+    }
+    
+    
 }

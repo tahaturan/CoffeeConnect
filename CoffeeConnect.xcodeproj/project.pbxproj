@@ -12,6 +12,7 @@
 		5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */; };
 		5FB5106B2AD517A0002AF588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */; };
 		5FBA36BD2ADC25DB00B4BF24 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA36BC2ADC25DB00B4BF24 /* AppData.swift */; };
+		5FBA36C02ADD551A00B4BF24 /* FeaturedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA36BF2ADD551A00B4BF24 /* FeaturedCollectionViewCell.swift */; };
 		5FBC643B2AD8771900EC894E /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBC643A2AD8771900EC894E /* ImageLoader.swift */; };
 		5FBC64412AD8A98700EC894E /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBC64402AD8A98700EC894E /* Lottie */; };
 		5FBC64452AD8AD7100EC894E /* LaunchScreen.json in Resources */ = {isa = PBXBuildFile; fileRef = 5FBC64442AD8AD7100EC894E /* LaunchScreen.json */; };
@@ -60,6 +61,7 @@
 		5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FBA36BC2ADC25DB00B4BF24 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
+		5FBA36BF2ADD551A00B4BF24 /* FeaturedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedCollectionViewCell.swift; sourceTree = "<group>"; };
 		5FBC643A2AD8771900EC894E /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		5FBC64442AD8AD7100EC894E /* LaunchScreen.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LaunchScreen.json; sourceTree = "<group>"; };
 		5FBC64462AD8ADAE00EC894E /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
@@ -123,6 +125,14 @@
 				5FEB1DAF2AD335B00033F164 /* Constants */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		5FBA36BE2ADD54FC00B4BF24 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5FBA36BF2ADD551A00B4BF24 /* FeaturedCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		5FBC64392AD876D300EC894E /* Packages */ = {
@@ -207,6 +217,7 @@
 		5FBD49E22AD32AAE00F515B8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				5FBA36BE2ADD54FC00B4BF24 /* Cell */,
 				5FEB1DB22AD338280033F164 /* CustomTextField.swift */,
 				5FEB1DBC2AD33F7F0033F164 /* CustomButton.swift */,
 				5FEB1DCA2AD3DC720033F164 /* LoginLogoImageView.swift */,
@@ -426,6 +437,7 @@
 				5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */,
 				5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */,
 				5FBA36BD2ADC25DB00B4BF24 /* AppData.swift in Sources */,
+				5FBA36C02ADD551A00B4BF24 /* FeaturedCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -52,4 +52,8 @@ struct StringConstants {
         static let dataDecodingFailed = NSLocalizedString("Data decoding failed.", comment: "")
         static let dataFetchingFailed = NSLocalizedString("Data Fetching Failed", comment: "")
     }
+    
+    struct CellIDs {
+        static let homeViewCollectionViewCellId = "featuredCollectionViewCellID"
+    }
 }
