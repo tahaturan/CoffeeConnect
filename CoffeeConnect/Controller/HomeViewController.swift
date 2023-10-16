@@ -59,6 +59,7 @@ class HomeViewController: UIViewController {
     private lazy var featuredProductLabel: UILabel = createLabel(text: StringConstants.HomeView.featuredProduct, font: UIFont.boldSystemFont(ofSize: 20))
     private lazy var allCategoriesButton: UIButton = createAllViewButton(action: #selector(allCategoryButtonTapped))
     private lazy var allFeaturedButton: UIButton = createAllViewButton(action: #selector(allFeaturedButtonTapped))
+    var featuredProductList: (CoffeeCategoryModel, [CoffeeModel])?
 
     // MARK: - LifeCycle
 
@@ -66,23 +67,8 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupUI()
         setupLayout()
-        
-                
-                // Tüm kategorileri ve bu kategorilere ait kahveleri çekiyoruz
-                FirebaseService.shared.fetchAllCategoriesWithCoffees { result in
-                    switch result {
-                    case .success(let categoriesWithCoffees):
-                        for (category, coffees) in categoriesWithCoffees {
-                            print("Kategori: \(category.categoryName)")
-                            for coffee in coffees {
-                                print("  Kahve: \(coffee.name), Fiyat: \(coffee.price), Açıklama: \(coffee.description)")
-                            }
-                        }
-                    case .failure(let error):
-                        print("Veri çekme hatası: \(error.localizedDescription)")
-                    }
-                }
-            }
+        fetchFeatureProduct()
+    }
         
     
 
@@ -179,34 +165,14 @@ extension HomeViewController {
         setupCategoriesRow(categories: StringConstants.HomeView.topCategories, topOffset: 20) // üst sıra için
         setupCategoriesRow(categories: StringConstants.HomeView.bottomCategories, topOffset: 90) // alt sıra için, offset değerini ayarlayarak butonların arasındaki boşluğu ayarliyoruz
     }
-
-    private func setupCategoriesRow(categories: [String], topOffset: CGFloat) {
-        let buttonWidth = (view.frame.width - 60) / 3 // 20'lik padding ile 3'e bölüyoruz.
-        var lastButton: UIButton?
-
-        for category in categories {
-            let button = UIButton(type: .system)
-            button.setTitle(category, for: .normal)
-            button.layer.cornerRadius = AppStyleConstants.categoryButtonHeight / 2
-            button.backgroundColor = UIColor.white
-            button.setTitleColor(UIColor.gray, for: .normal)
-            button.addTarget(self, action: #selector(didTapCategoryButton(_:)), for: .touchUpInside)
-            bacgroungView.addSubview(button)
-
-            button.snp.makeConstraints { make in
-                make.width.equalTo(buttonWidth)
-                make.height.equalTo(AppStyleConstants.categoryButtonHeight)
-                make.top.equalTo(categoryLabel.snp.bottom).offset(topOffset)
-
-                if let lastBtn = lastButton {
-                    make.leading.equalTo(lastBtn.snp.trailing).offset(10)
-                } else {
-                    make.leading.equalTo(bacgroungView).offset(25)
-                }
-            }
-            lastButton = button
+    
+    private func fetchFeatureProduct() {
+        if let allCategoriesWithCoffee = AppData.shared.categoriesWithCoffee {
+            featuredProductList = allCategoriesWithCoffee.first {$0.0.categoryName == "Özel Karışımlar"}
         }
     }
+
+
 }
 
 // MARK: - Selector
@@ -247,6 +213,33 @@ extension HomeViewController {
         button.tintColor = .black
         button.addTarget(self, action: action, for: .touchUpInside)
         return button
+    }
+    private func setupCategoriesRow(categories: [String], topOffset: CGFloat) {
+        let buttonWidth = (view.frame.width - 60) / 3 // 20'lik padding ile 3'e bölüyoruz.
+        var lastButton: UIButton?
+
+        for category in categories {
+            let button = UIButton(type: .system)
+            button.setTitle(category, for: .normal)
+            button.layer.cornerRadius = AppStyleConstants.categoryButtonHeight / 2
+            button.backgroundColor = UIColor.white
+            button.setTitleColor(UIColor.gray, for: .normal)
+            button.addTarget(self, action: #selector(didTapCategoryButton(_:)), for: .touchUpInside)
+            bacgroungView.addSubview(button)
+
+            button.snp.makeConstraints { make in
+                make.width.equalTo(buttonWidth)
+                make.height.equalTo(AppStyleConstants.categoryButtonHeight)
+                make.top.equalTo(categoryLabel.snp.bottom).offset(topOffset)
+
+                if let lastBtn = lastButton {
+                    make.leading.equalTo(lastBtn.snp.trailing).offset(10)
+                } else {
+                    make.leading.equalTo(bacgroungView).offset(25)
+                }
+            }
+            lastButton = button
+        }
     }
 
     // Label
