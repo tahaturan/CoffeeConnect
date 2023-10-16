@@ -63,12 +63,16 @@ class HomeViewController: UIViewController {
     private lazy var feateuredCollectionView: UICollectionView = {
        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
+        layout.itemSize = CGSize(width: 160, height: 160)
+        layout.minimumLineSpacing = 40
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.showsHorizontalScrollIndicator = false
+        cv.backgroundColor = .clear
+        cv.contentInsetAdjustmentBehavior = .never
+        cv.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         cv.delegate = self
         cv.dataSource = self
         cv.register(FeaturedCollectionViewCell.self, forCellWithReuseIdentifier: StringConstants.CellIDs.homeViewCollectionViewCellId)
-        
         return cv
     }()
 
@@ -152,16 +156,16 @@ extension HomeViewController {
             make.trailing.equalTo(bacgroungView).offset(-20)
         }
         feateuredCollectionView.snp.makeConstraints { make in
-            make.top.equalTo(featuredProductLabel.snp.bottom).offset(10)
+            make.top.equalTo(featuredProductLabel.snp.bottom).offset(-10)
             make.left.right.equalToSuperview().inset(10)
-            make.height.equalTo(150)
+            make.height.equalTo(200)
         }
     }
 
     private func loadUserProfileImage() {
         if let user = UserManager.shared.currentUser {
-            ImageLoader.shared.loadImage(into: userProfileImageView, from: user.profileImageURL)
             DispatchQueue.main.async {
+                ImageLoader.shared.loadImage(into: self.userProfileImageView, from: user.profileImageURL)
                 self.welcomeLabel.text = "\(StringConstants.HomeView.welcome) \(user.name)"
             }
         }
@@ -278,7 +282,7 @@ extension HomeViewController {
 }
 
 
-//MARK: -
+//MARK: - UICollection View Delegate/DataSource
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return featuredProductList?.1.count ?? 0
@@ -287,10 +291,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: StringConstants.CellIDs.homeViewCollectionViewCellId, for: indexPath) as! FeaturedCollectionViewCell
         if let products = featuredProductList?.1 {
-            let product = products[indexPath.row]
+            let coffee = products[indexPath.row]
+            cell.configure(with: coffee)
         }
         return cell
     }
-    
-    
 }
