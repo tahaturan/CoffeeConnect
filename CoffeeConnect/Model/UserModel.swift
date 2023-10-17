@@ -50,4 +50,28 @@ class UserManager {
     func clearUser() {
         self.currentUser = nil
     }
+    func updateWishList(coffee: CoffeeModel, completion: @escaping (Bool) -> Void) {
+        guard var user = UserManager.shared.currentUser else {
+            completion(false)
+            return
+        }
+        let wishlistItem = WishlistItemModel(coffeeID: coffee.coffeeID, addedDate: Date())
+        if let index = user.wishlist.firstIndex(where: {$0.coffeeID == coffee.coffeeID}) {
+            user.wishlist.remove(at: index)
+        } else {
+            user.wishlist.append(wishlistItem)
+        }
+        updateUser(user)
+        
+        FirebaseService.shared.toggleWishList(userID: user.userID, WishListItem: wishlistItem) { result in
+            switch result {
+            case .success(_):
+                completion(true)
+            case .failure(let error):
+                print("Error updating wishlist in Firestore: \(error.localizedDescription)")
+                completion(false)
+            }
+        }
+    }
+
 }

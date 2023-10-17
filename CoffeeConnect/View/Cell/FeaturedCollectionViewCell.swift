@@ -9,7 +9,13 @@ import Foundation
 import UIKit
 import SnapKit
 
+protocol FeatureCollectionViewDelegate: AnyObject {
+    func didTapFavoriteButton(in cell: FeaturedCollectionViewCell)
+    func didTapBasketButton(in cell: FeaturedCollectionViewCell)
+}
+
 class FeaturedCollectionViewCell: UICollectionViewCell {
+    var delegate: FeatureCollectionViewDelegate?
     private let customBackgroundView: UIView = {
        let view = UIView()
         view.backgroundColor = .white
@@ -30,8 +36,9 @@ class FeaturedCollectionViewCell: UICollectionViewCell {
         return label
     }()
     private let stackView: UIStackView = UIStackView()
-    private lazy var favoriteButton: UIButton = createButton(with: AppStyleConstants.Icons.heart, color: .lightGray, action: #selector(favoriteButtonTapped))
+     lazy var favoriteButton: UIButton = createButton(with: AppStyleConstants.Icons.heart, color: .lightGray, action: #selector(favoriteButtonTapped))
     private lazy var basketButton: UIButton = createButton(with: AppStyleConstants.Icons.cart, color: .darkGray, action: #selector(basketButtonTapped))
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -40,6 +47,7 @@ class FeaturedCollectionViewCell: UICollectionViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     //MARK: - Helpers
     private func setupUI() {
         addSubview(customBackgroundView)
@@ -84,14 +92,11 @@ class FeaturedCollectionViewCell: UICollectionViewCell {
 //MARK: - Selector
 extension FeaturedCollectionViewCell {
     @objc private func favoriteButtonTapped () {
-        if favoriteButton.tintColor == .lightGray {
-            favoriteButton.tintColor = .red
-        }else {
-            favoriteButton.tintColor = .lightGray
-        }
+
+        delegate?.didTapFavoriteButton(in: self)
     }
     @objc private func basketButtonTapped () {
-        
+        delegate?.didTapBasketButton(in: self)
     }
 }
 

@@ -149,6 +149,8 @@ class FirebaseService {
         return Auth.auth().currentUser
     }
     
+    //MARK: - Data
+    
     func fetchAllCategoriesWithCoffees(completion: @escaping (Result<[(CoffeeCategoryModel, [CoffeeModel])], Error>) -> Void) {
         var cetegoriesWithCoffees: [(CoffeeCategoryModel, [CoffeeModel])] = []
         
@@ -200,5 +202,42 @@ class FirebaseService {
             }
         }
     }
+    
+    func toggleWishList(userID: String, WishListItem: WishlistItemModel, completion: @escaping (Result<Void, Error>) -> Void) {
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
+        
+        // Önce kullanıcının mevcut istek listesini al
+        dbRef.getDocument { (document, error) in
+            if let document = document, document.exists, let data = document.data() {
+                var wishlist = data["wishlist"] as? [[String: Any]] ?? []
+                
+                // Eğer bu kahve zaten listeye eklenmişse çıkar
+                if let index = wishlist.firstIndex(where: { ($0["coffeeID"] as? String) == WishListItem.coffeeID }) {
+                    wishlist.remove(at: index)
+                } else {
+                    // Eğer kahve listeye eklenmemişse ekleyin
+                    do {
+                        let wishListItemDict = try WishListItem.toDictionary()
+                        wishlist.append(wishListItemDict)
+                    } catch {
+                        completion(.failure(AppError.dataEncodingFailed))
+                        return
+                    }
+                }
+                
+                // Güncellenmiş listeyi geri yükle
+                dbRef.updateData(["wishlist": wishlist]) { error in
+                    if let error = error {
+                        completion(.failure(AppError.custom(error.localizedDescription)))
+                    } else {
+                        completion(.success(()))
+                    }
+                }
+            } else {
+                completion(.failure(AppError.custom(error?.localizedDescription ?? "Unknown error.")))
+            }
+        }
+    }
+
 }
 

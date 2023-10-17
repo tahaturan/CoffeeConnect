@@ -283,7 +283,8 @@ extension HomeViewController {
 
 
 //MARK: - UICollection View Delegate/DataSource
-extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, FeatureCollectionViewDelegate {
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return featuredProductList?.1.count ?? 0
     }
@@ -293,7 +294,39 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if let products = featuredProductList?.1 {
             let coffee = products[indexPath.row]
             cell.configure(with: coffee)
+            if let wishList = UserManager.shared.currentUser?.wishlist {
+                if wishList.contains(where: {$0.coffeeID == coffee.coffeeID}){
+                    cell.favoriteButton.tintColor = .red
+                }else{
+                    cell.favoriteButton.tintColor = .lightGray
+                }
+            }
         }
+        cell.delegate = self
         return cell
+    }
+    
+    func didTapFavoriteButton(in cell: FeaturedCollectionViewCell) {
+        guard let indexPath = feateuredCollectionView.indexPath(for: cell),
+              let products = featuredProductList?.1 else {
+            return
+        }
+
+        let coffee = products[indexPath.row]
+        UserManager.shared.updateWishList(coffee: coffee) { isSuccess in
+            if isSuccess {
+                if let wishList = UserManager.shared.currentUser?.wishlist {
+                    if wishList.contains(where: {$0.coffeeID == coffee.coffeeID}) {
+                        cell.favoriteButton.tintColor = .red
+                    } else {
+                        cell.favoriteButton.tintColor = .lightGray
+                    }
+                }
+            }
+        }
+    }
+
+    func didTapBasketButton(in cell: FeaturedCollectionViewCell) {
+        print("deneme")
     }
 }
