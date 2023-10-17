@@ -62,7 +62,14 @@
       }
     },
     "Data Fetching Failed" : {
-
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veri çekme hatası"
+          }
+        }
+      }
     },
     "Discover our exclusive coffee offers now" : {
       "localizations" : {
@@ -175,7 +182,14 @@
       }
     },
     "Product Added To Cart" : {
-
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ürün Sepete Eklendi"
+          }
+        }
+      }
     },
     "Profile image URL not found." : {
       "localizations" : {

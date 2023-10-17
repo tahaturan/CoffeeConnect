@@ -143,12 +143,12 @@ extension HomeViewController {
             make.trailing.equalTo(bacgroungView).offset(-20)
         }
         pagingView.snp.makeConstraints { make in
-            make.top.equalTo(categoryLabel.snp.bottom).offset(180)
+            make.top.equalTo(categoryLabel.snp.bottom).offset(160)
             make.left.right.equalToSuperview().inset(20)
             make.height.equalTo(160)
         }
         featuredProductLabel.snp.makeConstraints { make in
-            make.top.equalTo(pagingView.snp.bottom).offset(40)
+            make.top.equalTo(pagingView.snp.bottom).offset(20)
             make.leading.equalTo(bacgroungView).offset(20)
         }
         allFeaturedButton.snp.makeConstraints { make in
