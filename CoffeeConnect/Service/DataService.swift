@@ -111,7 +111,6 @@ class DataService {
 
         dbRef.getDocument { document, error in
             if let document = document, document.exists, let data = document.data() {
-                // Firestore'dan alınan shoppingCart verisini bir JSON verisi olarak dönüştür
                 if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
                     do {
                         let jsonData = try JSONSerialization.data(withJSONObject: shoppingCartData, options: [])
@@ -144,4 +143,93 @@ class DataService {
             }
         }
     }
+    
+    func listenToUserWishlist(userID: String, completion: @escaping (Result<[WishlistItemModel], Error>) -> Void) {
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
+        
+        dbRef.addSnapshotListener { (document, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            if let document = document, document.exists, let data = document.data() {
+                do {
+                    if let wishlistData = data["wishlist"] as? [[String: Any]] {
+                        let wishlistItems = try wishlistData.map { (itemData) -> WishlistItemModel in
+                            let jsonData = try JSONSerialization.data(withJSONObject: itemData, options: [])
+                            return try JSONDecoder().decode(WishlistItemModel.self, from: jsonData)
+                        }
+                        completion(.success(wishlistItems))
+                    } else {
+                        completion(.failure(AppError.custom("Wishlist data is not available.")))
+                    }
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+
+    func listenToUserShoppingCart(userID: String, completion: @escaping (Result<ShoppingCartModel, Error>) -> Void) {
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
+        
+        dbRef.addSnapshotListener { (document, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            if let document = document, document.exists, let data = document.data() {
+                do {
+                    if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
+                        let jsonData = try JSONSerialization.data(withJSONObject: shoppingCartData, options: [])
+                        let shoppingCart = try JSONDecoder().decode(ShoppingCartModel.self, from: jsonData)
+                        completion(.success(shoppingCart))
+                    } else {
+                        completion(.failure(AppError.custom("Shopping cart data is not available.")))
+                    }
+                } catch {
+                    completion(.failure(error))
+                }
+            }
+        }
+    }
+
+    func listenToUserPosts(userID: String, completion: @escaping (Result<[PostModel], Error>) -> Void) {
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
+        
+        dbRef.addSnapshotListener { (document, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+            
+            if let document = document, document.exists, let data = document.data(), let postIDs = data["postIDs"] as? [String] {
+                let group = DispatchGroup()
+                var userPosts: [PostModel] = []
+                
+                for postID in postIDs {
+                    group.enter()
+                    Firestore.firestore().collection("posts").document(postID).getDocument { postDocument, error in
+                        if let postDocument = postDocument, postDocument.exists, let postData = postDocument.data() {
+                            do {
+                                let jsonData = try JSONSerialization.data(withJSONObject: postData, options: [])
+                                let post = try JSONDecoder().decode(PostModel.self, from: jsonData)
+                                userPosts.append(post)
+                            } catch {
+                                print("Error decoding post data: \(error)")
+                            }
+                        }
+                        group.leave()
+                    }
+                }
+                
+                group.notify(queue: .main) {
+                    completion(.success(userPosts))
+                }
+            }
+        }
+    }
+
 }
