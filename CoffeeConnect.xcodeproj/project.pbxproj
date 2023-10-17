@@ -14,6 +14,7 @@
 		5F47FC652ADF36E1003943DD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC642ADF36E1003943DD /* ProfileViewController.swift */; };
 		5F47FC672ADF3710003943DD /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC662ADF3710003943DD /* DiscoverViewController.swift */; };
 		5F47FC692ADF3722003943DD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC682ADF3722003943DD /* SearchViewController.swift */; };
+		5F47FC6B2ADF4875003943DD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC6A2ADF4875003943DD /* DataService.swift */; };
 		5F64E19A2AD987140029A590 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64E1992AD987140029A590 /* PagingView.swift */; };
 		5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */; };
 		5FB5106B2AD517A0002AF588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */; };
@@ -43,7 +44,7 @@
 		5FD0AA282AD51E9D001EEE36 /* WishlistItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA272AD51E9D001EEE36 /* WishlistItemModel.swift */; };
 		5FD0AA2A2AD51EB4001EEE36 /* CoffeeCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA292AD51EB4001EEE36 /* CoffeeCategoryModel.swift */; };
 		5FD0AA2C2AD51F1D001EEE36 /* ShoppingCartItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA2B2AD51F1D001EEE36 /* ShoppingCartItemModel.swift */; };
-		5FD0AA2F2AD52031001EEE36 /* FirebaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA2E2AD52031001EEE36 /* FirebaseService.swift */; };
+		5FD0AA2F2AD52031001EEE36 /* AuthenticationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA2E2AD52031001EEE36 /* AuthenticationService.swift */; };
 		5FD0AA322AD52123001EEE36 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD0AA312AD52123001EEE36 /* FirebaseStorage */; };
 		5FD0AA342AD52129001EEE36 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD0AA332AD52129001EEE36 /* FirebaseAuth */; };
 		5FD0AA362AD52133001EEE36 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD0AA352AD52133001EEE36 /* FirebaseFirestore */; };
@@ -69,6 +70,7 @@
 		5F47FC642ADF36E1003943DD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		5F47FC662ADF3710003943DD /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		5F47FC682ADF3722003943DD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		5F47FC6A2ADF4875003943DD /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		5F64E1992AD987140029A590 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
 		5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -94,7 +96,7 @@
 		5FD0AA272AD51E9D001EEE36 /* WishlistItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishlistItemModel.swift; sourceTree = "<group>"; };
 		5FD0AA292AD51EB4001EEE36 /* CoffeeCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeCategoryModel.swift; sourceTree = "<group>"; };
 		5FD0AA2B2AD51F1D001EEE36 /* ShoppingCartItemModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartItemModel.swift; sourceTree = "<group>"; };
-		5FD0AA2E2AD52031001EEE36 /* FirebaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseService.swift; sourceTree = "<group>"; };
+		5FD0AA2E2AD52031001EEE36 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		5FD0AA382AD5276D001EEE36 /* AppExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
 		5FD0AA3A2AD532B8001EEE36 /* CustomProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressIndicator.swift; sourceTree = "<group>"; };
 		5FEB1DB02AD335DF0033F164 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
@@ -267,8 +269,9 @@
 		5FD0AA2D2AD52022001EEE36 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				5FD0AA2E2AD52031001EEE36 /* FirebaseService.swift */,
+				5FD0AA2E2AD52031001EEE36 /* AuthenticationService.swift */,
 				5FBA36BC2ADC25DB00B4BF24 /* AppData.swift */,
+				5F47FC6A2ADF4875003943DD /* DataService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -440,7 +443,7 @@
 				5FD0AA392AD5276D001EEE36 /* AppExtensions.swift in Sources */,
 				5F47FC5F2ADF36A1003943DD /* MainTabBarController.swift in Sources */,
 				5FD0AA3B2AD532B8001EEE36 /* CustomProgressIndicator.swift in Sources */,
-				5FD0AA2F2AD52031001EEE36 /* FirebaseService.swift in Sources */,
+				5FD0AA2F2AD52031001EEE36 /* AuthenticationService.swift in Sources */,
 				5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */,
 				5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */,
 				5FBC643B2AD8771900EC894E /* ImageLoader.swift in Sources */,
@@ -450,6 +453,7 @@
 				5FBD49CE2AD295B100F515B8 /* AppDelegate.swift in Sources */,
 				5FEB1DBD2AD33F7F0033F164 /* CustomButton.swift in Sources */,
 				5FEB1DC72AD3CE6F0033F164 /* AppStyle.swift in Sources */,
+				5F47FC6B2ADF4875003943DD /* DataService.swift in Sources */,
 				5FBD49D02AD295B100F515B8 /* SceneDelegate.swift in Sources */,
 				5F47FC692ADF3722003943DD /* SearchViewController.swift in Sources */,
 				5FD0AA242AD51E6D001EEE36 /* CoffeeModel.swift in Sources */,

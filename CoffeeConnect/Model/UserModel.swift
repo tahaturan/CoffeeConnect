@@ -63,7 +63,7 @@ class UserManager {
         }
         updateUser(user)
         
-        FirebaseService.shared.updateWishList(userID: user.userID, WishListItem: wishlistItem) { result in
+        DataService.shared.updateWishList(userID: user.userID, WishListItem: wishlistItem) { result in
             switch result {
             case .success(_):
                 completion(true)
@@ -87,10 +87,9 @@ class UserManager {
                 user.shoppingCart.items.append(newItem)
             }
             self.updateUser(user)
-            FirebaseService.shared.addToBasket(coffeeID: coffee.coffeeID) { result in
+            DataService.shared.addToBasket(coffeeID: coffee.coffeeID) { result in
                 switch result {
                 case .success():
-                   // print("Updated shopping cart: \(self.currentUser?.shoppingCart.items)")
                     completion(true)
                 case .failure(let error):
                     print("Error adding coffee to basket: \(error.localizedDescription)")

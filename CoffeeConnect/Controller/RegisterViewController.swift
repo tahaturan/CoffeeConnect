@@ -125,7 +125,7 @@ extension RegisterViewController {
             progressIndicator.hide()
             showAlert(title: StringConstants.General.error, message: StringConstants.General.fillFields)
         } else {
-            FirebaseService.shared.signUp(email: email, password: password, name: name, username: username, profileImage: profileImage) { result in
+            AuthenticationService.shared.signUp(email: email, password: password, name: name, username: username, profileImage: profileImage) { result in
                 switch result {
                 case .success:
                     self.showAlert(title: StringConstants.General.success, message: StringConstants.General.registerSuccess) {

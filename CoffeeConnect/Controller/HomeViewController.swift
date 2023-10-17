@@ -201,7 +201,7 @@ extension HomeViewController {
 extension HomeViewController {
     // Favori butonuna tıklandığında yapılacak işlemler
     @objc private func didTapFavorite() {
-        // TODO: Implement this function
+        navigationController?.pushViewController(WishListViewController(), animated: true)
     }
 
     // Sepet butonuna tıklandığında yapılacak işlemler

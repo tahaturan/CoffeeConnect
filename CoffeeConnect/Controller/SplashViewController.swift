@@ -39,7 +39,7 @@ class SplashViewController: UIViewController {
     
    private func fetchCurrentUser() {
         guard let user = Auth.auth().currentUser else { return }
-        FirebaseService.shared.fetchUserFromFirestore(user: user) { result in
+        AuthenticationService.shared.fetchUserFromFirestore(user: user) { result in
             switch result {
             case .success(let fetchedUser):
                 UserManager.shared.updateUser(fetchedUser)
@@ -49,7 +49,7 @@ class SplashViewController: UIViewController {
         }
     }
     private func fetchCoffeeData() {
-        FirebaseService.shared.fetchAllCategoriesWithCoffees { result in
+        DataService.shared.fetchAllCategoriesWithCoffees { result in
             switch result {
             case .success(let data):
                 AppData.shared.categoriesWithCoffee = data

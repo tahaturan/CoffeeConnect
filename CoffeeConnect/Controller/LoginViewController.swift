@@ -95,7 +95,7 @@ extension LoginViewController {
             progressIndicator.hide()
             showAlert(title: StringConstants.General.error, message: StringConstants.General.fillFields)
         }else{
-            FirebaseService.shared.signIn(email: email, password: password) { result in
+            AuthenticationService.shared.signIn(email: email, password: password) { result in
                 switch result {
                 case .success(_):
                     let homeVC = HomeViewController()
