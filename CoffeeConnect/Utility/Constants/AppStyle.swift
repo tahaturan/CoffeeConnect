@@ -30,6 +30,9 @@ enum AppStyleConstants {
         static let userCard = "person.text.rectangle"
         static let cart = "cart.fill"
         static let heart = "heart.fill"
+        static let home = "house"
+        static let search = "magnifyingglass"
+        static let discover = "dot.radiowaves.left.and.right"
     }
 }
 

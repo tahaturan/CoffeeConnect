@@ -53,6 +53,12 @@ struct StringConstants {
         static let dataDecodingFailed = NSLocalizedString("Data decoding failed.", comment: "")
         static let dataFetchingFailed = NSLocalizedString("Data Fetching Failed", comment: "")
     }
+    enum MainTabbar {
+        static let home = NSLocalizedString("Home", comment: "")
+        static let search = NSLocalizedString("Search", comment: "")
+        static let discover = NSLocalizedString("Discover", comment: "")
+        static let profile = NSLocalizedString("Profile", comment: "")
+    }
     
     struct CellIDs {
         static let homeViewCollectionViewCellId = "featuredCollectionViewCellID"

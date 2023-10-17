@@ -28,7 +28,7 @@ class SplashViewController: UIViewController {
         fetchCoffeeData()
         animationView.play { (finished) in
             if Auth.auth().currentUser != nil {
-                let mainVC = HomeViewController()
+                let mainVC = MainTabBarController()
                 self.navigationController?.setViewControllers([mainVC], animated: true)
             } else {
                 let loginVC = LoginViewController()

@@ -8,6 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5F0FDBF22ADA851A00A41D8A /* SpecialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F0FDBF12ADA851A00A41D8A /* SpecialModel.swift */; };
+		5F47FC5F2ADF36A1003943DD /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC5E2ADF36A1003943DD /* MainTabBarController.swift */; };
+		5F47FC612ADF36C0003943DD /* WishListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC602ADF36C0003943DD /* WishListViewController.swift */; };
+		5F47FC632ADF36D0003943DD /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC622ADF36D0003943DD /* BasketViewController.swift */; };
+		5F47FC652ADF36E1003943DD /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC642ADF36E1003943DD /* ProfileViewController.swift */; };
+		5F47FC672ADF3710003943DD /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC662ADF3710003943DD /* DiscoverViewController.swift */; };
+		5F47FC692ADF3722003943DD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC682ADF3722003943DD /* SearchViewController.swift */; };
 		5F64E19A2AD987140029A590 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64E1992AD987140029A590 /* PagingView.swift */; };
 		5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */; };
 		5FB5106B2AD517A0002AF588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */; };
@@ -57,6 +63,12 @@
 
 /* Begin PBXFileReference section */
 		5F0FDBF12ADA851A00A41D8A /* SpecialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialModel.swift; sourceTree = "<group>"; };
+		5F47FC5E2ADF36A1003943DD /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		5F47FC602ADF36C0003943DD /* WishListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListViewController.swift; sourceTree = "<group>"; };
+		5F47FC622ADF36D0003943DD /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
+		5F47FC642ADF36E1003943DD /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		5F47FC662ADF3710003943DD /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
+		5F47FC682ADF3722003943DD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5F64E1992AD987140029A590 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
 		5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -234,6 +246,12 @@
 				5FEB1DC82AD3DB6F0033F164 /* RegisterViewController.swift */,
 				5FC5C7532AD55D3400D946B4 /* HomeViewController.swift */,
 				5FBC64462AD8ADAE00EC894E /* SplashViewController.swift */,
+				5F47FC5E2ADF36A1003943DD /* MainTabBarController.swift */,
+				5F47FC602ADF36C0003943DD /* WishListViewController.swift */,
+				5F47FC622ADF36D0003943DD /* BasketViewController.swift */,
+				5F47FC642ADF36E1003943DD /* ProfileViewController.swift */,
+				5F47FC662ADF3710003943DD /* DiscoverViewController.swift */,
+				5F47FC682ADF3722003943DD /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -407,6 +425,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5F47FC632ADF36D0003943DD /* BasketViewController.swift in Sources */,
 				5FD0AA2C2AD51F1D001EEE36 /* ShoppingCartItemModel.swift in Sources */,
 				5F64E19A2AD987140029A590 /* PagingView.swift in Sources */,
 				5FEB1DC92AD3DB6F0033F164 /* RegisterViewController.swift in Sources */,
@@ -414,9 +433,12 @@
 				5FEB1DCB2AD3DC720033F164 /* LoginLogoImageView.swift in Sources */,
 				5FD0AA2A2AD51EB4001EEE36 /* CoffeeCategoryModel.swift in Sources */,
 				5FEB1DD22AD4221E0033F164 /* PhotoPickerManager.swift in Sources */,
+				5F47FC612ADF36C0003943DD /* WishListViewController.swift in Sources */,
+				5F47FC672ADF3710003943DD /* DiscoverViewController.swift in Sources */,
 				5FC5C7542AD55D3400D946B4 /* HomeViewController.swift in Sources */,
 				5FBC64472AD8ADAE00EC894E /* SplashViewController.swift in Sources */,
 				5FD0AA392AD5276D001EEE36 /* AppExtensions.swift in Sources */,
+				5F47FC5F2ADF36A1003943DD /* MainTabBarController.swift in Sources */,
 				5FD0AA3B2AD532B8001EEE36 /* CustomProgressIndicator.swift in Sources */,
 				5FD0AA2F2AD52031001EEE36 /* FirebaseService.swift in Sources */,
 				5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */,
@@ -429,6 +451,7 @@
 				5FEB1DBD2AD33F7F0033F164 /* CustomButton.swift in Sources */,
 				5FEB1DC72AD3CE6F0033F164 /* AppStyle.swift in Sources */,
 				5FBD49D02AD295B100F515B8 /* SceneDelegate.swift in Sources */,
+				5F47FC692ADF3722003943DD /* SearchViewController.swift in Sources */,
 				5FD0AA242AD51E6D001EEE36 /* CoffeeModel.swift in Sources */,
 				5F0FDBF22ADA851A00A41D8A /* SpecialModel.swift in Sources */,
 				5FC5C7572AD5DB8300D946B4 /* AppError.swift in Sources */,
@@ -436,6 +459,7 @@
 				5FD0AA1E2AD51E09001EEE36 /* UserModel.swift in Sources */,
 				5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */,
 				5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */,
+				5F47FC652ADF36E1003943DD /* ProfileViewController.swift in Sources */,
 				5FBA36BD2ADC25DB00B4BF24 /* AppData.swift in Sources */,
 				5FBA36C02ADD551A00B4BF24 /* FeaturedCollectionViewCell.swift in Sources */,
 			);

@@ -71,6 +71,16 @@
         }
       }
     },
+    "Discover" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keşfet"
+          }
+        }
+      }
+    },
     "Discover our exclusive coffee offers now" : {
       "localizations" : {
         "tr" : {
@@ -141,6 +151,16 @@
         }
       }
     },
+    "Home" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ana Sayfa"
+          }
+        }
+      }
+    },
     "Login" : {
       "localizations" : {
         "tr" : {
@@ -191,6 +211,16 @@
         }
       }
     },
+    "Profile" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Profıl"
+          }
+        }
+      }
+    },
     "Profile image URL not found." : {
       "localizations" : {
         "tr" : {
@@ -217,6 +247,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kayıt Başarılı"
+          }
+        }
+      }
+    },
+    "Search" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arama"
           }
         }
       }
