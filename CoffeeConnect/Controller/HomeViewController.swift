@@ -313,7 +313,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
 
         let coffee = products[indexPath.row]
-        UserManager.shared.updateWishList(coffee: coffee) { isSuccess in
+        UserManager.shared.addWishList(coffee: coffee) { isSuccess in
             if isSuccess {
                 if let wishList = UserManager.shared.currentUser?.wishlist {
                     if wishList.contains(where: {$0.coffeeID == coffee.coffeeID}) {
@@ -327,6 +327,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
     }
 
     func didTapBasketButton(in cell: FeaturedCollectionViewCell) {
-        print("deneme")
+        guard let indexPath = feateuredCollectionView.indexPath(for: cell),
+        let products = featuredProductList?.1 else {
+            return
+        }
+        let coffee = products[indexPath.row]
+        UserManager.shared.addCoffeeToBasket(coffee: coffee) { result in
+            if result {
+                self.showAlert(title: StringConstants.General.success, message: StringConstants.HomeView.productAddedToCart)
+            }else {
+                self.showAlert(title: StringConstants.General.error, message: StringConstants.Errors.unknown)
+            }
+        }
+        
     }
 }

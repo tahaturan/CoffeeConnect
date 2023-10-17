@@ -50,7 +50,7 @@ class UserManager {
     func clearUser() {
         self.currentUser = nil
     }
-    func updateWishList(coffee: CoffeeModel, completion: @escaping (Bool) -> Void) {
+    func addWishList(coffee: CoffeeModel, completion: @escaping (Bool) -> Void) {
         guard var user = UserManager.shared.currentUser else {
             completion(false)
             return
@@ -63,7 +63,7 @@ class UserManager {
         }
         updateUser(user)
         
-        FirebaseService.shared.toggleWishList(userID: user.userID, WishListItem: wishlistItem) { result in
+        FirebaseService.shared.updateWishList(userID: user.userID, WishListItem: wishlistItem) { result in
             switch result {
             case .success(_):
                 completion(true)
@@ -74,4 +74,28 @@ class UserManager {
         }
     }
 
-}
+        func addCoffeeToBasket(coffee: CoffeeModel, completion: @escaping (Bool) -> Void) {
+            guard var user = self.currentUser else {
+                completion(false)
+                return
+            }
+            let newItem = ShoppingCartItemModel(coffeeID: coffee.coffeeID, quantity: 1)
+            if let index = user.shoppingCart.items.firstIndex(where: { $0.coffeeID == coffee.coffeeID }) {
+                user.shoppingCart.items[index].quantity += 1
+            } else {
+                
+                user.shoppingCart.items.append(newItem)
+            }
+            self.updateUser(user)
+            FirebaseService.shared.addToBasket(coffeeID: coffee.coffeeID) { result in
+                switch result {
+                case .success():
+                   // print("Updated shopping cart: \(self.currentUser?.shoppingCart.items)")
+                    completion(true)
+                case .failure(let error):
+                    print("Error adding coffee to basket: \(error.localizedDescription)")
+                    completion(false)
+                }
+            }
+        }
+    }

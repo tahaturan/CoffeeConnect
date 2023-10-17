@@ -39,6 +39,7 @@ struct StringConstants {
         static let specialPrice = NSLocalizedString("Special Prices For You", comment: "")
         static let featuredProduct = NSLocalizedString("Featured Products", comment: "")
         static let viewAll = NSLocalizedString("View all", comment: "")
+        static let productAddedToCart = NSLocalizedString("Product Added To Cart", comment: "")
     }
 
     // Hata Mesajları
