@@ -164,9 +164,11 @@ extension HomeViewController {
 
     private func loadUserProfileImage() {
         if let user = UserManager.shared.currentUser {
-            DispatchQueue.main.async {
+            DispatchQueue.global(qos: .background).async {
                 ImageLoader.shared.loadImage(into: self.userProfileImageView, from: user.profileImageURL)
-                self.welcomeLabel.text = "\(StringConstants.HomeView.welcome) \(user.name)"
+                DispatchQueue.main.async {
+                    self.welcomeLabel.text = "\(StringConstants.HomeView.welcome) \(user.name)"
+                }
             }
         }
     }
@@ -313,17 +315,22 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
 
         let coffee = products[indexPath.row]
-        UserManager.shared.addWishList(coffee: coffee) { isSuccess in
-            if isSuccess {
-                if let wishList = UserManager.shared.currentUser?.wishlist {
-                    if wishList.contains(where: {$0.coffeeID == coffee.coffeeID}) {
-                        cell.favoriteButton.tintColor = .red
-                    } else {
-                        cell.favoriteButton.tintColor = .lightGray
+        DispatchQueue.global(qos: .background).async {
+            UserManager.shared.addWishList(coffee: coffee) { isSuccess in
+                DispatchQueue.main.async {
+                    if isSuccess {
+                        if let wishList = UserManager.shared.currentUser?.wishlist {
+                            if wishList.contains(where: {$0.coffeeID == coffee.coffeeID}) {
+                                cell.favoriteButton.tintColor = .red
+                            } else {
+                                cell.favoriteButton.tintColor = .lightGray
+                            }
+                        }
                     }
                 }
             }
         }
+
     }
 
     func didTapBasketButton(in cell: FeaturedCollectionViewCell) {
@@ -332,13 +339,18 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return
         }
         let coffee = products[indexPath.row]
-        UserManager.shared.addCoffeeToBasket(coffee: coffee) { result in
-            if result {
-                self.showAlert(title: StringConstants.General.success, message: StringConstants.HomeView.productAddedToCart)
-            }else {
-                self.showAlert(title: StringConstants.General.error, message: StringConstants.Errors.unknown)
+        DispatchQueue.global(qos: .background).async {
+            UserManager.shared.addCoffeeToBasket(coffee: coffee) { result in
+                DispatchQueue.main.async {
+                    if result {
+                        self.showAlert(title: StringConstants.General.success, message: StringConstants.HomeView.productAddedToCart)
+                    }else {
+                        self.showAlert(title: StringConstants.General.error, message: StringConstants.Errors.unknown)
+                    }
+                }
             }
         }
+
         
     }
 }
