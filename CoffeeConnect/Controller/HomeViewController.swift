@@ -84,9 +84,9 @@ class HomeViewController: UIViewController {
         setupLayout()
         fetchFeatureProduct()
     }
-        
-    
-
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         if !didSetupMask {

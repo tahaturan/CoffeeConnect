@@ -59,8 +59,12 @@ struct StringConstants {
         static let discover = NSLocalizedString("Discover", comment: "")
         static let profile = NSLocalizedString("Profile", comment: "")
     }
+    enum WishlistViewController {
+        static let wishList = NSLocalizedString("Wish List", comment: "")
+    }
     
     struct CellIDs {
         static let homeViewCollectionViewCellId = "featuredCollectionViewCellID"
+        static let wishListCellID = "WishlistCellIdentifier"
     }
 }

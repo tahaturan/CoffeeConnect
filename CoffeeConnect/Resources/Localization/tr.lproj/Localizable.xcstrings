@@ -340,6 +340,16 @@
           }
         }
       }
+    },
+    "Wish List" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "İstek Listesi"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

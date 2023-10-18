@@ -15,6 +15,7 @@
 		5F47FC672ADF3710003943DD /* DiscoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC662ADF3710003943DD /* DiscoverViewController.swift */; };
 		5F47FC692ADF3722003943DD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC682ADF3722003943DD /* SearchViewController.swift */; };
 		5F47FC6B2ADF4875003943DD /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC6A2ADF4875003943DD /* DataService.swift */; };
+		5F47FC6D2ADF5537003943DD /* WishListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC6C2ADF5537003943DD /* WishListTableViewCell.swift */; };
 		5F64E19A2AD987140029A590 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64E1992AD987140029A590 /* PagingView.swift */; };
 		5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */; };
 		5FB5106B2AD517A0002AF588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */; };
@@ -71,6 +72,7 @@
 		5F47FC662ADF3710003943DD /* DiscoverViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverViewController.swift; sourceTree = "<group>"; };
 		5F47FC682ADF3722003943DD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		5F47FC6A2ADF4875003943DD /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
+		5F47FC6C2ADF5537003943DD /* WishListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WishListTableViewCell.swift; sourceTree = "<group>"; };
 		5F64E1992AD987140029A590 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
 		5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -145,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				5FBA36BF2ADD551A00B4BF24 /* FeaturedCollectionViewCell.swift */,
+				5F47FC6C2ADF5537003943DD /* WishListTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -460,6 +463,7 @@
 				5F0FDBF22ADA851A00A41D8A /* SpecialModel.swift in Sources */,
 				5FC5C7572AD5DB8300D946B4 /* AppError.swift in Sources */,
 				5FD0AA222AD51E51001EEE36 /* CommentModel.swift in Sources */,
+				5F47FC6D2ADF5537003943DD /* WishListTableViewCell.swift in Sources */,
 				5FD0AA1E2AD51E09001EEE36 /* UserModel.swift in Sources */,
 				5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */,
 				5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */,

@@ -81,11 +81,8 @@ class FeaturedCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with coffee: CoffeeModel) {
-        
             ImageLoader.shared.loadImage(into: self.coffeeImageView, from: coffee.imageURL)
             self.priceLabel.text = "\(coffee.price)₺"
-        
-       
     }
 }
 
