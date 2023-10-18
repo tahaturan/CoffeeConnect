@@ -30,6 +30,8 @@ class CoffeeDetailViewController: UIViewController {
     private let favoriteButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: AppStyleConstants.Icons.heart), for: .normal)
+        button.backgroundColor = .white
+        button.layer.cornerRadius = 20
         return button
     }()
     //MARK: - LifeCycle
@@ -93,7 +95,7 @@ extension CoffeeDetailViewController {
                     if wishList.contains(where: {$0.coffeeID == coffee.coffeeID}) {
                         self.favoriteButton.tintColor = .red
                     } else {
-                        self.favoriteButton.tintColor = .white
+                        self.favoriteButton.tintColor = .gray
                     }
                 }
             }
@@ -135,7 +137,7 @@ extension CoffeeDetailViewController {
                                 if wishList.contains(where: {$0.coffeeID == coffee.coffeeID}) {
                                     self.favoriteButton.tintColor = .red
                                 } else {
-                                    self.favoriteButton.tintColor = .white
+                                    self.favoriteButton.tintColor = .gray
                                 }
                             }
                         }
