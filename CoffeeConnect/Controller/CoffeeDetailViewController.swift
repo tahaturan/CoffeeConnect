@@ -26,7 +26,12 @@ class CoffeeDetailViewController: UIViewController {
         label.font = UIFont.boldSystemFont(ofSize: 30)
         return label
     }()
-    private let addToBasketButton: CustomButton = CustomButton(title: "Add To Basket")
+    private let addToBasketButton: CustomButton = CustomButton(title: StringConstants.General.addToBasket)
+    private let favoriteButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: AppStyleConstants.Icons.heart), for: .normal)
+        return button
+    }()
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,12 +50,19 @@ extension CoffeeDetailViewController {
         view.addSubview(coffeeDescriptionLabel)
         view.addSubview(addToBasketButton)
         view.addSubview(priceLabel)
+        view.addSubview(favoriteButton)
     }
     private func setupLayout() {
         coffeeImageView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.right.equalToSuperview()
             make.height.equalTo(400)
+        }
+        favoriteButton.snp.makeConstraints { make in
+            make.top.equalTo(coffeeImageView.snp.top).offset(10)
+            make.trailing.equalTo(coffeeImageView.snp.trailing).offset(-10)
+            make.width.height.equalTo(40)
+            
         }
         coffeeDescriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(coffeeImageView.snp.bottom).offset(5)
@@ -70,11 +82,20 @@ extension CoffeeDetailViewController {
     }
     private func configureProperties() {
         addToBasketButton.addTarget(self, action: #selector(handleBasketButton), for: .touchUpInside)
+        favoriteButton.addTarget(self, action: #selector(handleFavoriteButton), for: .touchUpInside)
         if let coffee = coffee {
             coffeeDescriptionLabel.text = coffee.description
             priceLabel.text = "\(coffee.price)₺"
+            
             DispatchQueue.main.async {
                 ImageLoader.shared.loadImage(into: self.coffeeImageView, from: coffee.imageURL)
+                if let wishList = UserManager.shared.currentUser?.wishlist {
+                    if wishList.contains(where: {$0.coffeeID == coffee.coffeeID}) {
+                        self.favoriteButton.tintColor = .red
+                    } else {
+                        self.favoriteButton.tintColor = .white
+                    }
+                }
             }
         }
     }
@@ -97,6 +118,26 @@ extension CoffeeDetailViewController {
                             self.showAlert(title: StringConstants.General.success, message: StringConstants.HomeView.productAddedToCart)
                         }else {
                             self.showAlert(title: StringConstants.General.error, message: StringConstants.Errors.unknown)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    @objc private func handleFavoriteButton() {
+        if let coffee = coffee {
+            DispatchQueue.global(qos: .background).async {
+                UserManager.shared.addWishList(coffee: coffee) { isSuccess in
+                    DispatchQueue.main.async {
+                        if isSuccess {
+                            if let wishList = UserManager.shared.currentUser?.wishlist {
+                                if wishList.contains(where: {$0.coffeeID == coffee.coffeeID}) {
+                                    self.favoriteButton.tintColor = .red
+                                } else {
+                                    self.favoriteButton.tintColor = .white
+                                }
+                            }
                         }
                     }
                 }

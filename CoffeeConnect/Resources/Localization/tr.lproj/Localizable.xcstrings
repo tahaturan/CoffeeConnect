@@ -1,6 +1,9 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
+    "Add To Basket" : {
+
+    },
     "An error occurred while uploading the profile image." : {
       "localizations" : {
         "tr" : {

@@ -86,6 +86,7 @@ class HomeViewController: UIViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.navigationBar.prefersLargeTitles = false
+        feateuredCollectionView.reloadData()
     }
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
