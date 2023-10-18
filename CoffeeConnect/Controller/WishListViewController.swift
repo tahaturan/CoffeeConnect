@@ -78,7 +78,7 @@ extension WishListViewController {
         tableView.reloadData()
     }
 }
-//MARK: - CommentNam
+//MARK: - UITableView Delegate/DataSource
 extension WishListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return wishListCoffees.count
@@ -89,6 +89,13 @@ extension WishListViewController: UITableViewDelegate, UITableViewDataSource {
         let coffee = wishListCoffees[indexPath.row]
         cell.configureCell(coffee: coffee)
         return cell
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let coffee = wishListCoffees[indexPath.row]
+        let detailVC = CoffeeDetailViewController()
+        detailVC.coffee = coffee
+        navigationController?.pushViewController(detailVC, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }

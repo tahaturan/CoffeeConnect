@@ -284,7 +284,7 @@ extension HomeViewController {
 }
 
 
-//MARK: - UICollection View Delegate/DataSource
+//MARK: - UICollection View Delegate/DataSource FeatureCollectionViewDelegate
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, FeatureCollectionViewDelegate {
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -331,6 +331,14 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             }
         }
 
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let products = featuredProductList?.1 {
+            let coffee = products[indexPath.row]
+            let detailVC = CoffeeDetailViewController()
+            detailVC.coffee = coffee
+            navigationController?.pushViewController(detailVC, animated: true)
+        }
     }
 
     func didTapBasketButton(in cell: FeaturedCollectionViewCell) {
