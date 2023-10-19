@@ -18,6 +18,23 @@ class BasketViewController: UIViewController {
         tableView.register(BasketListTableViewCell.self, forCellReuseIdentifier: StringConstants.CellIDs.basketListCellID)
         return tableView
     }()
+    private let orderView: UIView = {
+       let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    private lazy var subTotalLabel: UILabel = createLabel(title: StringConstants.General.subTotal)
+    private lazy var subTotalPriceLabel: UILabel = createLabel(title: "")
+    private lazy var deliveryLabel: UILabel = createLabel(title: StringConstants.General.delivery)
+    private lazy var deliveryPriceLabel: UILabel = createLabel(title: "10₺")
+    private lazy var totalLabel: UILabel = createLabel(title: StringConstants.General.total, size: 20, isBold: true)
+    private lazy var totalPriceLavel: UILabel = createLabel(title: "",size: 20, isBold: true)
+    private let seperatorLine: UIView = {
+       let view = UIView()
+        view.backgroundColor = .gray.withAlphaComponent(0.2)
+        return view
+    }()
+    private let orderButton: CustomButton = CustomButton(title: StringConstants.General.order)
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,11 +57,60 @@ extension BasketViewController {
             .font: UIFont.boldSystemFont(ofSize: 20),
         ]
         view.addSubview(tableView)
+        view.addSubview(orderView)
+        orderView.addSubview(subTotalLabel)
+        orderView.addSubview(subTotalPriceLabel)
+        orderView.addSubview(deliveryLabel)
+        orderView.addSubview(deliveryPriceLabel)
+        orderView.addSubview(seperatorLine)
+        orderView.addSubview(totalLabel)
+        orderView.addSubview(totalPriceLavel)
+        orderView.addSubview(orderButton)
     }
     private func setupLayout() {
         tableView.snp.makeConstraints { make in
-            make.top.bottom.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.left.right.equalToSuperview()
+            make.height.equalTo(370)
+        }
+        orderView.snp.makeConstraints { make in
+            make.top.equalTo(tableView.snp.bottom).offset(15)
+            make.left.right.equalToSuperview()
+        }
+        subTotalLabel.snp.makeConstraints { make in
+            make.top.equalTo(orderView.snp.top).offset(10)
+            make.leading.equalTo(orderView.snp.leading).offset(40)
+        }
+        subTotalPriceLabel.snp.makeConstraints { make in
+            make.top.equalTo(subTotalLabel)
+            make.trailing.equalTo(orderView.snp.trailing).offset(-40)
+        }
+        deliveryLabel.snp.makeConstraints { make in
+            make.top.equalTo(subTotalLabel.snp.bottom).offset(10)
+            make.leading.equalTo(subTotalLabel)
+        }
+        deliveryPriceLabel.snp.makeConstraints { make in
+            make.top.equalTo(subTotalPriceLabel.snp.bottom).offset(10)
+            make.trailing.equalTo(subTotalPriceLabel)
+        }
+        seperatorLine.snp.makeConstraints { make in
+            make.top.equalTo(deliveryLabel.snp.bottom).offset(10)
+            make.leading.equalTo(deliveryLabel)
+            make.trailing.equalTo(deliveryPriceLabel)
+            make.height.equalTo(1)
+        }
+        totalLabel.snp.makeConstraints { make in
+            make.top.equalTo(seperatorLine.snp.bottom).offset(10)
+            make.leading.equalTo(seperatorLine)
+        }
+        totalPriceLavel.snp.makeConstraints { make in
+            make.top.equalTo(totalLabel)
+            make.trailing.equalTo(seperatorLine)
+        }
+        orderButton.snp.makeConstraints { make in
+            make.top.equalTo(totalLabel.snp.bottom).offset(40)
+            make.leading.trailing.equalTo(seperatorLine)
+            make.height.equalTo(50)
         }
     }
     
@@ -72,6 +138,16 @@ extension BasketViewController {
         }
         tableView.reloadData()
     }
+    private func configurePriceLabel() {
+        var subTotal = 0.0
+        for (coffee, quantity) in basketCoffees {
+             subTotal += coffee.price * Double(quantity)
+        }
+        DispatchQueue.main.async {
+            self.subTotalPriceLabel.text = "\(subTotal)₺"
+            self.totalPriceLavel.text = "\(subTotal + 10)₺"
+        }
+    }
 }
 
 //MARK: -UITableView Delegate/DataSource
@@ -85,7 +161,7 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource , Bas
         let (coffee, quantity) = basketCoffees[indexPath.row]
         cell.configureCell(coffee: coffee, quantity: quantity)
         cell.delegate = self
-        
+        configurePriceLabel()
         return cell
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -136,5 +212,14 @@ extension BasketViewController: UITableViewDelegate, UITableViewDataSource , Bas
                 }
             }
         }
+    }
+}
+//MARK: - Factory Methods
+extension BasketViewController {
+    private func createLabel(title: String, size: CGFloat? = 15, isBold: Bool? = false) -> UILabel {
+        let label = UILabel()
+        label.text = title
+        label.font = isBold! ? UIFont.boldSystemFont(ofSize: size!) : UIFont.boldSystemFont(ofSize: size!)
+        return label
     }
 }

@@ -30,6 +30,10 @@ struct StringConstants {
         static let categories = NSLocalizedString("Categories", comment: "")
         static let addToBasket = NSLocalizedString("Add To Basket", comment: "")
         static let deletedProduct = NSLocalizedString("Deleted Product", comment: "")
+        static let subTotal = NSLocalizedString("Subtotal", comment: "")
+        static let delivery = NSLocalizedString("Delivery", comment: "")
+        static let total = NSLocalizedString("Total", comment: "")
+        static let order = NSLocalizedString("Order", comment: "")
     }
     enum HomeView{
         static let topCategories = ["Espresso", "Cappuccino", "Latte"]

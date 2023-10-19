@@ -101,6 +101,16 @@
         }
       }
     },
+    "Delivery" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teslimat"
+          }
+        }
+      }
+    },
     "Discover" : {
       "localizations" : {
         "tr" : {
@@ -221,6 +231,16 @@
         }
       }
     },
+    "Order" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sipariş"
+          }
+        }
+      }
+    },
     "Please fill in all fields" : {
       "localizations" : {
         "tr" : {
@@ -321,12 +341,32 @@
         }
       }
     },
+    "Subtotal" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ara Toplam"
+          }
+        }
+      }
+    },
     "Success" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Başarılı"
+          }
+        }
+      }
+    },
+    "Total" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toplam"
           }
         }
       }

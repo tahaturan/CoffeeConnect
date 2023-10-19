@@ -26,7 +26,7 @@ enum AppColors {
         case .curiousChipmunk:
             return UIColor(red: 0.85, green: 0.75, blue: 0.64, alpha: 1.00)
         case .ambassadorBlue:
-            return UIColor(red: 0.06, green: 0.17, blue: 0.34, alpha: 1.00)
+            return UIColor(red: 0.99, green: 0.06, blue: 0.45, alpha: 1.00)
         case .special:
             return UIColor(red: 0.99, green: 0.06, blue: 0.45, alpha: 1.00)
         case .backView:
