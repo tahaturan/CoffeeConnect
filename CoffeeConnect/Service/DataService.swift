@@ -18,7 +18,7 @@ class DataService {
         var cetegoriesWithCoffees: [(CoffeeCategoryModel, [CoffeeModel])] = []
 
         // Firestore dan tum kategorileri cekme
-        let dbRef = Firestore.firestore().collection("coffee_categories")
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.coffeeCategories)
         dbRef.getDocuments { categoryQuerySnapshot, error in
             guard let categoryDocuments = categoryQuerySnapshot?.documents else {
                 completion(.failure(AppError.dataFetchingFailed))
@@ -38,7 +38,7 @@ class DataService {
 
                     for coffeeID in category.coffeeIDs {
                         group.enter()
-                        Firestore.firestore().collection("coffees").document(coffeeID).getDocument { coffeeDocument, error in
+                        Firestore.firestore().collection(FirebaseConstants.coffees).document(coffeeID).getDocument { coffeeDocument, error in
                             guard let coffeeData = coffeeDocument?.data() else {
                                 group.leave()
                                 return
@@ -72,7 +72,7 @@ class DataService {
         // Önce kullanıcının mevcut istek listesi
         dbRef.getDocument { document, error in
             if let document = document, document.exists, let data = document.data() {
-                var wishlist = data["wishlist"] as? [[String: Any]] ?? []
+                var wishlist = data[FirebaseConstants.wishList] as? [[String: Any]] ?? []
 
                 // Eğer bu kahve zaten listeye eklenmişse
                 if let index = wishlist.firstIndex(where: { ($0["coffeeID"] as? String) == WishListItem.coffeeID }) {
@@ -88,7 +88,7 @@ class DataService {
                     }
                 }
                 // Güncellenmiş listeyi geri yükle
-                dbRef.updateData(["wishlist": wishlist]) { error in
+                dbRef.updateData([FirebaseConstants.wishList: wishlist]) { error in
                     if let error = error {
                         completion(.failure(AppError.custom(error.localizedDescription)))
                     } else {
@@ -111,7 +111,7 @@ class DataService {
 
         dbRef.getDocument { document, error in
             if let document = document, document.exists, let data = document.data() {
-                if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
+                if let shoppingCartData = data[FirebaseConstants.shoppingCart] as? [String: Any] {
                     do {
                         let jsonData = try JSONSerialization.data(withJSONObject: shoppingCartData, options: [])
                         var shoppingCart = try ShoppingCartModel.fromDictionary(jsonData: jsonData)
@@ -124,7 +124,7 @@ class DataService {
                         }
 
                         let updatedCartDict = try shoppingCart.toDictionary()
-                        dbRef.updateData(["shoppingCart": updatedCartDict]) { error in
+                        dbRef.updateData([FirebaseConstants.shoppingCart: updatedCartDict]) { error in
                             if let error = error {
                                 completion(.failure(AppError.custom(error.localizedDescription)))
                             } else {
@@ -155,7 +155,7 @@ class DataService {
 
             if let document = document, document.exists, let data = document.data() {
                 do {
-                    if let wishlistData = data["wishlist"] as? [[String: Any]] {
+                    if let wishlistData = data[FirebaseConstants.wishList] as? [[String: Any]] {
                         let wishlistItems = try wishlistData.map { itemData -> WishlistItemModel in
                             let jsonData = try JSONSerialization.data(withJSONObject: itemData, options: [])
                             return try JSONDecoder().decode(WishlistItemModel.self, from: jsonData)
@@ -182,7 +182,7 @@ class DataService {
 
             if let document = document, document.exists, let data = document.data() {
                 do {
-                    if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
+                    if let shoppingCartData = data[FirebaseConstants.shoppingCart] as? [String: Any] {
                         let jsonData = try JSONSerialization.data(withJSONObject: shoppingCartData, options: [])
                         let shoppingCart = try JSONDecoder().decode(ShoppingCartModel.self, from: jsonData)
                         completion(.success(shoppingCart))
@@ -201,7 +201,7 @@ class DataService {
 
         dbRef.getDocument { document, error in
             if let document = document, document.exists, let data = document.data() {
-                if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
+                if let shoppingCartData = data[FirebaseConstants.shoppingCart] as? [String: Any] {
                     do {
                         let jsonData = try JSONSerialization.data(withJSONObject: shoppingCartData, options: [])
                         var shoppingCart = try ShoppingCartModel.fromDictionary(jsonData: jsonData)
@@ -214,7 +214,7 @@ class DataService {
                         }
 
                         let updatedCartDict = try shoppingCart.toDictionary()
-                        dbRef.updateData(["shoppingCart": updatedCartDict]) { error in
+                        dbRef.updateData([FirebaseConstants.shoppingCart: updatedCartDict]) { error in
                             if let error = error {
                                 completion(.failure(AppError.custom(error.localizedDescription)))
                             } else {
@@ -239,7 +239,7 @@ class DataService {
 
         dbRef.getDocument { document, error in
             if let document = document, document.exists, let data = document.data() {
-                if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
+                if let shoppingCartData = data[FirebaseConstants.shoppingCart] as? [String: Any] {
                     do {
                         let jsonData = try JSONSerialization.data(withJSONObject: shoppingCartData, options: [])
                         var shoppingCart = try ShoppingCartModel.fromDictionary(jsonData: jsonData)
@@ -249,7 +249,7 @@ class DataService {
                         }
 
                         let updatedCartDict = try shoppingCart.toDictionary()
-                        dbRef.updateData(["shoppingCart": updatedCartDict]) { error in
+                        dbRef.updateData([FirebaseConstants.shoppingCart: updatedCartDict]) { error in
                             if let error = error {
                                 completion(.failure(AppError.custom(error.localizedDescription)))
                             } else {
@@ -274,7 +274,7 @@ class DataService {
 
         dbRef.getDocument { document, error in
             if let document = document, document.exists, let data = document.data() {
-                if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
+                if let shoppingCartData = data[FirebaseConstants.shoppingCart] as? [String: Any] {
                     do {
                         let jsonData = try JSONSerialization.data(withJSONObject: shoppingCartData, options: [])
                         var shoppingCart = try ShoppingCartModel.fromDictionary(jsonData: jsonData)
@@ -284,7 +284,7 @@ class DataService {
                         }
 
                         let updatedCartDict = try shoppingCart.toDictionary()
-                        dbRef.updateData(["shoppingCart": updatedCartDict]) { error in
+                        dbRef.updateData([FirebaseConstants.shoppingCart: updatedCartDict]) { error in
                             if let error = error {
                                 completion(.failure(AppError.custom(error.localizedDescription)))
                             } else {
