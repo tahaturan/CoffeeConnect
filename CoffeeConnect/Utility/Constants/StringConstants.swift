@@ -29,6 +29,7 @@ struct StringConstants {
         static let appName = "CoffeeConnect"
         static let categories = NSLocalizedString("Categories", comment: "")
         static let addToBasket = NSLocalizedString("Add To Basket", comment: "")
+        static let deletedProduct = NSLocalizedString("Deleted Product", comment: "")
     }
     enum HomeView{
         static let topCategories = ["Espresso", "Cappuccino", "Latte"]
@@ -63,9 +64,13 @@ struct StringConstants {
     enum WishlistViewController {
         static let wishList = NSLocalizedString("Wish List", comment: "")
     }
+    enum BasketViewController {
+        static let basket = NSLocalizedString("Basket", comment: "")
+    }
     
     struct CellIDs {
         static let homeViewCollectionViewCellId = "featuredCollectionViewCellID"
         static let wishListCellID = "WishlistCellIdentifier"
+        static let basketListCellID = "BasketCellIdentifier"
     }
 }

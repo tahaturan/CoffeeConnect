@@ -62,6 +62,7 @@
 		5FEB1DCB2AD3DC720033F164 /* LoginLogoImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DCA2AD3DC720033F164 /* LoginLogoImageView.swift */; };
 		5FEB1DD02AD403990033F164 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FEB1DCF2AD403990033F164 /* IQKeyboardManagerSwift */; };
 		5FEB1DD22AD4221E0033F164 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DD12AD4221E0033F164 /* PhotoPickerManager.swift */; };
+		5FF0D50E2AE01A9A0086CAA1 /* BasketListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF0D50D2AE01A9A0086CAA1 /* BasketListTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -112,6 +113,7 @@
 		5FEB1DC82AD3DB6F0033F164 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		5FEB1DCA2AD3DC720033F164 /* LoginLogoImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginLogoImageView.swift; sourceTree = "<group>"; };
 		5FEB1DD12AD4221E0033F164 /* PhotoPickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerManager.swift; sourceTree = "<group>"; };
+		5FF0D50D2AE01A9A0086CAA1 /* BasketListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketListTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 			children = (
 				5FBA36BF2ADD551A00B4BF24 /* FeaturedCollectionViewCell.swift */,
 				5F47FC6C2ADF5537003943DD /* WishListTableViewCell.swift */,
+				5FF0D50D2AE01A9A0086CAA1 /* BasketListTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 				5FD0AA2C2AD51F1D001EEE36 /* ShoppingCartItemModel.swift in Sources */,
 				5F64E19A2AD987140029A590 /* PagingView.swift in Sources */,
 				5FEB1DC92AD3DB6F0033F164 /* RegisterViewController.swift in Sources */,
+				5FF0D50E2AE01A9A0086CAA1 /* BasketListTableViewCell.swift in Sources */,
 				5FD0AA282AD51E9D001EEE36 /* WishlistItemModel.swift in Sources */,
 				5FEB1DCB2AD3DC720033F164 /* LoginLogoImageView.swift in Sources */,
 				5FD0AA2A2AD51EB4001EEE36 /* CoffeeCategoryModel.swift in Sources */,

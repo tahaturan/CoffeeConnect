@@ -209,7 +209,7 @@ extension HomeViewController {
 
     // Sepet butonuna tıklandığında yapılacak işlemler
     @objc private func didTapBasket() {
-        // TODO: Implement this function
+        navigationController?.pushViewController(BasketViewController(), animated: true)
     }
     
     @objc private func allCategoryButtonTapped() {

@@ -2,7 +2,14 @@
   "sourceLanguage" : "en",
   "strings" : {
     "Add To Basket" : {
-
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sepete Ekle"
+          }
+        }
+      }
     },
     "An error occurred while uploading the profile image." : {
       "localizations" : {
@@ -30,6 +37,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kimlik doğrulama başarısız oldu."
+          }
+        }
+      }
+    },
+    "Basket" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sepet"
           }
         }
       }
@@ -70,6 +87,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Veri çekme hatası"
+          }
+        }
+      }
+    },
+    "Deleted Product" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ürün Silindi"
           }
         }
       }

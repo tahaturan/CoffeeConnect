@@ -51,7 +51,6 @@ extension WishListViewController {
         }
     }
     
-    
     private func fetchAndDisplayWishlist() {
         guard let userID = UserManager.shared.currentUser?.userID else { return }
         
@@ -97,15 +96,4 @@ extension WishListViewController: UITableViewDelegate, UITableViewDataSource {
         navigationController?.pushViewController(detailVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
-    
 }
-
-
-
-
-
-
-
-
-
-

@@ -33,6 +33,9 @@ enum AppStyleConstants {
         static let home = "house"
         static let search = "magnifyingglass"
         static let discover = "dot.radiowaves.left.and.right"
+        static let trash = "trash.fill"
+        static let plus = "plus.app.fill"
+        static let minus = "minus.square.fill"
     }
 }
 

@@ -143,20 +143,20 @@ class DataService {
             }
         }
     }
-    
+
     func listenToUserWishlist(userID: String, completion: @escaping (Result<[WishlistItemModel], Error>) -> Void) {
         let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
-        
-        dbRef.addSnapshotListener { (document, error) in
+
+        dbRef.addSnapshotListener { document, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            
+
             if let document = document, document.exists, let data = document.data() {
                 do {
                     if let wishlistData = data["wishlist"] as? [[String: Any]] {
-                        let wishlistItems = try wishlistData.map { (itemData) -> WishlistItemModel in
+                        let wishlistItems = try wishlistData.map { itemData -> WishlistItemModel in
                             let jsonData = try JSONSerialization.data(withJSONObject: itemData, options: [])
                             return try JSONDecoder().decode(WishlistItemModel.self, from: jsonData)
                         }
@@ -173,13 +173,13 @@ class DataService {
 
     func listenToUserShoppingCart(userID: String, completion: @escaping (Result<ShoppingCartModel, Error>) -> Void) {
         let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
-        
-        dbRef.addSnapshotListener { (document, error) in
+
+        dbRef.addSnapshotListener { document, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            
+
             if let document = document, document.exists, let data = document.data() {
                 do {
                     if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
@@ -196,19 +196,127 @@ class DataService {
         }
     }
 
+    func increaseCoffeeQuantityInBasket(userID: String, coffeeID: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
+
+        dbRef.getDocument { document, error in
+            if let document = document, document.exists, let data = document.data() {
+                if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: shoppingCartData, options: [])
+                        var shoppingCart = try ShoppingCartModel.fromDictionary(jsonData: jsonData)
+
+                        if let index = shoppingCart.items.firstIndex(where: { $0.coffeeID == coffeeID }) {
+                            shoppingCart.items[index].quantity += 1
+                        } else {
+                            let newItem = ShoppingCartItemModel(coffeeID: coffeeID, quantity: 1)
+                            shoppingCart.items.append(newItem)
+                        }
+
+                        let updatedCartDict = try shoppingCart.toDictionary()
+                        dbRef.updateData(["shoppingCart": updatedCartDict]) { error in
+                            if let error = error {
+                                completion(.failure(AppError.custom(error.localizedDescription)))
+                            } else {
+                                completion(.success(()))
+                            }
+                        }
+                    } catch {
+                        print("Error decoding shopping cart: \(error)")
+                        completion(.failure(AppError.dataEncodingFailed))
+                    }
+                } else {
+                    completion(.failure(AppError.custom("Shopping cart data is not available.")))
+                }
+            } else {
+                completion(.failure(AppError.custom(error?.localizedDescription ?? "Unknown error.")))
+            }
+        }
+    }
+
+    func decreaseCoffeeQuantityInBasket(userID: String, coffeeID: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
+
+        dbRef.getDocument { document, error in
+            if let document = document, document.exists, let data = document.data() {
+                if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: shoppingCartData, options: [])
+                        var shoppingCart = try ShoppingCartModel.fromDictionary(jsonData: jsonData)
+
+                        if let index = shoppingCart.items.firstIndex(where: { $0.coffeeID == coffeeID }) {
+                            shoppingCart.items[index].quantity = max(shoppingCart.items[index].quantity - 1, 0)
+                        }
+
+                        let updatedCartDict = try shoppingCart.toDictionary()
+                        dbRef.updateData(["shoppingCart": updatedCartDict]) { error in
+                            if let error = error {
+                                completion(.failure(AppError.custom(error.localizedDescription)))
+                            } else {
+                                completion(.success(()))
+                            }
+                        }
+                    } catch {
+                        print("Error decoding shopping cart: \(error)")
+                        completion(.failure(AppError.dataEncodingFailed))
+                    }
+                } else {
+                    completion(.failure(AppError.custom("Shopping cart data is not available.")))
+                }
+            } else {
+                completion(.failure(AppError.custom(error?.localizedDescription ?? "Unknown error.")))
+            }
+        }
+    }
+
+    func removeCoffeeFromBasket(userID: String, coffeeID: String, completion: @escaping (Result<Void, Error>) -> Void) {
+        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
+
+        dbRef.getDocument { document, error in
+            if let document = document, document.exists, let data = document.data() {
+                if let shoppingCartData = data["shoppingCart"] as? [String: Any] {
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: shoppingCartData, options: [])
+                        var shoppingCart = try ShoppingCartModel.fromDictionary(jsonData: jsonData)
+
+                        if let index = shoppingCart.items.firstIndex(where: { $0.coffeeID == coffeeID }) {
+                            shoppingCart.items.remove(at: index)
+                        }
+
+                        let updatedCartDict = try shoppingCart.toDictionary()
+                        dbRef.updateData(["shoppingCart": updatedCartDict]) { error in
+                            if let error = error {
+                                completion(.failure(AppError.custom(error.localizedDescription)))
+                            } else {
+                                completion(.success(()))
+                            }
+                        }
+                    } catch {
+                        print("Error decoding shopping cart: \(error)")
+                        completion(.failure(AppError.dataEncodingFailed))
+                    }
+                } else {
+                    completion(.failure(AppError.custom("Shopping cart data is not available.")))
+                }
+            } else {
+                completion(.failure(AppError.custom(error?.localizedDescription ?? "Unknown error.")))
+            }
+        }
+    }
+
     func listenToUserPosts(userID: String, completion: @escaping (Result<[PostModel], Error>) -> Void) {
         let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
-        
-        dbRef.addSnapshotListener { (document, error) in
+
+        dbRef.addSnapshotListener { document, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
-            
+
             if let document = document, document.exists, let data = document.data(), let postIDs = data["postIDs"] as? [String] {
                 let group = DispatchGroup()
                 var userPosts: [PostModel] = []
-                
+
                 for postID in postIDs {
                     group.enter()
                     Firestore.firestore().collection("posts").document(postID).getDocument { postDocument, error in
@@ -224,12 +332,10 @@ class DataService {
                         group.leave()
                     }
                 }
-                
                 group.notify(queue: .main) {
                     completion(.success(userPosts))
                 }
             }
         }
     }
-
 }
