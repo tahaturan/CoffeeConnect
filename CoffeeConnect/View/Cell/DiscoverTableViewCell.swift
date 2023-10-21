@@ -66,13 +66,13 @@ class DiscoverTableViewCell: UITableViewCell {
     }
     
     func configureCell(post: PostModel, user: UserModel) {
-        DispatchQueue.main.async {
+      
             ImageLoader.shared.loadImage(into: self.postImageView, from: post.imageURL)
             ImageLoader.shared.loadImage(into: self.userProfileImage, from: user.profileImageURL)
             self.userNameLabel.text = user.name
             self.postDescriptionLabel.text = post.desctiption
             self.postAddedDateLabel.text = post.creationDate.timeAgoDisplay()
-        }
+        
         
     }
     func setupUI()  {

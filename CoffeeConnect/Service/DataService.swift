@@ -313,13 +313,13 @@ class DataService {
                 return
             }
 
-            if let document = document, document.exists, let data = document.data(), let postIDs = data["postIDs"] as? [String] {
+            if let document = document, document.exists, let data = document.data(), let postIDs = data[FirebaseConstants.postIDs] as? [String] {
                 let group = DispatchGroup()
                 var userPosts: [PostModel] = []
 
                 for postID in postIDs {
                     group.enter()
-                    Firestore.firestore().collection("posts").document(postID).getDocument { postDocument, error in
+                    Firestore.firestore().collection(FirebaseConstants.posts).document(postID).getDocument { postDocument, error in
                         if let postDocument = postDocument, postDocument.exists, let postData = postDocument.data() {
                             do {
                                 let jsonData = try JSONSerialization.data(withJSONObject: postData, options: [])
@@ -375,7 +375,7 @@ class DataService {
             let newPost = PostModel(postID: postID, userID: userID, imageURL: imageUrl, desctiption: description, creationDate: Date(), commentIDs: [])
             
             // Yeni postu Firestore'a ekleme
-            let dbRef = Firestore.firestore().collection("posts").document(postID)
+            let dbRef = Firestore.firestore().collection(FirebaseConstants.posts).document(postID)
             do {
                 let postData = try newPost.toDictionary()
                 dbRef.setData(postData) { error in
@@ -387,7 +387,7 @@ class DataService {
                     
                     let userRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
                     userRef.updateData([
-                        "postIDs": FieldValue.arrayUnion([postID])
+                        FirebaseConstants.postIDs: FieldValue.arrayUnion([postID])
                     ]) { error in
                         if let error = error {
                             print("Failed to update user's postIDs: \(error.localizedDescription)")
@@ -406,7 +406,6 @@ class DataService {
     func listenToAllUsersWithPosts(completion: @escaping (Result<[(user: UserModel, posts: [PostModel])], Error>) -> Void) {
         let db = Firestore.firestore()
 
-        // Tüm kullanıcıları al
         db.collection(FirebaseConstants.usersCollection).getDocuments { (usersSnapshot, error) in
             if let error = error {
                 completion(.failure(error))
@@ -419,39 +418,43 @@ class DataService {
             }
 
             var allUsersWithPosts: [(user: UserModel, posts: [PostModel])] = []
+            let semaphore = DispatchSemaphore(value: 1) // Semaphore başlangıç değeri
 
-            let group = DispatchGroup()
+            let dispatchQueue = DispatchQueue.global()
 
-            for userDocument in usersDocuments {
-               let userData = userDocument.data()
-                  
+            dispatchQueue.async {
+                for userDocument in usersDocuments {
+                    semaphore.wait() // Semaphore değerini 1 azaltır. Eğer 0 ise beklemeye başlar.
+                    let userData = userDocument.data()
 
-                do {
-                    let jsonData = try JSONSerialization.data(withJSONObject: userData, options: [])
-                    let user = try JSONDecoder().decode(UserModel.self, from: jsonData)
+                    do {
+                        let jsonData = try JSONSerialization.data(withJSONObject: userData, options: [])
+                        let user = try JSONDecoder().decode(UserModel.self, from: jsonData)
 
-                    group.enter()
-
-                    self.listenToUserPosts(userID: userDocument.documentID) { result in
-                        switch result {
-                        case .success(let posts):
-                            allUsersWithPosts.append((user: user, posts: posts))
-                        case .failure(let error):
-                            print("Error fetching posts for user \(userDocument.documentID): \(error)")
+                        self.listenToUserPosts(userID: userDocument.documentID) { result in
+                            switch result {
+                            case .success(let posts):
+                                allUsersWithPosts.append((user: user, posts: posts))
+                            case .failure(let error):
+                                print("Error fetching posts for user \(userDocument.documentID): \(error)")
+                            }
+                            semaphore.signal() // Semaphore değerini 1 artırır. Bekleyen varsa devam eder.
                         }
-                        group.leave()
+                    } catch {
+                        print("Error decoding user data for user \(userDocument.documentID): \(error)")
+                        semaphore.signal()
                     }
-
-                } catch {
-                    print("Error decoding user data: \(error)")
                 }
-            }
 
-            group.notify(queue: .main) {
-                completion(.success(allUsersWithPosts))
+                semaphore.wait() // Son işlem tamamlanana kadar bekler.
+                DispatchQueue.main.async {
+                    completion(.success(allUsersWithPosts))
+                }
+                semaphore.signal() // Semaphore'yi serbest bırakır.
             }
         }
     }
+
 
 
 }

@@ -14,5 +14,7 @@ struct FirebaseConstants {
     static let shoppingCart = "shoppingCart"
     static let coffeeCategories = "coffee_categories"
     static let coffees = "coffees"
+    static let posts = "posts"
+    static let postIDs = "postIDs"
 }
 

@@ -58,6 +58,11 @@ class DiscoverViewController: UIViewController {
         setupLayout()
         fetchData()
     }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
+        print("okey")
+    }
 }
 
 // MARK: - Helpers
@@ -78,18 +83,20 @@ extension DiscoverViewController {
     }
 
     private func fetchData() {
-        DispatchQueue.main.async {
-            DataService.shared.listenToAllUsersWithPosts { result in
-                switch result {
-                case let .success(data):
-                    self.allUsersWithPosts = data
-                    self.tableView.reloadData()
-                case let .failure(error):
-                    print(error.localizedDescription)
+        DataService.shared.listenToAllUsersWithPosts { result in
+            switch result {
+            case let .success(data):
+                self.allUsersWithPosts = data.map { userWithPosts in
+                    let sortedPosts = userWithPosts.posts.sorted(by: { $0.creationDate > $1.creationDate })
+                    return (user: userWithPosts.user, posts: sortedPosts)
                 }
+                self.tableView.reloadData()
+            case let .failure(error):
+                print(error.localizedDescription)
             }
         }
     }
+
 
     private func configureNaviagtionBar() {
         navigationItem.title = StringConstants.MainTabbar.discover
@@ -124,9 +131,9 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: StringConstants.CellIDs.discoverCellID, for: indexPath) as! DiscoverTableViewCell
         let post = allUsersWithPosts[indexPath.section].posts[indexPath.row]
         let user = allUsersWithPosts[indexPath.section].user
-        DispatchQueue.main.async {
+       
             cell.configureCell(post: post, user: user)
-        }
+        
         return cell
     }
 }
