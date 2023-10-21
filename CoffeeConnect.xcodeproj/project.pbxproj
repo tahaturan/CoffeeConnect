@@ -35,8 +35,6 @@
 		5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBD49D12AD295B100F515B8 /* LoginViewController.swift */; };
 		5FBD49D72AD295B200F515B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD49D62AD295B200F515B8 /* Assets.xcassets */; };
 		5FBD49DA2AD295B200F515B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FBD49D82AD295B200F515B8 /* LaunchScreen.storyboard */; };
-		5FBD49E62AD32B8F00F515B8 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBD49E52AD32B8F00F515B8 /* SnapKit */; };
-		5FBD49E82AD32B8F00F515B8 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 5FBD49E72AD32B8F00F515B8 /* SnapKit-Dynamic */; };
 		5FC5C7542AD55D3400D946B4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC5C7532AD55D3400D946B4 /* HomeViewController.swift */; };
 		5FC5C7572AD5DB8300D946B4 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FC5C7562AD5DB8300D946B4 /* AppError.swift */; };
 		5FD0AA1E2AD51E09001EEE36 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA1D2AD51E09001EEE36 /* UserModel.swift */; };
@@ -53,6 +51,8 @@
 		5FD0AA362AD52133001EEE36 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 5FD0AA352AD52133001EEE36 /* FirebaseFirestore */; };
 		5FD0AA392AD5276D001EEE36 /* AppExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA382AD5276D001EEE36 /* AppExtensions.swift */; };
 		5FD0AA3B2AD532B8001EEE36 /* CustomProgressIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FD0AA3A2AD532B8001EEE36 /* CustomProgressIndicator.swift */; };
+		5FE56A952AE35AF8009A681C /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE56A942AE35AF8009A681C /* PostViewController.swift */; };
+		5FE56A972AE37563009A681C /* DiscoverTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FE56A962AE37563009A681C /* DiscoverTableViewCell.swift */; };
 		5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB02AD335DF0033F164 /* AppColors.swift */; };
 		5FEB1DB32AD338280033F164 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB22AD338280033F164 /* CustomTextField.swift */; };
 		5FEB1DB52AD33A8B0033F164 /* StringConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DB42AD33A8B0033F164 /* StringConstants.swift */; };
@@ -64,7 +64,22 @@
 		5FEB1DD02AD403990033F164 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 5FEB1DCF2AD403990033F164 /* IQKeyboardManagerSwift */; };
 		5FEB1DD22AD4221E0033F164 /* PhotoPickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FEB1DD12AD4221E0033F164 /* PhotoPickerManager.swift */; };
 		5FF0D50E2AE01A9A0086CAA1 /* BasketListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FF0D50D2AE01A9A0086CAA1 /* BasketListTableViewCell.swift */; };
+		5FF3C5BC2AE3489C002B6A71 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 5FF3C5BB2AE3489C002B6A71 /* SnapKit */; };
+		5FF3C5BE2AE3489C002B6A71 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 5FF3C5BD2AE3489C002B6A71 /* SnapKit-Dynamic */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5FF3C5B82AE3475A002B6A71 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		5F0FDBF12ADA851A00A41D8A /* SpecialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpecialModel.swift; sourceTree = "<group>"; };
@@ -106,6 +121,8 @@
 		5FD0AA2E2AD52031001EEE36 /* AuthenticationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationService.swift; sourceTree = "<group>"; };
 		5FD0AA382AD5276D001EEE36 /* AppExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppExtensions.swift; sourceTree = "<group>"; };
 		5FD0AA3A2AD532B8001EEE36 /* CustomProgressIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomProgressIndicator.swift; sourceTree = "<group>"; };
+		5FE56A942AE35AF8009A681C /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		5FE56A962AE37563009A681C /* DiscoverTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewCell.swift; sourceTree = "<group>"; };
 		5FEB1DB02AD335DF0033F164 /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		5FEB1DB22AD338280033F164 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		5FEB1DB42AD33A8B0033F164 /* StringConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringConstants.swift; sourceTree = "<group>"; };
@@ -125,12 +142,12 @@
 			files = (
 				5FD0AA342AD52129001EEE36 /* FirebaseAuth in Frameworks */,
 				5FD0AA322AD52123001EEE36 /* FirebaseStorage in Frameworks */,
-				5FBD49E62AD32B8F00F515B8 /* SnapKit in Frameworks */,
-				5FBD49E82AD32B8F00F515B8 /* SnapKit-Dynamic in Frameworks */,
 				5FBC644A2AD8BCFE00EC894E /* Kingfisher in Frameworks */,
 				5FD0AA362AD52133001EEE36 /* FirebaseFirestore in Frameworks */,
 				5FBC644F2AD8BDD000EC894E /* SDWebImageMapKit in Frameworks */,
+				5FF3C5BE2AE3489C002B6A71 /* SnapKit-Dynamic in Frameworks */,
 				5FBC644D2AD8BDD000EC894E /* SDWebImage in Frameworks */,
+				5FF3C5BC2AE3489C002B6A71 /* SnapKit in Frameworks */,
 				5FEB1DD02AD403990033F164 /* IQKeyboardManagerSwift in Frameworks */,
 				5FBC64412AD8A98700EC894E /* Lottie in Frameworks */,
 			);
@@ -155,6 +172,7 @@
 				5FBA36BF2ADD551A00B4BF24 /* FeaturedCollectionViewCell.swift */,
 				5F47FC6C2ADF5537003943DD /* WishListTableViewCell.swift */,
 				5FF0D50D2AE01A9A0086CAA1 /* BasketListTableViewCell.swift */,
+				5FE56A962AE37563009A681C /* DiscoverTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -266,6 +284,7 @@
 				5F47FC662ADF3710003943DD /* DiscoverViewController.swift */,
 				5F47FC682ADF3722003943DD /* SearchViewController.swift */,
 				5F47FC6E2ADF73B0003943DD /* CoffeeDetailViewController.swift */,
+				5FE56A942AE35AF8009A681C /* PostViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -356,6 +375,7 @@
 				5FBD49C62AD295B100F515B8 /* Sources */,
 				5FBD49C72AD295B100F515B8 /* Frameworks */,
 				5FBD49C82AD295B100F515B8 /* Resources */,
+				5FF3C5B82AE3475A002B6A71 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -363,8 +383,6 @@
 			);
 			name = CoffeeConnect;
 			packageProductDependencies = (
-				5FBD49E52AD32B8F00F515B8 /* SnapKit */,
-				5FBD49E72AD32B8F00F515B8 /* SnapKit-Dynamic */,
 				5FEB1DCF2AD403990033F164 /* IQKeyboardManagerSwift */,
 				5FD0AA312AD52123001EEE36 /* FirebaseStorage */,
 				5FD0AA332AD52129001EEE36 /* FirebaseAuth */,
@@ -373,6 +391,8 @@
 				5FBC64492AD8BCFE00EC894E /* Kingfisher */,
 				5FBC644C2AD8BDD000EC894E /* SDWebImage */,
 				5FBC644E2AD8BDD000EC894E /* SDWebImageMapKit */,
+				5FF3C5BB2AE3489C002B6A71 /* SnapKit */,
+				5FF3C5BD2AE3489C002B6A71 /* SnapKit-Dynamic */,
 			);
 			productName = CoffeeConnect;
 			productReference = 5FBD49CA2AD295B100F515B8 /* CoffeeConnect.app */;
@@ -404,12 +424,12 @@
 			);
 			mainGroup = 5FBD49C12AD295B100F515B8;
 			packageReferences = (
-				5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				5FEB1DCE2AD403990033F164 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 				5FBC643F2AD8A98700EC894E /* XCRemoteSwiftPackageReference "lottie-ios" */,
 				5FBC64482AD8BCFE00EC894E /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				5FBC644B2AD8BDCF00EC894E /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				5FF3C5BA2AE3489C002B6A71 /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 5FBD49CB2AD295B100F515B8 /* Products */;
 			projectDirPath = "";
@@ -461,6 +481,7 @@
 				5FBD49D22AD295B100F515B8 /* LoginViewController.swift in Sources */,
 				5FEB1DB12AD335DF0033F164 /* AppColors.swift in Sources */,
 				5FBC643B2AD8771900EC894E /* ImageLoader.swift in Sources */,
+				5FE56A972AE37563009A681C /* DiscoverTableViewCell.swift in Sources */,
 				5FD0AA262AD51E86001EEE36 /* ShoppingCartModel.swift in Sources */,
 				5FD0AA202AD51E3C001EEE36 /* PostModel.swift in Sources */,
 				5FEB1DB52AD33A8B0033F164 /* StringConstants.swift in Sources */,
@@ -471,6 +492,7 @@
 				5FBD49D02AD295B100F515B8 /* SceneDelegate.swift in Sources */,
 				5F47FC692ADF3722003943DD /* SearchViewController.swift in Sources */,
 				5FD0AA242AD51E6D001EEE36 /* CoffeeModel.swift in Sources */,
+				5FE56A952AE35AF8009A681C /* PostViewController.swift in Sources */,
 				5F0FDBF22ADA851A00A41D8A /* SpecialModel.swift in Sources */,
 				5FC5C7572AD5DB8300D946B4 /* AppError.swift in Sources */,
 				5FD0AA222AD51E51001EEE36 /* CommentModel.swift in Sources */,
@@ -728,14 +750,6 @@
 				minimumVersion = 5.18.3;
 			};
 		};
-		5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.6.0;
-			};
-		};
 		5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
@@ -750,6 +764,14 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 6.5.15;
+			};
+		};
+		5FF3C5BA2AE3489C002B6A71 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -775,16 +797,6 @@
 			package = 5FBC644B2AD8BDCF00EC894E /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImageMapKit;
 		};
-		5FBD49E52AD32B8F00F515B8 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
-		5FBD49E72AD32B8F00F515B8 /* SnapKit-Dynamic */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 5FBD49E42AD32B8F00F515B8 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = "SnapKit-Dynamic";
-		};
 		5FD0AA312AD52123001EEE36 /* FirebaseStorage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 5FD0AA122AD51930001EEE36 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
@@ -804,6 +816,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 5FEB1DCE2AD403990033F164 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
+		};
+		5FF3C5BB2AE3489C002B6A71 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FF3C5BA2AE3489C002B6A71 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		5FF3C5BD2AE3489C002B6A71 /* SnapKit-Dynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 5FF3C5BA2AE3489C002B6A71 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = "SnapKit-Dynamic";
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

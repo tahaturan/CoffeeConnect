@@ -13,6 +13,7 @@ class MainTabBarController: UITabBarController {
     private let discoverVC = DiscoverViewController()
     private let profileVC = ProfileViewController()
     private let searchVC = SearchViewController()
+    private let postVC = PostViewController()
 
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -33,10 +34,11 @@ extension MainTabBarController {
         
         homeVC.tabBarItem = UITabBarItem(title: StringConstants.MainTabbar.home, image: UIImage(systemName: AppStyleConstants.Icons.home), tag: 0)
         searchVC.tabBarItem = UITabBarItem(title: StringConstants.MainTabbar.search, image: UIImage(systemName: AppStyleConstants.Icons.search), tag: 1)
-        discoverVC.tabBarItem = UITabBarItem(title: StringConstants.MainTabbar.discover, image: UIImage(systemName: AppStyleConstants.Icons.discover), tag: 2)
-        profileVC.tabBarItem = UITabBarItem(title: StringConstants.MainTabbar.profile, image: UIImage(systemName: AppStyleConstants.Icons.user), tag: 3)
+        postVC.tabBarItem = UITabBarItem(title: StringConstants.MainTabbar.post, image: UIImage(systemName: AppStyleConstants.Icons.post), tag: 2)
+        discoverVC.tabBarItem = UITabBarItem(title: StringConstants.MainTabbar.discover, image: UIImage(systemName: AppStyleConstants.Icons.discover), tag: 3)
+        profileVC.tabBarItem = UITabBarItem(title: StringConstants.MainTabbar.profile, image: UIImage(systemName: AppStyleConstants.Icons.user), tag: 4)
         
-        let controlers = [homeVC, searchVC, discoverVC, profileVC]
+        let controlers = [homeVC, searchVC, postVC, discoverVC, profileVC]
         self.viewControllers = controlers.map { UINavigationController(rootViewController: $0) }
     }
 }

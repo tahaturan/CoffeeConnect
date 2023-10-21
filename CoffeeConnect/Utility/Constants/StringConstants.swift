@@ -35,6 +35,8 @@ struct StringConstants {
         static let total = NSLocalizedString("Total", comment: "")
         static let order = NSLocalizedString("Order", comment: "")
         static let search = NSLocalizedString("Search", comment: "")
+        static let newPost = NSLocalizedString("New Post", comment: "")
+        static let sharingPost = NSLocalizedString("Post successfully shared!", comment: "")
     }
     enum HomeView{
         static let topCategories = ["Espresso", "Cappuccino", "Latte"]
@@ -59,12 +61,15 @@ struct StringConstants {
         static let dataEncodingFailed = NSLocalizedString("Data encoding failed.", comment: "")
         static let dataDecodingFailed = NSLocalizedString("Data decoding failed.", comment: "")
         static let dataFetchingFailed = NSLocalizedString("Data Fetching Failed", comment: "")
+        static let imageOrDescMissing = NSLocalizedString("Image or description is missing!", comment: "")
+        static let postSharingFailed = NSLocalizedString("Failed to share the post!", comment: "")
     }
     enum MainTabbar {
         static let home = NSLocalizedString("Home", comment: "")
         static let search = NSLocalizedString("Search", comment: "")
         static let discover = NSLocalizedString("Discover", comment: "")
         static let profile = NSLocalizedString("Profile", comment: "")
+        static let post = NSLocalizedString("Post", comment: "")
     }
     enum WishlistViewController {
         static let wishList = NSLocalizedString("Wish List", comment: "")
@@ -77,5 +82,13 @@ struct StringConstants {
         static let homeViewCollectionViewCellId = "featuredCollectionViewCellID"
         static let wishListCellID = "WishlistCellIdentifier"
         static let basketListCellID = "BasketCellIdentifier"
+        static let discoverCellID = "DiscoverCellIdentifier"
+    }
+    enum DateFormat {
+        static let dayAgo = NSLocalizedString("d ago", comment: "")
+        static let hourAgo = NSLocalizedString("h ago", comment: "")
+        static let minuteAgo = NSLocalizedString("min ago", comment: "")
+        static let secontAgo = NSLocalizedString("s ago", comment: "")
+        static let now = NSLocalizedString("now", comment: "")
     }
 }

@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 class CustomButton: UIButton {
-    init(title: String, color: UIColor? = AppColors.ambassadorBlue.color, titleColor: UIColor? = .white) {
+    init(title: String, color: UIColor? = AppColors.special.color, titleColor: UIColor? = .white) {
         super.init(frame: .zero)
         self.setTitle(title, for: .normal)
         self.backgroundColor = color

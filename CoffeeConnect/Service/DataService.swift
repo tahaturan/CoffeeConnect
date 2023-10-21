@@ -338,4 +338,120 @@ class DataService {
             }
         }
     }
+    
+    func uploadImageToFirebaseStorage(_ image: UIImage, completion: @escaping (String?) -> Void) {
+        let storageRef = Storage.storage().reference().child("post_images/\(UUID().uuidString).jpg")
+        
+        if let uploadData = image.jpegData(compressionQuality: 0.8) {
+            storageRef.putData(uploadData, metadata: nil) { metadata, error in
+                if error != nil {
+                    print("Failed to upload image: \(error!.localizedDescription)")
+                    completion(nil)
+                    return
+                }
+                
+                storageRef.downloadURL { url, error in
+                    if let imageUrl = url?.absoluteString {
+                        completion(imageUrl)
+                    } else {
+                        print("Failed to fetch download URL: \(error?.localizedDescription ?? "No error description.")")
+                        completion(nil)
+                    }
+                }
+            }
+        }
+    }
+    func saveNewPostToFirestore(userID: String, image: UIImage, description: String, completion: @escaping (Bool) -> Void) {
+        // resmi Firebase Storage'a yükleme
+        uploadImageToFirebaseStorage(image) { imageUrl in
+            guard let imageUrl = imageUrl else {
+                print("Failed to upload image to storage.")
+                completion(false)
+                return
+            }
+            
+            // Resmin URL'siyle bir post oluşturma
+            let postID = UUID().uuidString
+            let newPost = PostModel(postID: postID, userID: userID, imageURL: imageUrl, desctiption: description, creationDate: Date(), commentIDs: [])
+            
+            // Yeni postu Firestore'a ekleme
+            let dbRef = Firestore.firestore().collection("posts").document(postID)
+            do {
+                let postData = try newPost.toDictionary()
+                dbRef.setData(postData) { error in
+                    if let error = error {
+                        print("Failed to save post: \(error.localizedDescription)")
+                        completion(false)
+                        return
+                    }
+                    
+                    let userRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
+                    userRef.updateData([
+                        "postIDs": FieldValue.arrayUnion([postID])
+                    ]) { error in
+                        if let error = error {
+                            print("Failed to update user's postIDs: \(error.localizedDescription)")
+                            completion(false)
+                        } else {
+                            completion(true)
+                        }
+                    }
+                }
+            } catch {
+                print("Failed to encode post: \(error.localizedDescription)")
+                completion(false)
+            }
+        }
+    }
+    func listenToAllUsersWithPosts(completion: @escaping (Result<[(user: UserModel, posts: [PostModel])], Error>) -> Void) {
+        let db = Firestore.firestore()
+
+        // Tüm kullanıcıları al
+        db.collection(FirebaseConstants.usersCollection).getDocuments { (usersSnapshot, error) in
+            if let error = error {
+                completion(.failure(error))
+                return
+            }
+
+            guard let usersDocuments = usersSnapshot?.documents else {
+                completion(.failure(NSError(domain: "No users found", code: -1, userInfo: nil)))
+                return
+            }
+
+            var allUsersWithPosts: [(user: UserModel, posts: [PostModel])] = []
+
+            let group = DispatchGroup()
+
+            for userDocument in usersDocuments {
+               let userData = userDocument.data()
+                  
+
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: userData, options: [])
+                    let user = try JSONDecoder().decode(UserModel.self, from: jsonData)
+
+                    group.enter()
+
+                    self.listenToUserPosts(userID: userDocument.documentID) { result in
+                        switch result {
+                        case .success(let posts):
+                            allUsersWithPosts.append((user: user, posts: posts))
+                        case .failure(let error):
+                            print("Error fetching posts for user \(userDocument.documentID): \(error)")
+                        }
+                        group.leave()
+                    }
+
+                } catch {
+                    print("Error decoding user data: \(error)")
+                }
+            }
+
+            group.notify(queue: .main) {
+                completion(.success(allUsersWithPosts))
+            }
+        }
+    }
+
+
 }

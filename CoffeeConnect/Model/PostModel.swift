@@ -9,10 +9,11 @@ import Foundation
 
 struct PostModel: Codable {
     let postID: String
-    let userID: String          // Gönderiyi paylaşan kullanıcının ID'si
+    let userID: String          
     var imageURL: String
-    var creationDate: Date      // Gönderinin oluşturulma tarihi
-    var commentIDs: [String]    // Bu gönderiye yapılan yorumların ID'leri
+    var desctiption: String
+    var creationDate: Date
+    var commentIDs: [String]
     
     func toDictionary() throws -> [String: Any] {
         let data = try JSONEncoder().encode(self)

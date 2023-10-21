@@ -61,6 +61,16 @@
         }
       }
     },
+    "d ago" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "d önce"
+          }
+        }
+      }
+    },
     "Data decoding failed." : {
       "localizations" : {
         "tr" : {
@@ -171,6 +181,16 @@
         }
       }
     },
+    "Failed to share the post!" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gönderi Paylaşılamadı"
+          }
+        }
+      }
+    },
     "Featured Products" : {
       "localizations" : {
         "tr" : {
@@ -191,12 +211,32 @@
         }
       }
     },
+    "h ago" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "sa önce"
+          }
+        }
+      }
+    },
     "Home" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ana Sayfa"
+          }
+        }
+      }
+    },
+    "Image or description is missing!" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Resim veya Gönderi alanı boş!"
           }
         }
       }
@@ -211,12 +251,42 @@
         }
       }
     },
+    "min ago" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "d önce"
+          }
+        }
+      }
+    },
     "Name" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
             "value" : "Ad"
+          }
+        }
+      }
+    },
+    "New Post" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Yeni Gönderi"
+          }
+        }
+      }
+    },
+    "now" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "şimdi"
           }
         }
       }
@@ -247,6 +317,26 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Lütfen tüm alanları doldurunuz"
+          }
+        }
+      }
+    },
+    "Post" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gönderi"
+          }
+        }
+      }
+    },
+    "Post successfully shared!" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gönderi Başarıyla Paylaşıldı!"
           }
         }
       }
@@ -297,6 +387,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Kayıt Başarılı"
+          }
+        }
+      }
+    },
+    "s ago" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "s önce"
           }
         }
       }
