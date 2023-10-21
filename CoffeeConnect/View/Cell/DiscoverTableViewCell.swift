@@ -41,7 +41,7 @@ class DiscoverTableViewCell: UITableViewCell {
     private let userInfoView: UIView = {
        let view = UIView()
         view.layer.cornerRadius = 25
-        view.backgroundColor = AppColors.ambassadorBlue.color
+        view.backgroundColor = AppColors.discoverUserView.color
         return view
     }()
     private var postAddedDateLabel: UILabel = {
