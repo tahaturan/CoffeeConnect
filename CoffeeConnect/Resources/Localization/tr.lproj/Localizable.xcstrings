@@ -202,6 +202,7 @@
       }
     },
     "Filter Coffee" : {
+      "extractionState" : "stale",
       "localizations" : {
         "tr" : {
           "stringUnit" : {
@@ -210,6 +211,9 @@
           }
         }
       }
+    },
+    "Filtre Kahve" : {
+
     },
     "h ago" : {
       "localizations" : {

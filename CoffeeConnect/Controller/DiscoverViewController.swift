@@ -58,6 +58,7 @@ class DiscoverViewController: UIViewController {
         setupLayout()
         fetchData()
     }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchData()
@@ -97,7 +98,6 @@ extension DiscoverViewController {
         }
     }
 
-
     private func configureNaviagtionBar() {
         navigationItem.title = StringConstants.MainTabbar.discover
         navigationController?.navigationBar.titleTextAttributes = [
@@ -131,9 +131,13 @@ extension DiscoverViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: StringConstants.CellIDs.discoverCellID, for: indexPath) as! DiscoverTableViewCell
         let post = allUsersWithPosts[indexPath.section].posts[indexPath.row]
         let user = allUsersWithPosts[indexPath.section].user
-       
-            cell.configureCell(post: post, user: user)
-        
+
+        cell.configureCell(post: post, user: user)
+
         return cell
+    }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }

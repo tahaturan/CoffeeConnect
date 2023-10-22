@@ -40,7 +40,7 @@ struct StringConstants {
     }
     enum HomeView{
         static let topCategories = ["Espresso", "Cappuccino", "Latte"]
-        static let bottomCategories = ["Mocha", "Iced Coffee", NSLocalizedString("Filter Coffee", comment: "")]
+        static let bottomCategories = ["Mocha", "Soğuk Kahve", NSLocalizedString("Filtre Kahve", comment: "")]
         static let welcome = NSLocalizedString("Welcome", comment: "")
         static let secialOffer = NSLocalizedString("Special offer", comment: "")
         static let discoverOurExclusive = NSLocalizedString("Discover our exclusive coffee offers now", comment: "")

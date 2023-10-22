@@ -10,14 +10,11 @@ import SDWebImage
 import SnapKit
 import UIKit
 
-protocol HomeViewControllerDelegate: AnyObject {
-    func homeViewController(_ controller: HomeViewController, didTapCategoryWithTitle title: String)
-}
+
 
 class HomeViewController: UIViewController {
     // MARK: - Properties
 
-    var delegate: HomeViewControllerDelegate?
     private var didSetupMask = false
     private let userProfileImageView: UIImageView = {
         let imageView = UIImageView()
@@ -222,7 +219,14 @@ extension HomeViewController {
     // kategori butonlarina tıklandığında yapılacak işlemler
     @objc private func didTapCategoryButton(_ sender: UIButton) {
         if let categoryTitle = sender.titleLabel?.text {
-            delegate?.homeViewController(self, didTapCategoryWithTitle: categoryTitle)
+            if let allCategoriesWithCoffee = AppData.shared.categoriesWithCoffee {
+                let coffeTuple = allCategoriesWithCoffee.first {$0.0.categoryName == categoryTitle}
+               let categoryId = coffeTuple?.0.categoryID
+                let categoryVC = CategoryWithCoffeeViewController()
+                    categoryVC.categoryName = categoryTitle
+                categoryVC.categoryId = categoryId
+                    navigationController?.pushViewController(categoryVC, animated: true)
+            }
         }
     }
 }
