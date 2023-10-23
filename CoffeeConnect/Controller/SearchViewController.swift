@@ -23,7 +23,7 @@ class SearchViewController: UIViewController {
     }()
     private let searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.placeholder = "Search"
+        searchBar.placeholder = StringConstants.MainTabbar.search
         searchBar.barTintColor = .white
         searchBar.backgroundColor = .white
         searchBar.backgroundImage = UIImage() // Üst ve alt çizgileri kaldırma

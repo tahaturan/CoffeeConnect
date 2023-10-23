@@ -141,6 +141,16 @@
         }
       }
     },
+    "Discover coffee lovers and share your favorite coffee" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kahve severleri keşfedin ve en sevdiğiniz kahveyi paylaşın."
+          }
+        }
+      }
+    },
     "Discover our exclusive coffee offers now" : {
       "localizations" : {
         "tr" : {
@@ -228,6 +238,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Filtre Kahve"
+          }
+        }
+      }
+    },
+    "Get Started" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Başla"
           }
         }
       }

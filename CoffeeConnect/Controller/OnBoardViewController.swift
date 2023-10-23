@@ -26,13 +26,13 @@ class OnBoardViewController: UIViewController {
     }()
     private let cofeeConnectDescriptionLabel: UILabel = {
        let label = UILabel()
-        label.text = "Discover and connect with coffee lovers"
+        label.text = StringConstants.General.discoverText
         label.font = UIFont.systemFont(ofSize: 30)
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
     }()
-    private let startedButton: CustomButton = CustomButton(title: "Get Started")
+    private let startedButton: CustomButton = CustomButton(title: StringConstants.General.getStarted)
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,7 +62,7 @@ extension OnBoardViewController{
         }
         cofeeConnectDescriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(cofeeConnectTitleLabel.snp.bottom).offset(10)
-            make.left.right.equalToSuperview().inset(50)
+            make.left.right.equalToSuperview().inset(20)
         }
         startedButton.snp.makeConstraints { make in
             make.top.equalTo(cofeeConnectDescriptionLabel.snp.bottom).offset(30)
@@ -75,7 +75,7 @@ extension OnBoardViewController{
 extension OnBoardViewController {
     @objc private func handleStartedButton() {
         let loginVC = LoginViewController()
-        if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+        if self.view.window?.windowScene?.delegate is SceneDelegate {
             navigationController?.pushViewController(loginVC, animated: true)
         }
     }
