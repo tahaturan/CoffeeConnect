@@ -15,7 +15,7 @@
 - **Istek Listesi**: Kullanıcılar, favori kahvelerini veya denemek istedikleri kahveleri bir istek listesinde saklayabilirler.
 - **Kullanıcı Girişi**: Kullanıcılar, uygulamaya kendi hesap bilgileri ile giriş yapabilirler.
 - **MVC Tasarım Deseni**: Uygulama, MVC tasarım deseni kullanılarak organize edilmiştir.
-**Çoklu Dil Desteği**: Uygulama hem Türkçe hem de İngilizce dil seçeneklerini desteklemektedir.
+- **Çoklu Dil Desteği**: Uygulama hem Türkçe hem de İngilizce dil seçeneklerini desteklemektedir.
 
 ## Kullandığım Paketler
 
@@ -23,7 +23,7 @@
 - **FirebaseAuth**: Kullanıcı giriş işlemleri için kullanılmıştır.
 - **FirebaseFirestore**: Veritabanı işlemleri için kullanılmıştır.
 - **FirebaseStorage**: Dosya ve resim depolama işlemleri için kullanılmıştır.
-**IQKeyboardManager**: Klavye davranışlarını yönetmek ve klavye ile ilgili kullanıcı deneyimini iyileştirmek için kullanılmıştır.
+- **IQKeyboardManager**: Klavye davranışlarını yönetmek ve klavye ile ilgili kullanıcı deneyimini iyileştirmek için kullanılmıştır.
 
 # Uygulama Görüntüleri
 
