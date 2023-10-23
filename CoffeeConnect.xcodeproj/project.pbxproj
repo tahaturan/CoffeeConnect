@@ -19,6 +19,7 @@
 		5F47FC6F2ADF73B0003943DD /* CoffeeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F47FC6E2ADF73B0003943DD /* CoffeeDetailViewController.swift */; };
 		5F64E19A2AD987140029A590 /* PagingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F64E1992AD987140029A590 /* PagingView.swift */; };
 		5F683C272AE4A20C00AA5903 /* CategoryWithCoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F683C262AE4A20C00AA5903 /* CategoryWithCoffeeViewController.swift */; };
+		5F683C292AE6466D00AA5903 /* OnBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F683C282AE6466D00AA5903 /* OnBoardViewController.swift */; };
 		5F73154B2AD66FAE00477E54 /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */; };
 		5FB5106B2AD517A0002AF588 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */; };
 		5FBA36BD2ADC25DB00B4BF24 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FBA36BC2ADC25DB00B4BF24 /* AppData.swift */; };
@@ -95,6 +96,7 @@
 		5F47FC6E2ADF73B0003943DD /* CoffeeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeDetailViewController.swift; sourceTree = "<group>"; };
 		5F64E1992AD987140029A590 /* PagingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingView.swift; sourceTree = "<group>"; };
 		5F683C262AE4A20C00AA5903 /* CategoryWithCoffeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryWithCoffeeViewController.swift; sourceTree = "<group>"; };
+		5F683C282AE6466D00AA5903 /* OnBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardViewController.swift; sourceTree = "<group>"; };
 		5F73154A2AD66FAE00477E54 /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		5FB5106A2AD517A0002AF588 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5FBA36BC2ADC25DB00B4BF24 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				5F47FC6E2ADF73B0003943DD /* CoffeeDetailViewController.swift */,
 				5FE56A942AE35AF8009A681C /* PostViewController.swift */,
 				5F683C262AE4A20C00AA5903 /* CategoryWithCoffeeViewController.swift */,
+				5F683C282AE6466D00AA5903 /* OnBoardViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -498,6 +501,7 @@
 				5FD0AA242AD51E6D001EEE36 /* CoffeeModel.swift in Sources */,
 				5FE56A952AE35AF8009A681C /* PostViewController.swift in Sources */,
 				5F0FDBF22ADA851A00A41D8A /* SpecialModel.swift in Sources */,
+				5F683C292AE6466D00AA5903 /* OnBoardViewController.swift in Sources */,
 				5FC5C7572AD5DB8300D946B4 /* AppError.swift in Sources */,
 				5FD0AA222AD51E51001EEE36 /* CommentModel.swift in Sources */,
 				5F47FC6D2ADF5537003943DD /* WishListTableViewCell.swift in Sources */,

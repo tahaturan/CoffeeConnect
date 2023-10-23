@@ -31,8 +31,8 @@ class SplashViewController: UIViewController {
                 let mainVC = MainTabBarController()
                 self.navigationController?.setViewControllers([mainVC], animated: true)
             } else {
-                let loginVC = LoginViewController()
-                self.navigationController?.setViewControllers([loginVC], animated: true)
+                let onBoardVC = OnBoardViewController()
+                self.navigationController?.setViewControllers([onBoardVC], animated: true)
             }
         }
     }
