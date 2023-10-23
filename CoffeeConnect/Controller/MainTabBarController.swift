@@ -19,13 +19,21 @@ class MainTabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTabBar()
+        setupCustomTabBar()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-
+    func setupCustomTabBar() {
+            tabBar.layer.shadowColor = UIColor.black.cgColor
+            tabBar.layer.shadowOpacity = 0.23
+            tabBar.layer.shadowOffset = CGSize(width: 0, height: 1)
+            tabBar.layer.shadowRadius = 5
+            tabBar.backgroundColor = UIColor.white
+        tabBar.tintColor = AppColors.special.color
+        }
 
 }
 //MARK: - Helper
