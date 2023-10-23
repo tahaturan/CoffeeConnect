@@ -304,52 +304,17 @@ class DataService {
         }
     }
 
-    func listenToUserPosts(userID: String, completion: @escaping (Result<[PostModel], Error>) -> Void) {
-        let dbRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
-
-        dbRef.addSnapshotListener { document, error in
-            if let error = error {
-                completion(.failure(error))
-                return
-            }
-
-            if let document = document, document.exists, let data = document.data(), let postIDs = data[FirebaseConstants.postIDs] as? [String] {
-                let group = DispatchGroup()
-                var userPosts: [PostModel] = []
-
-                for postID in postIDs {
-                    group.enter()
-                    Firestore.firestore().collection(FirebaseConstants.posts).document(postID).getDocument { postDocument, error in
-                        if let postDocument = postDocument, postDocument.exists, let postData = postDocument.data() {
-                            do {
-                                let jsonData = try JSONSerialization.data(withJSONObject: postData, options: [])
-                                let post = try JSONDecoder().decode(PostModel.self, from: jsonData)
-                                userPosts.append(post)
-                            } catch {
-                                print("Error decoding post data: \(error)")
-                            }
-                        }
-                        group.leave()
-                    }
-                }
-                group.notify(queue: .main) {
-                    completion(.success(userPosts))
-                }
-            }
-        }
-    }
-    
     func uploadImageToFirebaseStorage(_ image: UIImage, completion: @escaping (String?) -> Void) {
         let storageRef = Storage.storage().reference().child("post_images/\(UUID().uuidString).jpg")
-        
+
         if let uploadData = image.jpegData(compressionQuality: 0.8) {
-            storageRef.putData(uploadData, metadata: nil) { metadata, error in
+            storageRef.putData(uploadData, metadata: nil) { _, error in
                 if error != nil {
                     print("Failed to upload image: \(error!.localizedDescription)")
                     completion(nil)
                     return
                 }
-                
+
                 storageRef.downloadURL { url, error in
                     if let imageUrl = url?.absoluteString {
                         completion(imageUrl)
@@ -361,6 +326,7 @@ class DataService {
             }
         }
     }
+
     func saveNewPostToFirestore(userID: String, image: UIImage, description: String, completion: @escaping (Bool) -> Void) {
         // resmi Firebase Storage'a yükleme
         uploadImageToFirebaseStorage(image) { imageUrl in
@@ -369,11 +335,10 @@ class DataService {
                 completion(false)
                 return
             }
-            
             // Resmin URL'siyle bir post oluşturma
             let postID = UUID().uuidString
             let newPost = PostModel(postID: postID, userID: userID, imageURL: imageUrl, desctiption: description, creationDate: Date(), commentIDs: [])
-            
+
             // Yeni postu Firestore'a ekleme
             let dbRef = Firestore.firestore().collection(FirebaseConstants.posts).document(postID)
             do {
@@ -384,10 +349,10 @@ class DataService {
                         completion(false)
                         return
                     }
-                    
+
                     let userRef = Firestore.firestore().collection(FirebaseConstants.usersCollection).document(userID)
                     userRef.updateData([
-                        FirebaseConstants.postIDs: FieldValue.arrayUnion([postID])
+                        FirebaseConstants.postIDs: FieldValue.arrayUnion([postID]),
                     ]) { error in
                         if let error = error {
                             print("Failed to update user's postIDs: \(error.localizedDescription)")
@@ -403,54 +368,62 @@ class DataService {
             }
         }
     }
+
     func listenToAllUsersWithPosts(completion: @escaping (Result<[(user: UserModel, posts: [PostModel])], Error>) -> Void) {
         let db = Firestore.firestore()
 
-        db.collection(FirebaseConstants.usersCollection).getDocuments { (usersSnapshot, error) in
+        db.collection(FirebaseConstants.posts).order(by: "creationDate", descending: true).addSnapshotListener { postsSnapshot, error in
             if let error = error {
                 completion(.failure(error))
                 return
             }
 
-            guard let usersDocuments = usersSnapshot?.documents else {
-                completion(.failure(NSError(domain: "No users found", code: -1, userInfo: nil)))
+            guard let postDocuments = postsSnapshot?.documents else {
+                completion(.failure(NSError(domain: "No posts found", code: -1, userInfo: nil)))
                 return
             }
 
-            var allUsersWithPosts: [(user: UserModel, posts: [PostModel])] = []
-            let semaphore = DispatchSemaphore(value: 1) // Semaphore başlangıç değeri
+            var postWithUsers: [PostModel] = []
+            postDocuments.forEach { postDoc in
+                let postData = postDoc.data()
+                do {
+                    let jsonData = try JSONSerialization.data(withJSONObject: postData, options: [])
+                    let post = try JSONDecoder().decode(PostModel.self, from: jsonData)
+                    postWithUsers.append(post)
+                } catch {
+                    print("Error decoding post data: \(error)")
+                }
+            }
 
-            let dispatchQueue = DispatchQueue.global()
+            var userWithPosts: [(user: UserModel, posts: [PostModel])] = []
+            let group = DispatchGroup()
 
-            dispatchQueue.async {
-                for userDocument in usersDocuments {
-                    semaphore.wait() // Semaphore değerini 1 azaltır. Eğer 0 ise beklemeye başlar.
-                    let userData = userDocument.data()
+            postWithUsers.forEach { post in
+                let userID = post.userID
 
-                    do {
-                        let jsonData = try JSONSerialization.data(withJSONObject: userData, options: [])
-                        let user = try JSONDecoder().decode(UserModel.self, from: jsonData)
+                group.enter()
+                db.collection(FirebaseConstants.usersCollection).document(userID).getDocument { userDoc, error in
+                    if let userDoc = userDoc, userDoc.exists, let userData = userDoc.data() {
+                        do {
+                            let jsonData = try JSONSerialization.data(withJSONObject: userData, options: [])
+                            let user = try JSONDecoder().decode(UserModel.self, from: jsonData)
 
-                        self.listenToUserPosts(userID: userDocument.documentID) { result in
-                            switch result {
-                            case .success(let posts):
-                                allUsersWithPosts.append((user: user, posts: posts))
-                            case .failure(let error):
-                                print("Error fetching posts for user \(userDocument.documentID): \(error)")
+                            // User ve onun postlarını ekle
+                            if let index = userWithPosts.firstIndex(where: { $0.user.userID == userID }) {
+                                userWithPosts[index].posts.append(post)
+                            } else {
+                                userWithPosts.append((user: user, posts: [post]))
                             }
-                            semaphore.signal() // Semaphore değerini 1 artırır. Bekleyen varsa devam eder.
+                        } catch {
+                            print("Error decoding user data: \(error)")
                         }
-                    } catch {
-                        print("Error decoding user data for user \(userDocument.documentID): \(error)")
-                        semaphore.signal()
                     }
+                    group.leave()
                 }
+            }
 
-                semaphore.wait() // Son işlem tamamlanana kadar bekler.
-                DispatchQueue.main.async {
-                    completion(.success(allUsersWithPosts))
-                }
-                semaphore.signal() // Semaphore'yi serbest bırakır.
+            group.notify(queue: .main) {
+                completion(.success(userWithPosts))
             }
         }
     }

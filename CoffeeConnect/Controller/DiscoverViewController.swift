@@ -46,6 +46,8 @@ class DiscoverViewController: UIViewController {
         tableView.dataSource = self
         tableView.rowHeight = 330
         tableView.separatorStyle = .none
+        tableView.isEditing = false
+        tableView.allowsSelection = false
         tableView.register(DiscoverTableViewCell.self, forCellReuseIdentifier: StringConstants.CellIDs.discoverCellID)
         return tableView
     }()
@@ -62,7 +64,6 @@ class DiscoverViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchData()
-        print("okey")
     }
 }
 
@@ -87,16 +88,22 @@ extension DiscoverViewController {
         DataService.shared.listenToAllUsersWithPosts { result in
             switch result {
             case let .success(data):
-                self.allUsersWithPosts = data.map { userWithPosts in
-                    let sortedPosts = userWithPosts.posts.sorted(by: { $0.creationDate > $1.creationDate })
-                    return (user: userWithPosts.user, posts: sortedPosts)
-                }
+                self.allUsersWithPosts = data
+                // Burada sıralama yapıyoruz
+                self.allUsersWithPosts.sort(by: {
+                    guard let date1 = $0.posts.first?.creationDate,
+                          let date2 = $1.posts.first?.creationDate else {
+                              return false
+                    }
+                    return date1 > date2
+                })
                 self.tableView.reloadData()
             case let .failure(error):
                 print(error.localizedDescription)
             }
         }
     }
+
 
     private func configureNaviagtionBar() {
         navigationItem.title = StringConstants.MainTabbar.discover
