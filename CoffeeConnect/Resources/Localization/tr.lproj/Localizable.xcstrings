@@ -61,12 +61,22 @@
         }
       }
     },
+    "Coffee" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kahve"
+          }
+        }
+      }
+    },
     "d ago" : {
       "localizations" : {
         "tr" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "d önce"
+            "value" : "g önce"
           }
         }
       }
@@ -213,7 +223,14 @@
       }
     },
     "Filtre Kahve" : {
-
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Filtre Kahve"
+          }
+        }
+      }
     },
     "h ago" : {
       "localizations" : {
@@ -261,6 +278,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "d önce"
+          }
+        }
+      }
+    },
+    "My cofee collections" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kahve Koleksiyonum"
           }
         }
       }
@@ -421,6 +448,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Daha Fazla Gör ->"
+          }
+        }
+      }
+    },
+    "SignOut" : {
+      "localizations" : {
+        "tr" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Çıkış Yap"
           }
         }
       }

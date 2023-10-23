@@ -14,7 +14,7 @@ class RegisterViewController: UIViewController {
     private let profileImageView: UIImageView = {
        let imageView = UIImageView()
         
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.clipsToBounds = true
         imageView.isUserInteractionEnabled = true
         imageView.layer.cornerRadius = AppStyleConstants.profileImageSize / 2

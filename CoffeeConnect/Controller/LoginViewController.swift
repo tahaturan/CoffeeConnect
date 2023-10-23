@@ -98,16 +98,16 @@ extension LoginViewController {
             AuthenticationService.shared.signIn(email: email, password: password) { result in
                 switch result {
                 case .success(_):
-                    let homeVC = HomeViewController()
-                    if let navigationController = self.navigationController {
-                        navigationController.viewControllers = [homeVC]
+                    let mainTabBar = MainTabBarController()
+                    if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+                        sceneDelegate.window?.rootViewController = mainTabBar
                     }
+
                 case .failure(_):
                     self.showAlert(title: StringConstants.General.error, message: StringConstants.Errors.authenticationFailed)
                 }
                 self.progressIndicator.hide()
             }
-            
         }
     }
 }

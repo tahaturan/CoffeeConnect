@@ -37,6 +37,9 @@ struct StringConstants {
         static let search = NSLocalizedString("Search", comment: "")
         static let newPost = NSLocalizedString("New Post", comment: "")
         static let sharingPost = NSLocalizedString("Post successfully shared!", comment: "")
+        static let signOut = NSLocalizedString("SignOut", comment: "")
+        static let coffeeCollections = NSLocalizedString("My cofee collections", comment: "")
+        static let coffee = NSLocalizedString("Coffee", comment: "")
     }
     enum HomeView{
         static let topCategories = ["Espresso", "Cappuccino", "Latte"]
