@@ -27,18 +27,18 @@
 
 | Onboard | Login | Register |
 |-------------------|-------------------|-------------------|
-| <img src="Images/login.png" width="300"> | <img src="Images/register.png" width="300"> | <img src="Images/homeView.png" width="300"> |
+| <img src="Images/onboard.png" width="300"> | <img src="Images/register.png" width="300"> | <img src="Images/login.png" width="300"> |
 
 | Home | Search | Discover |
 |-------------------|-------------------|-------------------|
-| <img src="Images/newMessage.png" width="300"> | <img src="Images/profileView.png" width="300"> | <img src="Images/chatView.png" width="300"> |
+| <img src="Images/home.png" width="300"> | <img src="Images/search.png" width="300"> | <img src="Images/discover.png" width="300"> |
 
 | Basket | WishList | Profile |
 |-------------------|-------------------|-------------------|
-| <img src="Images/additional1.png" width="300"> | <img src="Images/additional2.png" width="300"> | <img src="Images/additional3.png" width="300"> |
+| <img src="Images/basket.png" width="300"> | <img src="Images/wishList.png" width="300"> | <img src="Images/profile.png" width="300"> |
 
-| Category | Detail |
-|-------------------|-------------------|
-| <img src="Images/additional1.png" width="300"> | <img src="Images/additional2.png" width="300"> |
+| Category | Detail | Splash |
+|-------------------|-------------------|-------------------|
+| <img src="Images/category.png" width="300"> | <img src="Images/detail.png" width="300"> | <img src="Images/splash.gif" width="300"> |
 
 <hr>
