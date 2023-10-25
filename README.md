@@ -27,7 +27,7 @@
 
 # Uygulama Görüntüleri
 
-| Onboard | Login | Register |
+| Onboard | Register | Login |
 |-------------------|-------------------|-------------------|
 | <img src="Images/onboard.png" width="300"> | <img src="Images/register.png" width="300"> | <img src="Images/login.png" width="300"> |
 
