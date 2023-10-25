@@ -1,5 +1,6 @@
 ##Project-Wide
 .DS_Store
+GoogleService-Info.plist
 
 # Xcode
 #
@@ -24,7 +25,7 @@ DerivedData/
 !default.mode2v3
 *.perspectivev3
 !default.perspectivev3
-GoogleService-Info.plist
+
 
 ## Obj-C/Swift specific
 *.hmap
